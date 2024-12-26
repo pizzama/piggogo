@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package Config.Language_Base;
+
+message Language_Base {
+  string Name = 1;
+  string zh_Hans = 2;
+  string zh_Hant = 3;
+  string en = 4;
+  string ja = 5;
+}
+
+message Language_Base_datas {
+  map<string, Language_Base> datamap = 1; 
+  repeated Language_Base datas = 2; 
+}
+

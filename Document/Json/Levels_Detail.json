@@ -1,0 +1,66 @@
+[
+    {
+        "ID": "string",
+        "LevelID": "int32",
+        "Index": "int32",
+        "Items": "int32",
+        "CanAddItem": "bool",
+        "RemainPigNum": "int32"
+    },
+    {
+        "ID": "ID",
+        "LevelID": null,
+        "Index": null,
+        "Items": "repeated",
+        "CanAddItem": null,
+        "RemainPigNum": null
+    },
+    {
+        "ID": "主键id",
+        "LevelID": "关卡id",
+        "Index": "数值索引（从1开始），配置了就会显示",
+        "Items": "所在田里的猪id，不论左右都是由里到外设置",
+        "CanAddItem": "是否有后续的物品",
+        "RemainPigNum": "后续剩余物品的数量"
+    },
+    {
+        "ID": "1_3",
+        "LevelID": 1,
+        "Index": 3,
+        "Items": 10001,
+        "CanAddItem": null,
+        "RemainPigNum": null
+    },
+    {
+        "ID": "1_4",
+        "LevelID": 1,
+        "Index": 4,
+        "Items": "10001_10001_10001",
+        "CanAddItem": null,
+        "RemainPigNum": null
+    },
+    {
+        "ID": "2_3",
+        "LevelID": 2,
+        "Index": 3,
+        "Items": "10002_10002_10003",
+        "CanAddItem": null,
+        "RemainPigNum": null
+    },
+    {
+        "ID": "2_6",
+        "LevelID": 2,
+        "Index": 6,
+        "Items": "10003_10003_10003",
+        "CanAddItem": null,
+        "RemainPigNum": null
+    },
+    {
+        "ID": "2_7",
+        "LevelID": 2,
+        "Index": 7,
+        "Items": "10002_10002",
+        "CanAddItem": null,
+        "RemainPigNum": null
+    }
+]

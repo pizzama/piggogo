@@ -1,0 +1,37 @@
+[
+    {
+        "ID": "int32",
+        "AllTyps": "int32",
+        "AllNums": "int32",
+        "Name": "string",
+        "Desc": "string"
+    },
+    {
+        "ID": "ID",
+        "AllTyps": "repeated",
+        "AllNums": "repeated",
+        "Name": null,
+        "Desc": null
+    },
+    {
+        "ID": "关卡id",
+        "AllTyps": "所有猪的种类",
+        "AllNums": "种类对应的数量",
+        "Name": "关卡名字",
+        "Desc": "描述"
+    },
+    {
+        "ID": 1,
+        "AllTyps": 10001,
+        "AllNums": 4,
+        "Name": "Game1",
+        "Desc": "Desc1"
+    },
+    {
+        "ID": 2,
+        "AllTyps": "10002_10003",
+        "AllNums": "4_4",
+        "Name": "Game2",
+        "Desc": "Desc2"
+    }
+]

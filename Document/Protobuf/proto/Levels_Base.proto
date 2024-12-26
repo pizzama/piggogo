@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package Config.Levels_Base;
+
+message Levels_Base {
+  int32 ID = 1;
+repeated int32 AllTyps = 2;
+repeated int32 AllNums = 3;
+  string Name = 4;
+  string Desc = 5;
+}
+
+message Levels_Base_datas {
+  map<int32, Levels_Base> datamap = 1; 
+  repeated Levels_Base datas = 2; 
+}
+

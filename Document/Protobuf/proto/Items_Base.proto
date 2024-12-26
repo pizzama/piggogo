@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package Config.Items_Base;
+
+message Items_Base {
+  string ID = 1;
+  string Name = 2;
+  string Anim = 3;
+}
+
+message Items_Base_datas {
+  map<string, Items_Base> datamap = 1; 
+  repeated Items_Base datas = 2; 
+}
+

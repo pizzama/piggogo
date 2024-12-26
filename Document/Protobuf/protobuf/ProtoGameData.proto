@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package ProtoGameData;
+
+
+message ProtoUserData{
+	uint32 Uid = 1;
+	int32 Exp = 2;
+	int64 Coin = 3;
+	int32 Diamond = 4;
+	uint32 Level = 5;
+}
+

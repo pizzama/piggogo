@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package Config.Levels_Detail;
+
+message Levels_Detail {
+  string ID = 1;
+  int32 LevelID = 2;
+  int32 Index = 3;
+repeated int32 Items = 4;
+  bool CanAddItem = 5;
+  int32 RemainPigNum = 6;
+}
+
+message Levels_Detail_datas {
+  map<string, Levels_Detail> datamap = 1; 
+  repeated Levels_Detail datas = 2; 
+}
+

@@ -1,0 +1,10 @@
+xsdj_shou.png
+size:665,273
+filter:Linear,Linear
+a3
+bounds:2,2,269,269
+offsets:1,1,271,271
+yd1a
+bounds:532,97,131,174
+yd2
+bounds:273,14,257,257
