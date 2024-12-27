@@ -15,6 +15,7 @@ namespace SFramework.Statics
     {
         public const string App_Tips_TipsControl = "App.Tips.TipsControl";
         public const string App_Snipe_SnipeControl = "App.Snipe.SnipeControl";
+        public const string App_NetLoading_NetLoadingControl = "App.NetLoading.NetLoadingControl";
         public const string App_MainScene_MainSceneControl = "App.MainScene.MainSceneControl";
         public const string App_Language_LanguageControl = "App.Language.LanguageControl";
         public const string App_Inventory_InventoryControl = "App.Inventory.InventoryControl";
