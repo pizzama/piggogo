@@ -27,11 +27,13 @@ namespace App.MainScene
 		}
 		protected override void opening()
 		{
+			OpenControl(SFStaticsControl.App_NetLoading_NetLoadingControl);
 		}
 		protected override void alreadyOpened()
 		{
 			// Code Here
 			// 打开hudmain得界面
+			CloseControl(SFStaticsControl.App_NetLoading_NetLoadingControl);
 			OpenControl(SFStaticsControl.App_HudMain_HudMainControl);
 		}
 		protected override void closing()
