@@ -35,6 +35,7 @@ namespace App.MainScene
 			// 打开hudmain得界面
 			CloseControl(SFStaticsControl.App_NetLoading_NetLoadingControl);
 			OpenControl(SFStaticsControl.App_HudMain_HudMainControl);
+			OpenControl(SFStaticsControl.App_Guide_GuideControl);
 		}
 		protected override void closing()
 		{

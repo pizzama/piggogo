@@ -1,14 +1,27 @@
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
+using Fungus;
 using UnityEngine;
 using SFramework;
 using SFramework.Game;
 using SFramework.Pool;
+using SFramework.Statics;
+using Spine.Unity;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
 namespace App.Guide
 {
 	public class GuideView : SUIView
 	{
+		private SkeletonGraphic _hand;
+		private Transform _maskAniHole;
+		private Sequence _handSeq;
+
+		public SkeletonGraphic Hand
+		{
+			get { return _hand; }
+		}
 		protected override UILayer GetViewLayer()
 		{
 			return UILayer.Toast;
@@ -38,10 +51,27 @@ namespace App.Guide
 		protected override void opening()
 		{
 			// Code Here
+			_hand = getExportObject<SkeletonGraphic>("Handle");
+			_maskAniHole = getExportObject<Transform>("MaskAniHole");
+			Flowchart ft = CreateComponent<Flowchart>(SFResAssets.App_guide_sfp_GuideLevel1_prefab, mViewTransform);
+			ft.ExecuteBlock("Main");
 		}
 		protected override void closing()
 		{
 			// Code Here
 		}
+
+		public void PointHand(Vector3 pos)
+		{
+			_hand.transform.localPosition = pos;
+			_maskAniHole.transform.localPosition = pos;
+		}
+
+		public void MoveHand(Vector3 starPos, Vector3 endPos)
+		{
+			
+		}
+		
+		
 	}
 }
