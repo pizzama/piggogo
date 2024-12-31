@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using App.Guide;
 using App.Inventory;
 using Config.ItemsBase;
 using Config.LevelsDetail;
@@ -36,6 +37,9 @@ namespace App.MainScene
 			CloseControl(SFStaticsControl.App_NetLoading_NetLoadingControl);
 			OpenControl(SFStaticsControl.App_HudMain_HudMainControl);
 			OpenControl(SFStaticsControl.App_Guide_GuideControl);
+			// 触发当前关卡是否有新手引导
+			int level = RefreshLevel();
+			BroadcastControl(GuideControl.StartGuide, level);
 		}
 		protected override void closing()
 		{

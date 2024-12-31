@@ -49,11 +49,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 254.6446, y: 154.25}
+  scrollPos: {x: 266.86557, y: 161.48613}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 307
-  zoom: 1
+  zoom: 0.96549886
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -90,12 +90,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: -113
     y: -20
-    width: 89
+    width: 91.42936
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 0
-  blockName: Level0
+  blockName: Guide0
   description: 
   eventHandler: {fileID: 0}
   commandList:
@@ -158,14 +158,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -114.64461
-    y: 35.25
-    width: 120
+    x: -111.64461
+    y: 36.25
+    width: 123.01925
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 3
-  blockName: Level1
+  blockName: Guide1
   description: 
   eventHandler: {fileID: 0}
   commandList: []

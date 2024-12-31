@@ -5,6 +5,7 @@ namespace App.Guide
 {
 	public class GuideControl : RootControl
 	{
+		public static string StartGuide = "StartGuide";
 		public override ViewOpenType GetViewOpenType()
 		{
 			return ViewOpenType.Single;
