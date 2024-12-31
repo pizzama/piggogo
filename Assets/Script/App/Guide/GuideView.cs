@@ -54,7 +54,7 @@ namespace App.Guide
 			_hand = getExportObject<SkeletonGraphic>("Handle");
 			_maskAniHole = getExportObject<Transform>("MaskAniHole");
 			Flowchart ft = CreateComponent<Flowchart>(SFResAssets.App_guide_sfp_GuideLevel1_prefab, mViewTransform);
-			ft.ExecuteBlock("Main");
+			ft.ExecuteBlock("Level");
 		}
 		protected override void closing()
 		{

@@ -14,12 +14,7 @@ namespace SFramework.Statics
     public class SFResAssets
     {
         public const string App_gamesuccess_sfp_GameSuccessView_prefab = "app_gamesuccess.sfp/GameSuccessView";
-        public const string App_guide_sfp_GuideView_prefab = "app_guide.sfp/GuideView";
-        public const string App_guide_sfp_xsdj_shou_atlas_txt = "app_guide.sfp/xsdj_shou.atlas";
-        public const string App_guide_sfp_xsdj_shou_png = "app_guide.sfp/xsdj_shou";
-        public const string App_guide_sfp_xsdj_shou_Atlas_asset = "app_guide.sfp/xsdj_shou_Atlas";
-        public const string App_guide_sfp_xsdj_shou_Material_mat = "app_guide.sfp/xsdj_shou_Material";
-        public const string App_guide_sfp_xsdj_shou_SkeletonData_asset = "app_guide.sfp/xsdj_shou_SkeletonData";
+        public const string App_guide_sfp_GuideLevel1_prefab = "app_guide.sfp/GuideLevel1";
         public const string App_hudmain_sfp_HudMainView_prefab = "app_hudmain.sfp/HudMainView";
         public const string App_mainscene_sfp_Branch_prefab = "app_mainscene.sfp/Branch";
         public const string App_mainscene_sfp_GuideCircle_png = "app_mainscene.sfp/GuideCircle";
@@ -97,30 +92,26 @@ namespace SFramework.Statics
         public const string App_snipe_sfp_SnipeView_prefab = "app_snipe.sfp/SnipeView";
         public const string Sfscene_sfs_SFSCENE_scenetemplate = "sfscene.sfs/SFSCENE";
         public const string Suiroot_sfp_SUIROOT_prefab = "suiroot.sfp/SUIROOT";
+        public const string Suiroot_sfp_SUIROOTURP_prefab = "suiroot.sfp/SUIROOTURP";
     }
     public class App_gamesuccess_sfp
     {
         public const string BundleName = "app_gamesuccess.sfp";
         public const string RES_GameSuccessView_prefab = "GameSuccessView";
     }
+    public class App_guide
+    {
+        public const string BundleName = "app_guide";
+    }
     public class App_guide_sfp
     {
         public const string BundleName = "app_guide.sfp";
-        public const string RES_GuideView_prefab = "GuideView";
-        public const string RES_xsdj_shou_atlas_txt = "xsdj_shou.atlas";
-        public const string RES_xsdj_shou_png = "xsdj_shou";
-        public const string RES_xsdj_shou_Atlas_asset = "xsdj_shou_Atlas";
-        public const string RES_xsdj_shou_Material_mat = "xsdj_shou_Material";
-        public const string RES_xsdj_shou_SkeletonData_asset = "xsdj_shou_SkeletonData";
+        public const string RES_GuideLevel1_prefab = "GuideLevel1";
     }
     public class App_hudmain_sfp
     {
         public const string BundleName = "app_hudmain.sfp";
         public const string RES_HudMainView_prefab = "HudMainView";
-    }
-    public class App_mainscene
-    {
-        public const string BundleName = "app_mainscene";
     }
     public class App_mainscene_sfp
     {
@@ -247,10 +238,6 @@ namespace SFramework.Statics
         public const string RES_pig11_Material_mat = "pig11_Material";
         public const string RES_pig11_SkeletonData_asset = "pig11_SkeletonData";
     }
-    public class App_snipe
-    {
-        public const string BundleName = "app_snipe";
-    }
     public class App_snipe_sfp
     {
         public const string BundleName = "app_snipe.sfp";
@@ -265,5 +252,6 @@ namespace SFramework.Statics
     {
         public const string BundleName = "suiroot.sfp";
         public const string RES_SUIROOT_prefab = "SUIROOT";
+        public const string RES_SUIROOTURP_prefab = "SUIROOTURP";
     }
 }

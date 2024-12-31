@@ -21,5 +21,14 @@ namespace App.Guide
 		{
 			// Code Here
 		}
+		
+		public override void HandleMessage(SBundleParams value)
+		{
+			if (value.MessageId == "")
+			{
+				
+			}
+		}
+		
 	}
 }
