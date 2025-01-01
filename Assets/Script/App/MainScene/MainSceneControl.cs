@@ -36,10 +36,12 @@ namespace App.MainScene
 			// 打开hudmain得界面
 			CloseControl(SFStaticsControl.App_NetLoading_NetLoadingControl);
 			OpenControl(SFStaticsControl.App_HudMain_HudMainControl);
-			OpenControl(SFStaticsControl.App_Guide_GuideControl);
-			// 触发当前关卡是否有新手引导
-			int level = RefreshLevel();
-			BroadcastControl(GuideControl.StartGuide, level);
+			OpenControl(SFStaticsControl.App_Guide_GuideControl, null, false, "", 0, (object value) =>
+			{
+				// 触发当前关卡是否有新手引导
+				int level = RefreshLevel();
+				BroadcastControl(GuideControl.StartGuide, level, SFStaticsControl.App_Guide_GuideControl);
+			});
 		}
 		protected override void closing()
 		{

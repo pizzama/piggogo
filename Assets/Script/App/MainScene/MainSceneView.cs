@@ -1,14 +1,11 @@
 using System.Collections.Generic;
 using Config.ItemsBase;
-using Config.LevelsDetail;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using SFramework;
 using SFramework.Extension;
 using SFramework.Game;
 using SFramework.GameCamera;
 using SFramework.Statics;
-using UnityEngine.UI;
 
 namespace App.MainScene
 {

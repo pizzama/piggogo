@@ -1,6 +1,7 @@
+using System;
 using Fungus;
 using SFramework;
-using Spine.Unity;
+using SFramework.Event;
 using UnityEngine;
 
 namespace App.Guide.Fungus
@@ -12,12 +13,22 @@ namespace App.Guide.Fungus
     public class GuideHand: Command
     {
         [SerializeField] private Vector3 handPos;
+        private SEventListener<GuideEvent> _listener;
         public override void OnEnter ()
         {
             var flowchart = GetFlowchart();
             var ctl = SBundleManager.Instance.GetControl<GuideControl>();
+            _listener = new SEventListener<GuideEvent>(handleEvent, this);
+            SFEventManager.AddListener(_listener);
             (ctl.View as GuideView).PointHand(handPos);
-            Continue();
+        }
+
+        private void handleEvent(ISEventListener<GuideEvent> listener, GuideEvent events)
+        {
+            var realListener = listener as SEventListener<GuideEvent>;
+            SFEventManager.RemoveListener(_listener);
+            if(realListener != null && realListener.Src != null)
+                (realListener.Src as Command).Continue();
         }
     }
     
@@ -34,7 +45,7 @@ namespace App.Guide.Fungus
         {
             var flowchart = GetFlowchart();
             var ctl = SBundleManager.Instance.GetControl<GuideControl>();
-            (ctl.View as GuideView).MoveHand(startPos, endPos);
+            (ctl.View as GuideView).PointHand(startPos);
             Continue();
         }
     }

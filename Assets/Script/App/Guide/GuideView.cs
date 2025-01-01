@@ -1,11 +1,14 @@
+using App.Language;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Fungus;
 using UnityEngine;
 using SFramework;
+using SFramework.Event;
 using SFramework.Game;
 using SFramework.Pool;
 using SFramework.Statics;
+using SFramework.Tools;
 using Spine.Unity;
 using UnityEngine.UI;
 using UnityEngine.XR;
@@ -17,6 +20,11 @@ namespace App.Guide
 		private SkeletonGraphic _hand;
 		private Transform _maskAniHole;
 		private Sequence _handSeq;
+		
+		private Flowchart _curChart;
+		private int _count = -1;
+		private Text _content;
+		private Button _contentBtn;
 
 		public SkeletonGraphic Hand
 		{
@@ -53,23 +61,78 @@ namespace App.Guide
 			// Code Here
 			_hand = getExportObject<SkeletonGraphic>("Handle");
 			_maskAniHole = getExportObject<Transform>("MaskAniHole");
-			Flowchart ft = CreateComponent<Flowchart>(SFResAssets.App_guide_sfp_GuideLevel1_prefab, mViewTransform);
-			ft.ExecuteBlock("Level");
+			_content = getExportObject<Text>("Content");
+			_contentBtn = getExportObject<Button>("ContentBtn");
+			mViewTransform.gameObject.SetActive(false);
+			
+			_contentBtn.onClick.AddListener(ContentClick);
 		}
 		protected override void closing()
 		{
 			// Code Here
+			_contentBtn.onClick.RemoveListener(ContentClick);
+		}
+
+		public void RefreshContent(string value)
+		{
+			if (_content != null)
+				_content.text = LanguageControl.Instance.GetLanguage(value);
+		}
+
+		public void Play(int level)
+		{
+			if (_curChart != null)
+			{
+				GameObject.Destroy(_curChart.gameObject);
+				_curChart = null;
+			}
+
+			string strparmas = string.Format("RES_GuideLevel{0}_prefab", level);
+			bool rt = ReflectionTools.HasPublicConstString(typeof(App_guide_sfp), strparmas);
+			if (rt)
+			{
+				mViewTransform.gameObject.SetActive(true);
+				_curChart = CreateComponent<Flowchart>(SFResAssets.App_guide_sfp_GuideLevel1_prefab, mViewTransform);
+			}
+
+			if (_curChart != null)
+			{
+				PlayNext();
+			}
+		}
+
+		public void PlayNext()
+		{
+			HideHand();
+			if (_curChart != null)
+			{
+				_count += 1;
+				_curChart.ExecuteBlock("Guide" + _count);
+			}
+		}
+
+		public void DisplayHand()
+		{
+			_hand.gameObject.SetActive(true);
+			_maskAniHole.gameObject.SetActive(true);
+		}
+
+		public void HideHand()
+		{
+			_hand.gameObject.SetActive(false);
+			_maskAniHole.gameObject.SetActive(false);
 		}
 
 		public void PointHand(Vector3 pos)
 		{
+			DisplayHand();
 			_hand.transform.localPosition = pos;
 			_maskAniHole.transform.localPosition = pos;
 		}
 
-		public void MoveHand(Vector3 starPos, Vector3 endPos)
+		private void ContentClick()
 		{
-			
+			SFEventManager.TriggerEvent(new GuideEvent());
 		}
 		
 		

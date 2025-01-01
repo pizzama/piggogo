@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 5914330443631108963}
   - component: {fileID: 8495348168168945641}
   - component: {fileID: 9138572112383189716}
-  - component: {fileID: 1785217446015520668}
-  - component: {fileID: -333496279961726778}
+  - component: {fileID: 622086348936402799}
   m_Layer: 0
   m_Name: GuideLevel1
   m_TagString: Untagged
@@ -61,7 +60,7 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: -333496279961726778}
+  - {fileID: 8495348168168945641}
   selectedCommands: []
   variables: []
   description: 
@@ -88,8 +87,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -113
-    y: -20
+    x: -76.749306
+    y: -84.215515
     width: 91.42936
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -99,7 +98,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 1785217446015520668}
+  - {fileID: 622086348936402799}
   - {fileID: 9138572112383189716}
   suppressAllAutoSelections: 0
 --- !u!114 &9138572112383189716
@@ -117,7 +116,7 @@ MonoBehaviour:
   itemId: 1
   indentLevel: 0
   handPos: {x: -326, y: 218, z: 0}
---- !u!114 &1785217446015520668
+--- !u!114 &622086348936402799
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,47 +125,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7367772523468471575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 0de03f22f9a8405da46a0c05f86cc0cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 2
+  itemId: 4
   indentLevel: 0
-  storyText: "\u70B9\u5DE6\u8FB9"
-  description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
---- !u!114 &-333496279961726778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7367772523468471575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: -111.64461
-    y: 36.25
-    width: 123.01925
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 3
-  blockName: Guide1
-  description: 
-  eventHandler: {fileID: 0}
-  commandList: []
-  suppressAllAutoSelections: 0
+  language: 
