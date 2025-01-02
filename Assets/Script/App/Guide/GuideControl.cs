@@ -8,6 +8,7 @@ namespace App.Guide
 	{
 		public static string StartGuide = "StartGuide";
 		public static string NextGuide = "NextGuide";
+		public static string CloseGuide = "CloseGuide";
 		public override ViewOpenType GetViewOpenType()
 		{
 			return ViewOpenType.Single;
@@ -35,6 +36,10 @@ namespace App.Guide
 			else if(value.MessageId == NextGuide)
 			{
 				SFEventManager.TriggerEvent(new GuideEvent());
+			}
+			else if (value.MessageId == CloseGuide)
+			{
+				(View as GuideView).HideGuide();
 			}
 		}
 		

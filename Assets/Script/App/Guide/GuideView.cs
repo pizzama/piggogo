@@ -63,9 +63,10 @@ namespace App.Guide
 			_maskAniHole = getExportObject<Transform>("MaskAniHole");
 			_content = getExportObject<Text>("Content");
 			_contentBtn = getExportObject<Button>("ContentBtn");
-			mViewTransform.gameObject.SetActive(false);
 			
 			_contentBtn.onClick.AddListener(ContentClick);
+			
+			HideGuide();
 		}
 		protected override void closing()
 		{
@@ -92,7 +93,7 @@ namespace App.Guide
 			bool rt = ReflectionTools.HasPublicConstString(typeof(App_guide_sfp), strparmas);
 			if (rt)
 			{
-				mViewTransform.gameObject.SetActive(true);
+				DisplayGuide();
 				_curChart = CreateComponent<Flowchart>(SFResAssets.App_guide_sfp_GuideLevel1_prefab, mViewTransform);
 			}
 
@@ -110,6 +111,16 @@ namespace App.Guide
 				_count += 1;
 				_curChart.ExecuteBlock("Guide" + _count);
 			}
+		}
+
+		public void DisplayGuide()
+		{
+			mViewTransform.gameObject.SetActive(true);
+		}
+
+		public void HideGuide()
+		{
+			mViewTransform.gameObject.SetActive(false);
 		}
 
 		public void DisplayHand()

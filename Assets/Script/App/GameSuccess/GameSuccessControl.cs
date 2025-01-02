@@ -2,6 +2,7 @@ using App.Inventory;
 using App.MainScene;
 using SFramework;
 using SFramework.Game;
+using SFramework.Statics;
 
 namespace App.GameSuccess
 {
@@ -29,7 +30,8 @@ namespace App.GameSuccess
 			//保存数据
 			
 			//开始下一关
-			BroadcastControl(MainSceneControl.NEXTLEVEL);
+			BroadcastControl(MainSceneControl.NEXTLEVEL, null, SFStaticsControl.App_MainScene_MainSceneControl);
+			Close();
 		}
 	}
 }

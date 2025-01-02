@@ -126,14 +126,33 @@ public class SeatBar : RootEntity
 
     public override void Show()
     {
-        _items = new List<Item>();
-        _seqs = new List<Sequence>();
+        if(_items == null)
+            _items = new List<Item>();
+        else
+        {
+            _items.Clear();
+        }
+        if(_seqs == null)
+            _seqs = new List<Sequence>();
+        else
+        {
+            _seqs.Clear();
+        }
         _view = (MainSceneView)ParentView;
     }
     
     public override void Recycle()
     {
+        if (_items != null)
+        {
+            for (int i = _items.Count - 1; i > 0; i--)
+            {
+                var item = _items[i];
+                ParentView.ReleaseGameObjectDestroy(item.gameObject);
+            }
         
+            _items.Clear();
+        }
     }
     
     public List<Item> GetLastSameItem()

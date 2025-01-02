@@ -71,6 +71,13 @@ namespace App.MainScene
 				var view = GetView<MainSceneView>();
 				view.RandomSeatBarItem();
 			}
+			else if (value.MessageId == NEXTLEVEL)
+			{ 
+				BroadcastControl(GuideControl.StartGuide, SFStaticsControl.App_Guide_GuideControl);
+				NextLevel();
+				var view = GetView<MainSceneView>();
+				view.DealWithBranch();
+			}
 		}
 	}
 }

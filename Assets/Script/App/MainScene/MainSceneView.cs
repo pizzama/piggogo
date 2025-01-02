@@ -37,16 +37,17 @@ namespace App.MainScene
 
 			_event = getExportObject<SInputEvent>("ItemEvent");
 			_event.MouseEventHandle = mouseHandle;
-			dealWithBranch();
+			DealWithBranch();
 		}
 		
-		private void dealWithBranch()
+		public void DealWithBranch()
 		{
 			for (int i = 0; i < _branchs.childCount; i++)
 			{
 				var bh = _branchs.GetChild(i);
 				bh.gameObject.SetActive(false);
 				SeatBar bar = bh.GetComponent<SeatBar>();
+				bar.Recycle(); //回收之前的数据
 				bar.SetEntityData((i + 1).ToString(), this);
 				bar.SetIndex(i + 1);
 				bar.Show();

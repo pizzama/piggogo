@@ -15,6 +15,7 @@ namespace App.GameSuccess
 		protected override void opening()
 		{
 			// Code Here
+			_next = getExportObject<Button>("Next");
 			_next.onClick.AddListener(nextHandle);
 		}
 		protected override void closing()
@@ -25,7 +26,7 @@ namespace App.GameSuccess
 
 		private void nextHandle()
 		{
-			
+			(Control as GameSuccessControl).NextLevel();
 		}
 	}
 }
