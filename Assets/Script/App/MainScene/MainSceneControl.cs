@@ -61,22 +61,20 @@ namespace App.MainScene
 		{
 			if (value.MessageId == ADDSEATBAR)
 			{
-				var view = GetView<MainSceneView>();
-				Transform tran = view.HasVisibleSeatBar();
+				Transform tran = (View as MainSceneView)?.HasVisibleSeatBar();
 				if(tran != null)
 					tran.gameObject.SetActive(true);
 			}
 			else if (value.MessageId == RANDOMSEATBARITEM)
 			{
-				var view = GetView<MainSceneView>();
-				view.RandomSeatBarItem();
+				(View as MainSceneView)?.RandomSeatBarItem();
 			}
 			else if (value.MessageId == NEXTLEVEL)
 			{ 
 				BroadcastControl(GuideControl.StartGuide, SFStaticsControl.App_Guide_GuideControl);
 				NextLevel();
-				var view = GetView<MainSceneView>();
-				view.DealWithBranch();
+				(Model as MainSceneModel)?.RefreshLevel();
+				(View as MainSceneView)?.DealWithBranch();
 			}
 		}
 	}

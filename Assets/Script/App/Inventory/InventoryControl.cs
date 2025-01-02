@@ -1,3 +1,4 @@
+using NativeHelper;
 using UnityEngine;
 using SFramework.Game;
 using ProtoGameData;
@@ -7,6 +8,7 @@ namespace App.Inventory
 {
 	public class InventoryControl : RootControl
 	{
+		public static string DELETEUSERDATA = "DELETEUSERDATA";
 		public override ViewOpenType GetViewOpenType()
 		{
 			return ViewOpenType.SingleNeverClose;
@@ -66,6 +68,15 @@ namespace App.Inventory
 		{
 			InventoryModel model = GetModel<InventoryModel>();
 			model.DeleteUserData();
+		}
+		
+		public override void HandleMessage(SBundleParams value)
+		{
+			if (value.MessageId == DELETEUSERDATA)
+			{
+				(Model as InventoryModel)?.DeleteUserData();
+				NativeHelperFactory.Instance.RestartGame();
+			}
 		}
 	}
 }
