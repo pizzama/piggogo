@@ -14,6 +14,7 @@ namespace App.MainScene
 	{
 		public static string ADDSEATBAR = "ADDSEATBAR";
 		public static string RANDOMSEATBARITEM = "RandomSeatBarItem";
+		public static string NEXTLEVEL = "NEXTLEVEL";
 		
 		public override ViewOpenType GetViewOpenType()
 		{
@@ -26,6 +27,14 @@ namespace App.MainScene
 			int level = inv.GetCurLevel();
 			return level;
 		}
+
+		public int NextLevel()
+		{
+			InventoryControl inv = GetControl<InventoryControl>();
+			int level = inv.AddLevel(1);
+			return level;
+		}
+		
 		protected override void opening()
 		{
 			OpenControl(SFStaticsControl.App_NetLoading_NetLoadingControl);

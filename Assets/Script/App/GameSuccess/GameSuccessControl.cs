@@ -1,3 +1,5 @@
+using App.Inventory;
+using App.MainScene;
 using SFramework;
 using SFramework.Game;
 
@@ -20,6 +22,14 @@ namespace App.GameSuccess
 		protected override void closing()
 		{
 			// Code Here
+		}
+
+		public void NextLevel()
+		{
+			//保存数据
+			
+			//开始下一关
+			BroadcastControl(MainSceneControl.NEXTLEVEL);
 		}
 	}
 }

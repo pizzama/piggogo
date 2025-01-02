@@ -13,6 +13,10 @@ GameObject:
   - component: {fileID: 8495348168168945641}
   - component: {fileID: 9138572112383189716}
   - component: {fileID: 622086348936402799}
+  - component: {fileID: -8451917735421345299}
+  - component: {fileID: -6415361732803153104}
+  - component: {fileID: 385601033302218210}
+  - component: {fileID: 8343113306618303020}
   m_Layer: 0
   m_Name: GuideLevel1
   m_TagString: Untagged
@@ -61,7 +65,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 8495348168168945641}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 8343113306618303020}
   variables: []
   description: 
   stepPause: 0
@@ -100,6 +105,10 @@ MonoBehaviour:
   commandList:
   - {fileID: 622086348936402799}
   - {fileID: 9138572112383189716}
+  - {fileID: -8451917735421345299}
+  - {fileID: -6415361732803153104}
+  - {fileID: 385601033302218210}
+  - {fileID: 8343113306618303020}
   suppressAllAutoSelections: 0
 --- !u!114 &9138572112383189716
 MonoBehaviour:
@@ -130,4 +139,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 4
   indentLevel: 0
-  language: 
+  language: Guide1
+  needClickCallback: 0
+--- !u!114 &-8451917735421345299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367772523468471575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de03f22f9a8405da46a0c05f86cc0cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 5
+  indentLevel: 0
+  language: Guide2
+  needClickCallback: 0
+--- !u!114 &-6415361732803153104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367772523468471575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e253f73f352450598883d0f2f4a4ec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 6
+  indentLevel: 0
+  handPos: {x: 326, y: 218, z: 0}
+--- !u!114 &385601033302218210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367772523468471575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de03f22f9a8405da46a0c05f86cc0cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 7
+  indentLevel: 0
+  language: Guide3
+  needClickCallback: 0
+--- !u!114 &8343113306618303020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367772523468471575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdbe5b2932134629ba054cc0b4b91d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 8
+  indentLevel: 0
+  handIsDisplay: 0

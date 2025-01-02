@@ -12,15 +12,24 @@ namespace App.Guide.Fungus
     public class GuideContent: Command
     {
         [SerializeField] private string language;
+        [SerializeField] private bool needClickCallback = false;
         private SEventListener<GuideEvent> _listener;
         public override void OnEnter ()
         {
             var ctl = SBundleManager.Instance.GetControl<GuideControl>();
             if (ctl != null)
             {
-                _listener = new SEventListener<GuideEvent>(handleEvent, this);
-                SFEventManager.AddListener(_listener);
-                (ctl.View as GuideView).RefreshContent(language);
+                if (needClickCallback)
+                {
+                    _listener = new SEventListener<GuideEvent>(handleEvent, this);
+                    SFEventManager.AddListener(_listener);
+                    (ctl.View as GuideView).RefreshContent(language, needClickCallback);
+                }
+                else
+                {
+                    (ctl.View as GuideView).RefreshContent(language, needClickCallback);
+                    Continue();
+                }
             }
         }
         

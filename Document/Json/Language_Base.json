@@ -21,18 +21,25 @@
         "ja": "名称"
     },
     {
-        "Name": "Game1",
-        "zh_Hans": null,
-        "zh_Hant": null,
-        "en": null,
-        "ja": null
+        "Name": "Guide1",
+        "zh_Hans": "点左边",
+        "zh_Hant": "點左邊",
+        "en": "Click on the left side.",
+        "ja": "左側をクリックしてください。"
     },
     {
-        "Name": "Game2",
-        "zh_Hans": null,
-        "zh_Hant": null,
-        "en": null,
-        "ja": null
+        "Name": "Guide2",
+        "zh_Hans": "点右边",
+        "zh_Hant": "點右邊",
+        "en": "Click on the right side.",
+        "ja": "右側をクリックしてください。"
+    },
+    {
+        "Name": "Guide3",
+        "zh_Hans": "看！猪都回去睡觉了",
+        "zh_Hant": "看！豬都回去睡覺了。",
+        "en": "Look! The pigs have all gone back to sleep.",
+        "ja": "見て！豚たちは皆寝に帰ってしまったよ。"
     },
     {
         "Name": "Desc1",

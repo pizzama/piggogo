@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using App.Guide;
 using Config.ItemsBase;
 using Cysharp.Threading.Tasks;
+using SFramework.Event;
 using UnityEngine;
 using SFramework.Extension;
 using SFramework.Game;
@@ -167,6 +169,9 @@ namespace App.MainScene
 									return;
 								_bar = entity;
 								_bar.Select();
+								
+								// 广播新手引导
+								SFEventManager.TriggerEvent(new GuideEvent());
 							}
 							else
 							{
@@ -176,6 +181,9 @@ namespace App.MainScene
 									_bar.Idle();
 								}
 								_bar = null;
+								
+								// 广播新手引导
+								SFEventManager.TriggerEvent(new GuideEvent());
 							}
 						}
 						Debug.Log("hit collider:" + hit.collider.tag + ";" + hit.collider.name);

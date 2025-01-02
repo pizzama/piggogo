@@ -76,6 +76,13 @@ namespace App.Inventory
 			return (int)_userData.Level;
 		}
 
+		public int AddLevel(int value)
+		{
+			int level = (int)_userData.Level + value;
+			_userData.Level = (uint)level;
+			return level;
+		}
+
 		public bool AddDiamond(int diamond)
 		{
 			int rt = _userData.Diamond + diamond;

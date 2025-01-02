@@ -1,4 +1,5 @@
 using SFramework;
+using SFramework.Event;
 using SFramework.Game;
 
 namespace App.Guide
@@ -33,7 +34,7 @@ namespace App.Guide
 			}
 			else if(value.MessageId == NextGuide)
 			{
-				(View as GuideView).PlayNext();
+				SFEventManager.TriggerEvent(new GuideEvent());
 			}
 		}
 		

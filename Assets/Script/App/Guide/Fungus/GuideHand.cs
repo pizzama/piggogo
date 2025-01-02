@@ -31,22 +31,4 @@ namespace App.Guide.Fungus
                 (realListener.Src as Command).Continue();
         }
     }
-    
-    [CommandInfo("Guide", 
-        "Guide Move Hand", 
-        "新手引导的点击操作")]
-    [AddComponentMenu("")]
-    public class GuideHandMove: Command
-    {
-        [SerializeField] private Vector3 startPos;
-        [SerializeField] private Vector3 endPos;
-        
-        public override void OnEnter ()
-        {
-            var flowchart = GetFlowchart();
-            var ctl = SBundleManager.Instance.GetControl<GuideControl>();
-            (ctl.View as GuideView).PointHand(startPos);
-            Continue();
-        }
-    }
 }

@@ -26,6 +26,14 @@ namespace App.Inventory
 			return model.GetCurLevel();
 		}
 
+		public int AddLevel(int value)
+		{
+			InventoryModel model = GetModel<InventoryModel>();
+			int level = model.AddLevel(value);
+			model.SaveUserData();
+			return level;
+		}
+
 		public bool IsNewUser()
 		{
 			InventoryModel model = GetModel<InventoryModel>();

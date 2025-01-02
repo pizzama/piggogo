@@ -73,8 +73,9 @@ namespace App.Guide
 			_contentBtn.onClick.RemoveListener(ContentClick);
 		}
 
-		public void RefreshContent(string value)
+		public void RefreshContent(string value, bool callbackEnable)
 		{
+			contentBtnCallbackEnable(callbackEnable);
 			if (_content != null)
 				_content.text = LanguageControl.Instance.GetLanguage(value);
 		}
@@ -113,14 +114,20 @@ namespace App.Guide
 
 		public void DisplayHand()
 		{
-			_hand.gameObject.SetActive(true);
-			_maskAniHole.gameObject.SetActive(true);
+			if (_hand != null)
+			{
+				_hand.gameObject.SetActive(true);
+				_maskAniHole.gameObject.SetActive(true);
+			}
 		}
 
 		public void HideHand()
 		{
-			_hand.gameObject.SetActive(false);
-			_maskAniHole.gameObject.SetActive(false);
+			if (_hand != null)
+			{
+				_hand.gameObject.SetActive(false);
+				_maskAniHole.gameObject.SetActive(false);
+			}
 		}
 
 		public void PointHand(Vector3 pos)
@@ -134,7 +141,15 @@ namespace App.Guide
 		{
 			SFEventManager.TriggerEvent(new GuideEvent());
 		}
-		
+
+		private void contentBtnCallbackEnable(bool value)
+		{
+			if (_contentBtn != null)
+			{
+				_contentBtn.GetComponent<Image>().enabled = value;
+				_contentBtn.enabled = value;
+			}
+		}
 		
 	}
 }

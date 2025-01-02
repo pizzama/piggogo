@@ -7,6 +7,7 @@ namespace App.GameSuccess
 {
 	public class GameSuccessView : SUIView
 	{
+		public Button _next;
 		protected override UILayer GetViewLayer()
 		{
 			return UILayer.Popup;
@@ -14,10 +15,17 @@ namespace App.GameSuccess
 		protected override void opening()
 		{
 			// Code Here
+			_next.onClick.AddListener(nextHandle);
 		}
 		protected override void closing()
 		{
 			// Code Here
+			_next.onClick.RemoveListener(nextHandle);
+		}
+
+		private void nextHandle()
+		{
+			
 		}
 	}
 }
