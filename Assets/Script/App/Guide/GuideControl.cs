@@ -31,7 +31,7 @@ namespace App.Guide
 			if (value.MessageId == StartGuide)
 			{
 				int level = (int)value.MessageData;
-				(View as GuideView).Play(level);
+				(View as GuideView)?.Play(level);
 			}
 			else if(value.MessageId == NextGuide)
 			{
@@ -39,7 +39,7 @@ namespace App.Guide
 			}
 			else if (value.MessageId == CloseGuide)
 			{
-				(View as GuideView).HideGuide();
+				(View as GuideView)?.HideGuide();
 			}
 		}
 		

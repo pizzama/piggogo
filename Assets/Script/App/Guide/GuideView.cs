@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using App.Language;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -25,6 +26,8 @@ namespace App.Guide
 		private int _count = -1;
 		private Text _content;
 		private Button _contentBtn;
+
+		private const string _guidePrefabPath = "app_guide.sfp/GuideLevel";
 
 		public SkeletonGraphic Hand
 		{
@@ -89,12 +92,11 @@ namespace App.Guide
 				_curChart = null;
 			}
 
-			string strparmas = string.Format("RES_GuideLevel{0}_prefab", level);
-			bool rt = ReflectionTools.HasPublicConstString(typeof(App_guide_sfp), strparmas);
-			if (rt)
+			List<int> guideLevels =  GetModel<GuideModel>().GuideLevel;
+			if(guideLevels.Contains(level))
 			{
 				DisplayGuide();
-				_curChart = CreateComponent<Flowchart>(SFResAssets.App_guide_sfp_GuideLevel1_prefab, mViewTransform);
+				_curChart = CreateComponent<Flowchart>(_guidePrefabPath + level, mViewTransform);
 			}
 
 			if (_curChart != null)

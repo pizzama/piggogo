@@ -71,7 +71,7 @@ namespace App.MainScene
 			}
 			else if (value.MessageId == NEXTLEVEL)
 			{ 
-				BroadcastControl(GuideControl.StartGuide, SFStaticsControl.App_Guide_GuideControl);
+				BroadcastControl(GuideControl.CloseGuide, null,SFStaticsControl.App_Guide_GuideControl);
 				NextLevel();
 				(Model as MainSceneModel)?.RefreshLevel();
 				(View as MainSceneView)?.DealWithBranch();

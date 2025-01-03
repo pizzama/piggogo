@@ -21,25 +21,32 @@
         "ja": "名称"
     },
     {
-        "Name": "Guide1",
+        "Name": "Guide1_1",
         "zh_Hans": "点左边",
         "zh_Hant": "點左邊",
         "en": "Click on the left side.",
         "ja": "左側をクリックしてください。"
     },
     {
-        "Name": "Guide2",
+        "Name": "Guide1_2",
         "zh_Hans": "点右边",
         "zh_Hant": "點右邊",
         "en": "Click on the right side.",
         "ja": "右側をクリックしてください。"
     },
     {
-        "Name": "Guide3",
+        "Name": "Guide1_3",
         "zh_Hans": "看！猪都回去睡觉了",
         "zh_Hant": "看！豬都回去睡覺了。",
         "en": "Look! The pigs have all gone back to sleep.",
         "ja": "見て！豚たちは皆寝に帰ってしまったよ。"
+    },
+    {
+        "Name": "Guide2_1",
+        "zh_Hans": "把相同颜色的猪放到一起",
+        "zh_Hant": "把相同颜色的猪放到一起",
+        "en": "把相同颜色的猪放到一起",
+        "ja": "把相同颜色的猪放到一起"
     },
     {
         "Name": "Desc1",
