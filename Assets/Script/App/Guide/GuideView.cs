@@ -12,7 +12,6 @@ using SFramework.Statics;
 using SFramework.Tools;
 using Spine.Unity;
 using UnityEngine.UI;
-using UnityEngine.XR;
 
 namespace App.Guide
 {
@@ -28,7 +27,7 @@ namespace App.Guide
 		private Button _contentBtn;
 
 		private const string _guidePrefabPath = "app_guide.sfp/GuideLevel";
-
+		private Transform _uiGuideImage;
 		public SkeletonGraphic Hand
 		{
 			get { return _hand; }
@@ -66,8 +65,8 @@ namespace App.Guide
 			_maskAniHole = getExportObject<Transform>("MaskAniHole");
 			_content = getExportObject<Text>("Content");
 			_contentBtn = getExportObject<Button>("ContentBtn");
-			
 			_contentBtn.onClick.AddListener(ContentClick);
+			_uiGuideImage = getExportObject<Transform>("UIGuideImage");
 			
 			HideGuide();
 		}
@@ -161,6 +160,24 @@ namespace App.Guide
 			{
 				_contentBtn.GetComponent<Image>().enabled = value;
 				_contentBtn.enabled = value;
+			}
+		}
+
+		public void AddUIImage(Image img, Vector3 pos)
+		{
+			img.transform.SetParent(_uiGuideImage);
+			img.transform.localPosition = pos;
+		}
+
+		public void RemoveUIImageByName(string name)
+		{
+			for (int i = _uiGuideImage.childCount - 1; i >= 0 ; i--)
+			{
+				var child = _uiGuideImage.GetChild(i);
+				if (child != null && child.name == name)
+				{
+					ReleaseGameObjectDestroy(child.gameObject);
+				}
 			}
 		}
 		
