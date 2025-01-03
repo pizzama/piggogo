@@ -85,12 +85,7 @@ namespace App.Guide
 
 		public void Play(int level)
 		{
-			if (_curChart != null)
-			{
-				GameObject.Destroy(_curChart.gameObject);
-				_curChart = null;
-			}
-
+			CloseGuildeElement();
 			List<int> guideLevels =  GetModel<GuideModel>().GuideLevel;
 			if(guideLevels.Contains(level))
 			{
@@ -163,10 +158,11 @@ namespace App.Guide
 			}
 		}
 
-		public void AddUIImage(Image img, Vector3 pos)
+		public void AddUIImage(Image img, Vector3 pos, Vector3 scale)
 		{
 			img.transform.SetParent(_uiGuideImage);
 			img.transform.localPosition = pos;
+			img.transform.localScale = scale;
 		}
 
 		public void RemoveUIImageByName(string name)
@@ -178,6 +174,21 @@ namespace App.Guide
 				{
 					ReleaseGameObjectDestroy(child.gameObject);
 				}
+			}
+		}
+
+		public void CloseGuildeElement()
+		{
+			if (_curChart != null)
+			{
+				GameObject.Destroy(_curChart.gameObject);
+				_curChart = null;
+			}
+			_count = -1;
+			for (int i = _uiGuideImage.childCount - 1; i >= 0 ; i--)
+			{
+				var child = _uiGuideImage.GetChild(i);
+				ReleaseGameObjectDestroy(child.gameObject);
 			}
 		}
 		

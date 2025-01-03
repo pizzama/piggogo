@@ -12,9 +12,8 @@ namespace App.MainScene
 		private Items_Base_datas _allItemsBase;
 		private Levels_Base_datas _allLevelBase;
 		private Levels_Detail_datas _allLevelDetail;
-
 		private List<Levels_Detail> _curLevelDetails;
-
+		
 		public List<Levels_Detail> CurLevelDetails
 		{
 			get { return _curLevelDetails; }

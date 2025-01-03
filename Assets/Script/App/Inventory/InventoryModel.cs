@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using ProtoGameData;
 using UnityEngine;
 using System.Collections.Generic;
+using Config.LevelsBase;
 
 namespace App.Inventory
 {
@@ -10,9 +11,15 @@ namespace App.Inventory
 	{
 		public const int MaxFishTime = 120;
 		private bool _isNewUser;
+		private Levels_Base_datas _allLevelBase;
 		
 		private ProtoUserData _userData;
-		
+		private int _maxLevel = 1;
+
+		public int MaxLevel
+		{
+			get { return _maxLevel; }
+		}
 		public ProtoUserData GetProtoUserData()
 		{
 			return _userData;
@@ -30,6 +37,12 @@ namespace App.Inventory
 		public async UniTask ReadUserData()
 		{
 			//读取配置文件
+			_allLevelBase = await configManager.GetConfigAsync<Levels_Base_datas>();
+			if (_allLevelBase.Datas.Count > 0)
+			{
+				var data = _allLevelBase.Datas[_allLevelBase.Datas.Count - 1];
+				_maxLevel = data.ID;
+			}
 			_isNewUser = false;
 			if (_userData == null)
 			{
@@ -79,6 +92,8 @@ namespace App.Inventory
 		public int AddLevel(int value)
 		{
 			int level = (int)_userData.Level + value;
+			if (level > _maxLevel)
+				level = _maxLevel;
 			_userData.Level = (uint)level;
 			return level;
 		}

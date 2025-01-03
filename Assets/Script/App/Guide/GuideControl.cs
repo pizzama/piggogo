@@ -40,6 +40,7 @@ namespace App.Guide
 			else if (value.MessageId == CloseGuide)
 			{
 				(View as GuideView)?.HideGuide();
+				(View as GuideView)?.CloseGuildeElement();
 			}
 		}
 		

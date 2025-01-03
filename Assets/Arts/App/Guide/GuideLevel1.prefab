@@ -66,7 +66,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 8495348168168945641}
   selectedCommands:
-  - {fileID: 385601033302218210}
+  - {fileID: -6415361732803153104}
   variables: []
   description: 
   stepPause: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 6
   indentLevel: 0
-  handPos: {x: 326, y: 218, z: 0}
+  handPos: {x: 103, y: 218, z: 0}
 --- !u!114 &385601033302218210
 MonoBehaviour:
   m_ObjectHideFlags: 0
