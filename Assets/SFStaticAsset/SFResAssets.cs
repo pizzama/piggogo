@@ -13,8 +13,12 @@ namespace SFramework.Statics
     
     public class SFResAssets
     {
+        public const string App_font_sfp_FZXZZBJW_TTF = "app_font.sfp/FZXZZBJW";
         public const string App_gamesuccess_sfp_GameSuccessView_prefab = "app_gamesuccess.sfp/GameSuccessView";
         public const string App_guide_sfp_GuideLevel1_prefab = "app_guide.sfp/GuideLevel1";
+        public const string App_guide_sfp_GuideLevel2_prefab = "app_guide.sfp/GuideLevel2";
+        public const string App_guide_sfp_guideno_png = "app_guide.sfp/guideno";
+        public const string App_guide_sfp_guideyes_png = "app_guide.sfp/guideyes";
         public const string App_hudmain_sfp_HudMainView_prefab = "app_hudmain.sfp/HudMainView";
         public const string App_mainscene_sfp_Branch_prefab = "app_mainscene.sfp/Branch";
         public const string App_mainscene_sfp_GuideCircle_png = "app_mainscene.sfp/GuideCircle";
@@ -94,6 +98,11 @@ namespace SFramework.Statics
         public const string Suiroot_sfp_SUIROOT_prefab = "suiroot.sfp/SUIROOT";
         public const string Suiroot_sfp_SUIROOTURP_prefab = "suiroot.sfp/SUIROOTURP";
     }
+    public class App_font_sfp
+    {
+        public const string BundleName = "app_font.sfp";
+        public const string RES_FZXZZBJW_TTF = "FZXZZBJW";
+    }
     public class App_gamesuccess_sfp
     {
         public const string BundleName = "app_gamesuccess.sfp";
@@ -107,6 +116,9 @@ namespace SFramework.Statics
     {
         public const string BundleName = "app_guide.sfp";
         public const string RES_GuideLevel1_prefab = "GuideLevel1";
+        public const string RES_GuideLevel2_prefab = "GuideLevel2";
+        public const string RES_guideno_png = "guideno";
+        public const string RES_guideyes_png = "guideyes";
     }
     public class App_hudmain_sfp
     {

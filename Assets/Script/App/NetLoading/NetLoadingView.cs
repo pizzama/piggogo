@@ -14,15 +14,16 @@ namespace App.NetLoading
 			return UILayer.Popup;
 		}
 		
-		protected override void SetViewPrefabPath(out string prefabPath, out string prefabName, out Vector3 position, out Quaternion rotation)
+		protected override void SetViewPrefabPath(out string prefabPath, out string prefabName, out Vector2 offsetMin, out Vector2 offsetMax, out Quaternion rotation)
 		{
 			prefabPath = "NetLoading/NetLoadingView";
 			prefabName = "NetLoadingView";
-			position = new Vector3(0, 0, 0);
+			offsetMin = new Vector3(0, 0, 0);
+			offsetMax = new Vector3(0, 0, 0);
 			rotation = Quaternion.Euler(0, 0, 0);
 		}
 		
-		protected override async UniTaskVoid SetViewTransformAsync(Vector3 position, Quaternion rotation)
+		protected override async UniTaskVoid SetViewTransformAsync(Vector2 offsetMin, Vector2 offsetMax, Quaternion rotation)
 		{
 			if (!string.IsNullOrEmpty(mAbName) && !string.IsNullOrEmpty(mResName))
 			{
@@ -33,7 +34,7 @@ namespace App.NetLoading
 				GameObject ob = poolManager.Request<ListGameObjectPool>(fullPath, prefab, -1, 5);
 				mViewTransform = ob.transform;
 			}
-			openUI(mViewTransform, position, rotation);
+			openUI(mViewTransform, offsetMin, offsetMax, rotation);
 		}
 		
 		protected override void opening()

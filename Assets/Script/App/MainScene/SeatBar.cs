@@ -148,7 +148,7 @@ public class SeatBar : RootEntity
             for (int i = _items.Count - 1; i > 0; i--)
             {
                 var item = _items[i];
-                ParentView.ReleaseGameObjectDestroy(item.gameObject);
+                ParentView.ReleaseGameObjectDestroy(item.gameObject, false);
             }
         
             _items.Clear();
