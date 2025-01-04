@@ -4,6 +4,7 @@ using SFramework;
 using SFramework.Event;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace App.Guide.Fungus
 {
@@ -31,6 +32,14 @@ namespace App.Guide.Fungus
             {
                 if (events.state == 0)
                     ctl.DisplayUIGuideImage();
+            }
+            else
+            {
+                if (events.state == 0)
+                {
+                    SFEventManager.RemoveListener(listener);
+                    ((listener as SEventListener<GuideEvent>)?.Src as Command).Continue();
+                }
             }
         }
     }
