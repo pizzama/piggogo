@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using SFramework;
 using SFramework.Event;
 using SFramework.Game;
@@ -31,7 +32,7 @@ namespace App.Guide
 			if (value.MessageId == StartGuide)
 			{
 				int level = (int)value.MessageData;
-				(View as GuideView)?.Play(level);
+				(View as GuideView)?.Play(level).Forget();
 			}
 			else if(value.MessageId == NextGuide)
 			{

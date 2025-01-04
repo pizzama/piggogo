@@ -84,14 +84,14 @@ namespace App.Guide
 				_content.text = LanguageControl.Instance.GetLanguage(value);
 		}
 
-		public void Play(int level)
+		public async UniTask Play(int level)
 		{
 			CloseGuildeElement();
 			List<int> guideLevels =  GetModel<GuideModel>().GuideLevel;
 			if(guideLevels.Contains(level))
 			{
 				DisplayGuide();
-				_curChart = CreateComponent<Flowchart>(_guidePrefabPath + level, mViewTransform);
+				_curChart = await CreateComponentAsync<Flowchart>(_guidePrefabPath + level, mViewTransform);
 			}
 
 			if (_curChart != null)
