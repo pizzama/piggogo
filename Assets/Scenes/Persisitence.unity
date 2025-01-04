@@ -259,6 +259,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SUIROOTURP
       objectReference: {fileID: 0}
+    - target: {fileID: 114574186442532806, guid: 6ac392bd990a40342a389ebbf0ddad1a, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 768
+      objectReference: {fileID: 0}
+    - target: {fileID: 114574186442532806, guid: 6ac392bd990a40342a389ebbf0ddad1a, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1336
+      objectReference: {fileID: 0}
     - target: {fileID: 224089801841284202, guid: 6ac392bd990a40342a389ebbf0ddad1a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
