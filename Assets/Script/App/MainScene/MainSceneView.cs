@@ -170,9 +170,11 @@ namespace App.MainScene
 									return;
 								_bar = entity;
 								_bar.Select();
-								
+								GuideEvent gevt = new GuideEvent();
+								gevt.Index = _bar.Index;
+								gevt.state = 0;
 								// 广播新手引导
-								SFEventManager.TriggerEvent(new GuideEvent());
+								SFEventManager.TriggerEvent(gevt);
 							}
 							else
 							{
@@ -181,10 +183,13 @@ namespace App.MainScene
 								{
 									_bar.Idle();
 								}
-								_bar = null;
-								
 								// 广播新手引导
-								SFEventManager.TriggerEvent(new GuideEvent());
+								GuideEvent gevt = new GuideEvent();
+								gevt.Index = _bar.Index;
+								gevt.state = 1;
+								SFEventManager.TriggerEvent(gevt);
+								
+								_bar = null;
 							}
 						}
 						Debug.Log("hit collider:" + hit.collider.tag + ";" + hit.collider.name);

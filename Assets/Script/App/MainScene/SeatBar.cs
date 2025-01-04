@@ -22,6 +22,11 @@ public class SeatBar : RootEntity
     private List<Sequence> _seqs;
     private const int max = 4;
     private int _index;
+
+    public int Index
+    {
+        get { return _index; }
+    }
     private bool _isLock; //当它是被移动的目标时会进行锁定，不能在执行移出操作
 
     public bool IsLock

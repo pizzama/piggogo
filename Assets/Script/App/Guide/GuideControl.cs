@@ -45,5 +45,15 @@ namespace App.Guide
 			}
 		}
 		
+		public void DisplayUIGuideImage()
+		{
+			(View as GuideView)?.DisplayUIGuideImage();
+		}
+		
+		public void HideUIGuideImage()
+		{
+			(View as GuideView)?.HideUIGuideImage();
+		}
+		
 	}
 }

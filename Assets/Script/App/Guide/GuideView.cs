@@ -192,6 +192,16 @@ namespace App.Guide
 				ReleaseGameObjectDestroy(child.gameObject, false);
 			}
 		}
+
+		public void DisplayUIGuideImage()
+		{
+			_uiGuideImage.gameObject.SetActive(true);
+		}
+		
+		public void HideUIGuideImage()
+		{
+			_uiGuideImage.gameObject.SetActive(false);
+		}
 		
 	}
 }
