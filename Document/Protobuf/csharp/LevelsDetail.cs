@@ -24,19 +24,20 @@ namespace Config.LevelsDetail {
     static LevelsDetailReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChNMZXZlbHNfRGV0YWlsLnByb3RvEhRDb25maWcuTGV2ZWxzX0RldGFpbCJ0",
-            "Cg1MZXZlbHNfRGV0YWlsEgoKAklEGAEgASgJEg8KB0xldmVsSUQYAiABKAUS",
-            "DQoFSW5kZXgYAyABKAUSDQoFSXRlbXMYBCADKAUSEgoKQ2FuQWRkSXRlbRgF",
-            "IAEoCBIUCgxSZW1haW5QaWdOdW0YBiABKAUi5wEKE0xldmVsc19EZXRhaWxf",
-            "ZGF0YXMSRwoHZGF0YW1hcBgBIAMoCzI2LkNvbmZpZy5MZXZlbHNfRGV0YWls",
-            "LkxldmVsc19EZXRhaWxfZGF0YXMuRGF0YW1hcEVudHJ5EjIKBWRhdGFzGAIg",
-            "AygLMiMuQ29uZmlnLkxldmVsc19EZXRhaWwuTGV2ZWxzX0RldGFpbBpTCgxE",
-            "YXRhbWFwRW50cnkSCwoDa2V5GAEgASgJEjIKBXZhbHVlGAIgASgLMiMuQ29u",
-            "ZmlnLkxldmVsc19EZXRhaWwuTGV2ZWxzX0RldGFpbDoCOAFiBnByb3RvMw=="));
+            "ChNMZXZlbHNfRGV0YWlsLnByb3RvEhRDb25maWcuTGV2ZWxzX0RldGFpbCKC",
+            "AQoNTGV2ZWxzX0RldGFpbBIKCgJJRBgBIAEoCRIPCgdMZXZlbElEGAIgASgF",
+            "Eg0KBUluZGV4GAMgASgFEg0KBUl0ZW1zGAQgAygFEhIKCkNhbkFkZEl0ZW0Y",
+            "BSABKAgSFAoMUmVtYWluUGlnTnVtGAYgASgFEgwKBFByb3AYByADKAUi5wEK",
+            "E0xldmVsc19EZXRhaWxfZGF0YXMSRwoHZGF0YW1hcBgBIAMoCzI2LkNvbmZp",
+            "Zy5MZXZlbHNfRGV0YWlsLkxldmVsc19EZXRhaWxfZGF0YXMuRGF0YW1hcEVu",
+            "dHJ5EjIKBWRhdGFzGAIgAygLMiMuQ29uZmlnLkxldmVsc19EZXRhaWwuTGV2",
+            "ZWxzX0RldGFpbBpTCgxEYXRhbWFwRW50cnkSCwoDa2V5GAEgASgJEjIKBXZh",
+            "bHVlGAIgASgLMiMuQ29uZmlnLkxldmVsc19EZXRhaWwuTGV2ZWxzX0RldGFp",
+            "bDoCOAFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Config.LevelsDetail.Levels_Detail), global::Config.LevelsDetail.Levels_Detail.Parser, new[]{ "ID", "LevelID", "Index", "Items", "CanAddItem", "RemainPigNum" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Config.LevelsDetail.Levels_Detail), global::Config.LevelsDetail.Levels_Detail.Parser, new[]{ "ID", "LevelID", "Index", "Items", "CanAddItem", "RemainPigNum", "Prop" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Config.LevelsDetail.Levels_Detail_datas), global::Config.LevelsDetail.Levels_Detail_datas.Parser, new[]{ "Datamap", "Datas" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
           }));
     }
@@ -84,6 +85,7 @@ namespace Config.LevelsDetail {
       items_ = other.items_.Clone();
       canAddItem_ = other.canAddItem_;
       remainPigNum_ = other.remainPigNum_;
+      prop_ = other.prop_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -164,6 +166,17 @@ namespace Config.LevelsDetail {
       }
     }
 
+    /// <summary>Field number for the "Prop" field.</summary>
+    public const int PropFieldNumber = 7;
+    private static readonly pb::FieldCodec<int> _repeated_prop_codec
+        = pb::FieldCodec.ForInt32(58);
+    private readonly pbc::RepeatedField<int> prop_ = new pbc::RepeatedField<int>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<int> Prop {
+      get { return prop_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -185,6 +198,7 @@ namespace Config.LevelsDetail {
       if(!items_.Equals(other.items_)) return false;
       if (CanAddItem != other.CanAddItem) return false;
       if (RemainPigNum != other.RemainPigNum) return false;
+      if(!prop_.Equals(other.prop_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -198,6 +212,7 @@ namespace Config.LevelsDetail {
       hash ^= items_.GetHashCode();
       if (CanAddItem != false) hash ^= CanAddItem.GetHashCode();
       if (RemainPigNum != 0) hash ^= RemainPigNum.GetHashCode();
+      hash ^= prop_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -237,6 +252,7 @@ namespace Config.LevelsDetail {
         output.WriteRawTag(48);
         output.WriteInt32(RemainPigNum);
       }
+      prop_.WriteTo(output, _repeated_prop_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -268,6 +284,7 @@ namespace Config.LevelsDetail {
         output.WriteRawTag(48);
         output.WriteInt32(RemainPigNum);
       }
+      prop_.WriteTo(ref output, _repeated_prop_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -294,6 +311,7 @@ namespace Config.LevelsDetail {
       if (RemainPigNum != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(RemainPigNum);
       }
+      size += prop_.CalculateSize(_repeated_prop_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -322,6 +340,7 @@ namespace Config.LevelsDetail {
       if (other.RemainPigNum != 0) {
         RemainPigNum = other.RemainPigNum;
       }
+      prop_.Add(other.prop_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -362,6 +381,11 @@ namespace Config.LevelsDetail {
             RemainPigNum = input.ReadInt32();
             break;
           }
+          case 58:
+          case 56: {
+            prop_.AddEntriesFrom(input, _repeated_prop_codec);
+            break;
+          }
         }
       }
     #endif
@@ -400,6 +424,11 @@ namespace Config.LevelsDetail {
           }
           case 48: {
             RemainPigNum = input.ReadInt32();
+            break;
+          }
+          case 58:
+          case 56: {
+            prop_.AddEntriesFrom(ref input, _repeated_prop_codec);
             break;
           }
         }

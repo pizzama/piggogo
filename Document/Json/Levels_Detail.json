@@ -5,7 +5,8 @@
         "Index": "int32",
         "Items": "int32",
         "CanAddItem": "bool",
-        "RemainPigNum": "int32"
+        "RemainPigNum": "int32",
+        "Prop": "int32"
     },
     {
         "ID": "ID",
@@ -13,7 +14,8 @@
         "Index": null,
         "Items": "repeated",
         "CanAddItem": null,
-        "RemainPigNum": null
+        "RemainPigNum": null,
+        "Prop": "repeated"
     },
     {
         "ID": "主键id",
@@ -21,7 +23,8 @@
         "Index": "数值索引（从1开始），配置了就会显示",
         "Items": "所在田里的猪id，不论左右都是由里到外设置",
         "CanAddItem": "是否有后续的物品",
-        "RemainPigNum": "后续剩余物品的数量"
+        "RemainPigNum": "后续剩余物品的数量",
+        "Prop": "障碍道具类型1炸弹(位置和总数量)"
     },
     {
         "ID": "1_3",
@@ -29,7 +32,8 @@
         "Index": 3,
         "Items": 10001,
         "CanAddItem": null,
-        "RemainPigNum": null
+        "RemainPigNum": null,
+        "Prop": null
     },
     {
         "ID": "1_4",
@@ -37,7 +41,8 @@
         "Index": 4,
         "Items": "10001_10001_10001",
         "CanAddItem": null,
-        "RemainPigNum": null
+        "RemainPigNum": null,
+        "Prop": null
     },
     {
         "ID": "2_3",
@@ -45,7 +50,8 @@
         "Index": 3,
         "Items": "10002_10002_10003",
         "CanAddItem": null,
-        "RemainPigNum": null
+        "RemainPigNum": null,
+        "Prop": null
     },
     {
         "ID": "2_6",
@@ -53,7 +59,8 @@
         "Index": 6,
         "Items": "10003_10003_10003",
         "CanAddItem": null,
-        "RemainPigNum": null
+        "RemainPigNum": null,
+        "Prop": null
     },
     {
         "ID": "2_7",
@@ -61,6 +68,34 @@
         "Index": 7,
         "Items": "10002_10002",
         "CanAddItem": null,
-        "RemainPigNum": null
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "3_3",
+        "LevelID": 3,
+        "Index": 3,
+        "Items": "10001_10002_10003_10001",
+        "CanAddItem": null,
+        "RemainPigNum": null,
+        "Prop": "1_2_15"
+    },
+    {
+        "ID": "3_6",
+        "LevelID": 3,
+        "Index": 6,
+        "Items": "10001_10003_10003_10002",
+        "CanAddItem": null,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "3_7",
+        "LevelID": 3,
+        "Index": 7,
+        "Items": "10002_10002_10001_10003",
+        "CanAddItem": null,
+        "RemainPigNum": null,
+        "Prop": null
     }
 ]
