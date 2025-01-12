@@ -97,5 +97,23 @@
         "CanAddItem": null,
         "RemainPigNum": null,
         "Prop": null
+    },
+    {
+        "ID": "3_8",
+        "LevelID": 3,
+        "Index": 8,
+        "Items": null,
+        "CanAddItem": null,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "3_9",
+        "LevelID": 3,
+        "Index": 9,
+        "Items": null,
+        "CanAddItem": null,
+        "RemainPigNum": null,
+        "Prop": null
     }
 ]
