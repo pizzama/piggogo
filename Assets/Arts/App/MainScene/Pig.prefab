@@ -47,9 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityId: 
-  _spine: {fileID: 5036407809874107232}
-  _sorting: {fileID: 0}
-  _curIndex: 0
+  spine: {fileID: 5036407809874107232}
+  propTransform: {fileID: 2467769352622525880}
+  bombTransform: {fileID: 4348562915888666315}
+  sorting: {fileID: 0}
+  curIndex: 0
 --- !u!1 &517013693035933015
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,7 +445,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2467769352622525880
 Transform:
   m_ObjectHideFlags: 0

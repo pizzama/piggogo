@@ -162,6 +162,17 @@ namespace App.MainScene
 			// Code Here
 		}
 
+		private void nextRound()
+		{
+			// 触发下一轮逻辑
+			for (int i = 0; i < _branchs.childCount; i++)
+			{
+				var bh = _branchs.GetChild(i);
+				SeatBar bar = bh.GetComponent<SeatBar>();
+				bar.NextRound();
+			}
+		}
+
 		private void mouseHandle(bool isTouchUI, SInputEventType enumInputEventType, Vector3 mousePosition,
 			int clickCount, int keyCode)
 		{
@@ -196,6 +207,7 @@ namespace App.MainScene
 							{
 								bool rt = entity.Merge(_bar); //不需要判断是否可以合成都可以改变状态
 								_bar.Idle();
+								nextRound();
 								// 广播新手引导
 								GuideEvent gevt = new GuideEvent();
 								gevt.Index = _bar.Index;

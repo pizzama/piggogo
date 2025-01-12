@@ -13,6 +13,12 @@ namespace App.MainScene
 		private Levels_Base_datas _allLevelBase;
 		private Levels_Detail_datas _allLevelDetail;
 		private List<Levels_Detail> _curLevelDetails;
+
+		private int _round;
+		public int Round {
+			get {return _round;}
+			set {_round = value;}
+		}
 		
 		public List<Levels_Detail> CurLevelDetails
 		{
@@ -86,6 +92,11 @@ namespace App.MainScene
 			Items_Base config;
 			_allItemsBase.Datamap.TryGetValue(itemId.ToString(), out config);
 			return config;
+		}
+
+		public void NextRound()
+		{
+			_round +=1;
 		}
 		
 	}

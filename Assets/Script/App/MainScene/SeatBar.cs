@@ -76,7 +76,7 @@ public class SeatBar : RootEntity
                 //初始化物品的道具
                 if (props.Count > 0)
                 {
-                    if(props[2] == id)
+                    if(props[1] == (i + 1))
                     {
                         it.Prop = props.ToArray<int>();
                     }
@@ -336,5 +336,14 @@ public class SeatBar : RootEntity
         if (_items == null || _items.Count == 0)
             return true;
         return false;
+    }
+
+    public void NextRound()
+    {
+        for (var i = 0; i < _items.Count; i++)
+        {
+            var it = _items[i];
+            it.NextRound();
+        }
     }
 }
