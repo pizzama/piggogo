@@ -178,11 +178,8 @@ namespace App.MainScene
 							}
 							else
 							{
-								bool rt = entity.Merge(_bar);
-								if (!rt)
-								{
-									_bar.Idle();
-								}
+								bool rt = entity.Merge(_bar); //不需要判断是否可以合成都可以改变状态
+								_bar.Idle();
 								// 广播新手引导
 								GuideEvent gevt = new GuideEvent();
 								gevt.Index = _bar.Index;

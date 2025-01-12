@@ -35,7 +35,7 @@ namespace App.Guide.Fungus
             }
             else
             {
-                if (events.state == 0)
+                if (events.state == 1 && events.Index == 3)
                 {
                     SFEventManager.RemoveListener(listener);
                     ((listener as SEventListener<GuideEvent>)?.Src as Command).Continue();
