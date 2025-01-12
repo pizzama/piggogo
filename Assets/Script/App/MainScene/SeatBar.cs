@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using App.MainScene;
 using Config.ItemsBase;
 using Config.LevelsDetail;
@@ -61,6 +62,7 @@ public class SeatBar : RootEntity
 
     private async UniTask createItem()
     {
+        var props = _detail.Prop;
         //在对应的位置初始化item
         for (int i = 0; i < _detail.Items.Count; i++)
         {
@@ -70,6 +72,15 @@ public class SeatBar : RootEntity
             {
                 var it = await _view.CreateItem(id, child.transform.position, _index % 2 != 0);
                 _items.Add(it);
+                
+                //初始化物品的道具
+                if (props.Count > 0)
+                {
+                    if(props[2] == id)
+                    {
+                        it.Prop = props.ToArray<int>();
+                    }
+                }
             }
         }
     }

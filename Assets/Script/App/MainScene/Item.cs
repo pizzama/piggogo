@@ -16,7 +16,11 @@ public class Item : RootEntity
     [SerializeField] private int _curIndex; //当前所在位置
     private List<string> waitNames = new List<string>() { "wait1", "wait2", "wait3" };
     private Items_Base _base;
-
+    private int[] _prop; // 道具数据
+    public int[] Prop
+    {
+        set {_prop = value;}
+    }
     public string ID
     {
         get { return _base.ID; }
