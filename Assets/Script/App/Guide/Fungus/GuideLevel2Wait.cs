@@ -1,4 +1,5 @@
 using System;
+using App.MainScene;
 using Fungus;
 using SFramework;
 using SFramework.Event;
@@ -30,15 +31,19 @@ namespace App.Guide.Fungus
             ctl.HideUIGuideImage();
             if (events.Index == 7)
             {
-                if (events.state == 0)
+                if (events.State == 0)
                     ctl.DisplayUIGuideImage();
             }
             else
             {
-                if (events.state == 1 && events.Index == 3)
+                if (events.State == 1 && events.Index == 3)
                 {
-                    SFEventManager.RemoveListener(listener);
-                    ((listener as SEventListener<GuideEvent>)?.Src as Command).Continue();
+                    SeatBar bar = (events.Something as MainSceneView).GetSeatBarByIndex(6);
+                    if (bar != null && bar.IsOperateComplete())
+                    {
+                        SFEventManager.RemoveListener(listener);
+                        ((listener as SEventListener<GuideEvent>)?.Src as Command).Continue();
+                    }
                 }
             }
         }

@@ -178,6 +178,11 @@ public class SeatBar : RootEntity
                 {
                     resuls.Add(temp);
                 }
+                else
+                {
+                    //如果第二个不相邻则直接退出查找
+                    break;
+                }
             }
         }
 

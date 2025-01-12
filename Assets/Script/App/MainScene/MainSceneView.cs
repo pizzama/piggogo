@@ -68,7 +68,7 @@ namespace App.MainScene
 			Items_Base config = _model.GetItemBaseById(itemId);
 			Item it = await CreateEntityAsync<Item>(SFResAssets.App_mainscene_sfp_Pig_prefab, _itemsContainer);
 			it.transform.position = pos;
-			it.LoadSpine(config, isleft);
+			await it.LoadSpine(config, isleft);
 			return it;
 		}
 
@@ -118,6 +118,21 @@ namespace App.MainScene
 			}
 
 			refreshCard(allItems).Forget();
+		}
+
+		public SeatBar GetSeatBarByIndex(int index)
+		{
+			for (int i = 0; i < _branchs.childCount; i++)
+			{
+				var bh = _branchs.GetChild(i);
+				SeatBar bar = bh.GetComponent<SeatBar>();
+				if (bar.EntityId == index.ToString())
+				{
+					return bar;
+				}
+			}
+
+			return null;
 		}
 
 		private async UniTask refreshCard(List<Item> allItems)
@@ -172,7 +187,8 @@ namespace App.MainScene
 								_bar.Select();
 								GuideEvent gevt = new GuideEvent();
 								gevt.Index = _bar.Index;
-								gevt.state = 0;
+								gevt.State = 0;
+								gevt.Something = this;
 								// 广播新手引导
 								SFEventManager.TriggerEvent(gevt);
 							}
@@ -183,7 +199,8 @@ namespace App.MainScene
 								// 广播新手引导
 								GuideEvent gevt = new GuideEvent();
 								gevt.Index = _bar.Index;
-								gevt.state = 1;
+								gevt.State = 1;
+								gevt.Something = this;
 								SFEventManager.TriggerEvent(gevt);
 								
 								_bar = null;
