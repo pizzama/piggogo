@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using App.MainScene;
 using Config.ItemsBase;
 using Cysharp.Threading.Tasks;
 using SFramework.Extension;
@@ -40,18 +41,10 @@ public class Item : RootEntity
     }
 
     // 初始化时候设置
-    private void Start() 
+    private void Start()  
     {
         propTransform.gameObject.SetActive(false);
-        if(_prop != null && _prop.Length > 0)
-        {
-            if (_prop[0] == 1)
-            {
-                propTransform.gameObject.SetActive(true);
-                var text = bombTransform.Find("Num").GetComponent<TextMeshPro>();
-                text.text = _prop[2].ToString();
-            }
-        }
+        NextRound(true);
     }
 
     public bool IsSame(Item it)
@@ -99,8 +92,23 @@ public class Item : RootEntity
         Idle(isleft);
     }
 
-    public void NextRound()
+    public void NextRound(bool start = false)
     {
-        
+        if(_prop != null && _prop.Length > 0)
+        {
+            if (_prop[0] == 1)
+            {
+                if(!start)
+                    _prop[2] -= 1;
+                if (_prop[2] == 0)
+                {
+                    //游戏结束
+                    (ParentView as MainSceneView).GameOver();
+                }
+                propTransform.gameObject.SetActive(true);
+                var text = bombTransform.Find("Num").GetComponent<TextMeshPro>();
+                text.text = _prop[2].ToString();
+            }
+        }
     }
 }

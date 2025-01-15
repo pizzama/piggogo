@@ -8,6 +8,7 @@ using SFramework.Extension;
 using SFramework.Game;
 using SFramework.GameCamera;
 using SFramework.Statics;
+using App.GameSuccess;
 
 namespace App.MainScene
 {
@@ -133,6 +134,16 @@ namespace App.MainScene
 			}
 
 			return null;
+		}
+
+		public void GameSuccess()
+		{
+			Control.OpenControl(SFStaticsControl.App_GameSuccess_GameSuccessControl, GameSuccessControl.GAMESUCCESS);
+		}
+
+		public void GameOver()
+		{
+			Control.OpenControl(SFStaticsControl.App_GameSuccess_GameSuccessControl, GameSuccessControl.GAMEOVER);
 		}
 
 		private async UniTask refreshCard(List<Item> allItems)

@@ -3,12 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using App.MainScene;
-using Config.ItemsBase;
 using Config.LevelsDetail;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using SFramework.Game;
-using SFramework.Statics;
 using UnityEngine;
 
 public class SeatBar : RootEntity
@@ -161,7 +159,7 @@ public class SeatBar : RootEntity
     {
         if (_items != null)
         {
-            for (int i = _items.Count - 1; i > 0; i--)
+            for (int i = _items.Count - 1; i >= 0; i--)
             {
                 var item = _items[i];
                 ParentView.ReleaseGameObjectDestroy(item.gameObject, false);
@@ -302,7 +300,7 @@ public class SeatBar : RootEntity
         _isLock = false;
         _items.Clear();
         if(_view.IsAllComplete())
-            ParentControl.OpenControl(SFStaticsControl.App_GameSuccess_GameSuccessControl);
+            _view.GameSuccess();
     }
 
     private void killSequence()

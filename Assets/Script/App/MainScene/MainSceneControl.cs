@@ -15,6 +15,7 @@ namespace App.MainScene
 		public static string ADDSEATBAR = "ADDSEATBAR";
 		public static string RANDOMSEATBARITEM = "RandomSeatBarItem";
 		public static string NEXTLEVEL = "NEXTLEVEL";
+		public static string CURRENTLEVEL = "CURRENTLEVEL";
 		
 		public override ViewOpenType GetViewOpenType()
 		{
@@ -73,6 +74,14 @@ namespace App.MainScene
 			{ 
 				BroadcastControl(GuideControl.CloseGuide, null,SFStaticsControl.App_Guide_GuideControl);
 				int level = NextLevel();
+				(Model as MainSceneModel)?.RefreshLevel();
+				(View as MainSceneView)?.DealWithBranch();
+				BroadcastControl(GuideControl.StartGuide, level, SFStaticsControl.App_Guide_GuideControl);
+			}
+			else if (value.MessageId == CURRENTLEVEL)
+			{
+				BroadcastControl(GuideControl.CloseGuide, null,SFStaticsControl.App_Guide_GuideControl);
+				int level = RefreshLevel();
 				(Model as MainSceneModel)?.RefreshLevel();
 				(View as MainSceneView)?.DealWithBranch();
 				BroadcastControl(GuideControl.StartGuide, level, SFStaticsControl.App_Guide_GuideControl);
