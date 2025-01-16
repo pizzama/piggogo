@@ -8,7 +8,7 @@ namespace App.Guide
 	{
 		private List<int> _guideLevel = new List<int>()
 		{
-			1,2
+			1,2,3
 		};
 		
 		public List<int> GuideLevel

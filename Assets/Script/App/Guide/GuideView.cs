@@ -18,7 +18,7 @@ namespace App.Guide
 	public class GuideView : SUIView
 	{
 		private SkeletonGraphic _hand;
-		private Transform _maskAniHole;
+		private GuideCircle _maskAniHole;
 		private Sequence _handSeq;
 		
 		private Flowchart _curChart;
@@ -63,7 +63,7 @@ namespace App.Guide
 		{
 			// Code Here
 			_hand = getExportObject<SkeletonGraphic>("Handle");
-			_maskAniHole = getExportObject<Transform>("MaskAniHole");
+			_maskAniHole = getExportObject<GuideCircle>("MaskAniHole");
 			_content = getExportObject<Text>("Content");
 			_contentBtn = getExportObject<Button>("ContentBtn");
 			_contentBtn.onClick.AddListener(ContentClick);
@@ -142,7 +142,7 @@ namespace App.Guide
 		{
 			DisplayHand();
 			_hand.transform.localPosition = pos;
-			_maskAniHole.transform.localPosition = pos;
+			_maskAniHole.MoveTarget(pos);
 		}
 
 		private void ContentClick()
@@ -202,6 +202,6 @@ namespace App.Guide
 		{
 			_uiGuideImage.gameObject.SetActive(false);
 		}
-		
+
 	}
 }
