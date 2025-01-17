@@ -13,4 +13,11 @@ namespace App.Guide
         GuideMiddelLayer,
         GuideFrontLayer,
     }
+
+    public enum HandState
+    {
+        All,
+        HoleAndTarget,
+        Hole,
+    }
 }

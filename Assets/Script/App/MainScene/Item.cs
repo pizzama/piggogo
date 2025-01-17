@@ -10,6 +10,7 @@ using SFramework.Sprites;
 using Spine.Unity;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Item : RootEntity
 {
@@ -17,7 +18,6 @@ public class Item : RootEntity
     [SerializeField] private Transform propTransform;
     [SerializeField] private Transform bombTransform;
     [SerializeField] private SpriteSorting sorting;
-    [SerializeField] private int curIndex; //当前所在位置
     private List<string> _waitNames = new List<string>() { "wait1", "wait2", "wait3" };
     private Items_Base _base;
     private int[] _prop; // 道具数据
@@ -38,13 +38,14 @@ public class Item : RootEntity
 
     public override void Show()
     {
+        propTransform.gameObject.SetActive(false);
+        NextRound(true);
     }
 
     // 初始化时候设置
     private void Start()  
     {
-        propTransform.gameObject.SetActive(false);
-        NextRound(true);
+
     }
 
     public bool IsSame(Item it)
@@ -73,7 +74,6 @@ public class Item : RootEntity
 
     public void Idle(bool isleft)
     {
-        Debug.Log(ParentView);
         if (isleft)
             spine.transform.localScale = new Vector3(-1, 1, 1);
         else
@@ -110,5 +110,22 @@ public class Item : RootEntity
                 text.text = _prop[2].ToString();
             }
         }
+    }
+
+    public bool HasBomb()
+    {
+        return bombTransform.gameObject.activeSelf == true && propTransform.gameObject.activeSelf == true;
+    }
+
+    public void ChangeAboveUI()
+    {
+        var group = this.GetComponent<SortingGroup>();
+        group.sortingLayerName = "AboveUI";
+    }
+
+    public void ChangeNormal()
+    {
+        var group = this.GetComponent<SortingGroup>();
+        group.sortingLayerName = "Default";
     }
 }

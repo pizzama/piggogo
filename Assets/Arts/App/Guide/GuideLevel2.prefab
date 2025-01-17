@@ -53,7 +53,7 @@ MonoBehaviour:
   scrollPos: {x: 266.86557, y: 161.48613}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 355
+  blockViewHeight: 313
   zoom: 0.96549886
   scrollViewRect:
     serializedVersion: 2
@@ -64,7 +64,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 8495348168168945641}
   selectedCommands:
-  - {fileID: 3261627989853901750}
+  - {fileID: 2464203791067839071}
   variables: []
   description: 
   stepPause: 0
@@ -136,11 +136,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 5
   indentLevel: 0
-  guideImage: {fileID: 21300000, guid: 4584aca9ca4694c19997e3687d110ff7, type: 3}
-  imageName: guideyes
-  pos: {x: 98, y: 79, z: 0}
-  scale: {x: 1, y: 1, z: 1}
-  color: {r: 1, g: 1, b: 1, a: 1}
+  _layer: 1
+  _guideImage: {fileID: 21300000, guid: 4584aca9ca4694c19997e3687d110ff7, type: 3}
+  _imageName: 
+  _pos: {x: 98, y: 79, z: 0}
+  _scale: {x: 1, y: 1, z: 1}
+  _color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2464203791067839071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,11 +156,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 6
   indentLevel: 0
-  guideImage: {fileID: 21300000, guid: 55759d023caca4ad39de8f005cbe7eee, type: 3}
-  imageName: guideno
-  pos: {x: -130, y: -35, z: 0}
-  scale: {x: 1, y: 1, z: 1}
-  color: {r: 1, g: 1, b: 1, a: 1}
+  _layer: 1
+  _guideImage: {fileID: 21300000, guid: 55759d023caca4ad39de8f005cbe7eee, type: 3}
+  _imageName: 
+  _pos: {x: -130, y: -35, z: 0}
+  _scale: {x: 1, y: 1, z: 1}
+  _color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &3261627989853901750
 MonoBehaviour:
   m_ObjectHideFlags: 0

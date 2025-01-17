@@ -67,7 +67,7 @@ namespace App.Guide
 
 		public void DisplayGuideMiddle()
 		{
-			(View as GuideView)?.DisplayGuideBack();
+			(View as GuideView)?.DisplayGuideMiddle();
 		}
 
 		public void HideGuideMiddle()

@@ -16,6 +16,7 @@ namespace App.MainScene
 		public static string RANDOMSEATBARITEM = "RandomSeatBarItem";
 		public static string NEXTLEVEL = "NEXTLEVEL";
 		public static string CURRENTLEVEL = "CURRENTLEVEL";
+		public static string GUIDESTART = "GUIDESTART";
 		
 		public override ViewOpenType GetViewOpenType()
 		{
@@ -46,12 +47,6 @@ namespace App.MainScene
 			// 打开hudmain得界面
 			CloseControl(SFStaticsControl.App_NetLoading_NetLoadingControl);
 			OpenControl(SFStaticsControl.App_HudMain_HudMainControl);
-			OpenControl(SFStaticsControl.App_Guide_GuideControl, null, false, "", 0, (object value) =>
-			{
-				// 触发当前关卡是否有新手引导
-				int level = RefreshLevel();
-				BroadcastControl(GuideControl.StartGuide, level, SFStaticsControl.App_Guide_GuideControl);
-			});
 		}
 		protected override void closing()
 		{
@@ -85,6 +80,15 @@ namespace App.MainScene
 				(Model as MainSceneModel)?.RefreshLevel();
 				(View as MainSceneView)?.DealWithBranch();
 				BroadcastControl(GuideControl.StartGuide, level, SFStaticsControl.App_Guide_GuideControl);
+			}
+			else if (value.MessageId == "GUIDESTART")
+			{
+				OpenControl(SFStaticsControl.App_Guide_GuideControl, null, false, "", 0, (object value) =>
+				{
+					// 触发当前关卡是否有新手引导
+					int level = RefreshLevel();
+					BroadcastControl(GuideControl.StartGuide, level, SFStaticsControl.App_Guide_GuideControl);
+				});
 			}
 		}
 	}

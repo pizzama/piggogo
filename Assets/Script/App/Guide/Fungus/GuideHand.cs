@@ -12,22 +12,49 @@ namespace App.Guide.Fungus
     [AddComponentMenu("")]
     public class GuideHand: Command
     {
-        [SerializeField] private bool _handIsDisplay;
+        [SerializeField] private bool _isGuideDisplay;
+        [SerializeField] private HandState _handState;
         [SerializeField] private Vector3 _handPos;
         private SEventListener<GuideEvent> _listener;
         public override void OnEnter ()
         {
             var ctl = SBundleManager.Instance.GetControl<GuideControl>();
-            if (_handIsDisplay)
+            var view = (ctl.View as GuideView);
+            if (_isGuideDisplay)
             {
-                (ctl.View as GuideView).DisplayHand();
-                _listener = new SEventListener<GuideEvent>(handleEvent, this);
-                SFEventManager.AddListener(_listener);
-                (ctl.View as GuideView).PointHand(_handPos);
+                switch(_handState)
+                {
+                    case HandState.All:
+                        view.DisplayHand();
+                        view.DisplayMaskHole();
+                        _listener = new SEventListener<GuideEvent>(handleEvent, this);
+                        SFEventManager.AddListener(_listener);
+                        view.PointHand(_handPos);
+                    break;
+                    case HandState.HoleAndTarget:
+                        view.HideHand();
+                        view.DisplayMaskHole();
+                        _listener = new SEventListener<GuideEvent>(handleEvent, this);
+                        SFEventManager.AddListener(_listener);
+                        view.PointHand(_handPos);
+                    break;
+                    case HandState.Hole:
+                        view.HideHand();
+                        view.DisplayMaskHole();
+                        view.PointHole(_handPos);
+                        Continue();
+                    break;
+                    default:
+                        view.HideHand();
+                        view.HideMaskHole();
+                        Continue();
+                    break;
+                }
             }
             else
             {
-                (ctl.View as GuideView).HideHand();
+                view.HideHand();
+                view.HideMaskHole();
                 Continue();
             }
 

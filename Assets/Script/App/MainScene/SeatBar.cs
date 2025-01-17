@@ -34,11 +34,11 @@ public class SeatBar : RootEntity
         set { _isLock = value; }
     }
     
-    public void SetData(Levels_Detail detail)
+    public async UniTask SetData(Levels_Detail detail)
     {
         this.gameObject.SetActive(true);
         _detail = detail;
-        createItem().Forget();
+        await createItem();
     }
 
     public void SetItems(List<Item> items)
@@ -79,6 +79,8 @@ public class SeatBar : RootEntity
                         it.Prop = props.ToArray<int>();
                     }
                 }
+
+                it.Show();
             }
         }
     }

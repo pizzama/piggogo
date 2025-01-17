@@ -127,6 +127,7 @@ namespace App.Guide
 		{
 			HideGuide();
 			HideHand();
+			HideMaskHole();
 		}
 
 		public void DisplayHand()
@@ -134,8 +135,19 @@ namespace App.Guide
 			if (_hand != null)
 			{
 				_hand.gameObject.SetActive(true);
-				_maskAniHole.gameObject.SetActive(true);
 			}
+		}
+
+		public void DisplayMaskHole()
+		{
+			if (_maskAniHole)
+				_maskAniHole.gameObject.SetActive(true);
+		}
+
+		public void HideMaskHole()
+		{
+			if (_maskAniHole)
+				_maskAniHole.gameObject.SetActive(false);
 		}
 
 		public void HideHand()
@@ -143,7 +155,6 @@ namespace App.Guide
 			if (_hand != null)
 			{
 				_hand.gameObject.SetActive(false);
-				_maskAniHole.gameObject.SetActive(false);
 			}
 		}
 
@@ -152,6 +163,11 @@ namespace App.Guide
 			DisplayHand();
 			_hand.transform.localPosition = pos;
 			_maskAniHole.MoveTarget(pos);
+		}
+
+		public void PointHole(Vector3 pos)
+		{
+			_maskAniHole.MoveHole(pos);
 		}
 
 		private void ContentClick()
@@ -166,6 +182,11 @@ namespace App.Guide
 				_contentBtn.GetComponent<Image>().enabled = value;
 				_contentBtn.enabled = value;
 			}
+		}
+
+		public RectTransform GetGuideBack()
+		{
+			return _guideBack.GetComponent<RectTransform>();
 		}
 
 		public void AddFrontImage(Image img, Vector3 pos, Vector3 scale)

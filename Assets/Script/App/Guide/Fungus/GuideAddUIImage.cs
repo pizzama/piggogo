@@ -38,12 +38,15 @@ namespace App.Guide.Fungus
             switch(_layer)
             {
                 case GuideLayer.GuideFrontLayer:
+                    (ctl.View as GuideView)?.DisplayGuideFront();
                     (ctl.View as GuideView)?.AddFrontImage(image, _pos, _scale);
                     break;
                 case GuideLayer.GuideMiddelLayer:
+                    (ctl.View as GuideView)?.DisplayGuideMiddle();
                     (ctl.View as GuideView)?.AddMiddelImage(image, _pos, _scale);
                     break;
                 case GuideLayer.GuideBackLayer:
+                    (ctl.View as GuideView)?.DisplayGuideBack();
                     (ctl.View as GuideView)?.AddBackImage(image, _pos, _scale);
                     break; 
             }

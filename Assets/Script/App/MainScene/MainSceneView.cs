@@ -38,10 +38,10 @@ namespace App.MainScene
 
 			_event = getExportObject<SInputEvent>("ItemEvent");
 			_event.MouseEventHandle = mouseHandle;
-			DealWithBranch();
+			DealWithBranch().Forget();
 		}
 		
-		public void DealWithBranch()
+		public async UniTask DealWithBranch()
 		{
 			for (int i = 0; i < _branchs.childCount; i++)
 			{
@@ -57,11 +57,13 @@ namespace App.MainScene
 					var detail = _model.CurLevelDetails[j];
 					if (bh.name == "Branch" + detail.Index)
 					{
-						bar.SetData(detail);
+						await bar.SetData(detail);
 						break;
 					}
 				}
 			}
+
+			SendMessage(MainSceneControl.GUIDESTART);
 		}
 
 		public async UniTask<Item> CreateItem(int itemId, Vector3 pos, bool isleft)
@@ -144,6 +146,23 @@ namespace App.MainScene
 		public void GameOver()
 		{
 			Control.OpenControl(SFStaticsControl.App_GameSuccess_GameSuccessControl, GameSuccessControl.GAMEOVER);
+		}
+
+		public List<Item> GetAllBombItem()
+		{
+			List<Item> result = new List<Item>();
+			int allCount = _itemsContainer.childCount;
+			for (int i = 0; i < allCount; i++)
+			{
+				var child = _itemsContainer.GetChild(i);
+				Item bar = child.GetComponent<Item>();
+				if (bar.HasBomb())
+				{
+					result.Add(bar);
+				}
+			}
+
+			return result;
 		}
 
 		private async UniTask refreshCard(List<Item> allItems)
