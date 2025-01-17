@@ -34,11 +34,11 @@ public class SeatBar : RootEntity
         set { _isLock = value; }
     }
     
-    public async UniTask SetData(Levels_Detail detail)
+    public void SetData(Levels_Detail detail)
     {
         this.gameObject.SetActive(true);
         _detail = detail;
-        await createItem();
+        createItem().Forget();
     }
 
     public void SetItems(List<Item> items)

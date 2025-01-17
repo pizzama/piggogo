@@ -38,10 +38,10 @@ namespace App.MainScene
 
 			_event = getExportObject<SInputEvent>("ItemEvent");
 			_event.MouseEventHandle = mouseHandle;
-			DealWithBranch().Forget();
+			DealWithBranch();
 		}
 		
-		public async UniTask DealWithBranch()
+		public void DealWithBranch()
 		{
 			for (int i = 0; i < _branchs.childCount; i++)
 			{
@@ -57,13 +57,13 @@ namespace App.MainScene
 					var detail = _model.CurLevelDetails[j];
 					if (bh.name == "Branch" + detail.Index)
 					{
-						await bar.SetData(detail);
+						bar.SetData(detail);
 						break;
 					}
 				}
 			}
 
-			SendMessage(MainSceneControl.GUIDESTART);
+			// SendMessage(MainSceneControl.GUIDESTART);
 		}
 
 		public async UniTask<Item> CreateItem(int itemId, Vector3 pos, bool isleft)
