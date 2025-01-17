@@ -26,7 +26,7 @@ namespace App.Guide
 		{
 			// Code Here
 		}
-		
+
 		public override void HandleMessage(SBundleParams value)
 		{
 			if (value.MessageId == StartGuide)
@@ -34,7 +34,7 @@ namespace App.Guide
 				int level = (int)value.MessageData;
 				(View as GuideView)?.Play(level).Forget();
 			}
-			else if(value.MessageId == NextGuide)
+			else if (value.MessageId == NextGuide)
 			{
 				SFEventManager.TriggerEvent(new GuideEvent());
 			}
@@ -44,16 +44,36 @@ namespace App.Guide
 				(View as GuideView)?.CloseGuildeElement();
 			}
 		}
-		
-		public void DisplayUIGuideImage()
+
+		public void DisplayGuideFront()
 		{
-			(View as GuideView)?.DisplayUIGuideImage();
+			(View as GuideView)?.DisplayGuideFront();
 		}
-		
-		public void HideUIGuideImage()
+
+		public void HideGuideFront()
 		{
-			(View as GuideView)?.HideUIGuideImage();
+			(View as GuideView)?.HideGuideFront();
 		}
-		
+
+		public void DisplayGuideBack()
+		{
+			(View as GuideView)?.DisplayGuideBack();
+		}
+
+		public void HideGuideBack()
+		{
+			(View as GuideView)?.HideGuideBack();
+		}
+
+		public void DisplayGuideMiddle()
+		{
+			(View as GuideView)?.DisplayGuideBack();
+		}
+
+		public void HideGuideMiddle()
+		{
+			(View as GuideView)?.HideGuideMiddle();
+		}
+
 	}
 }

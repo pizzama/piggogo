@@ -6,4 +6,11 @@ namespace App.Guide
         public int State;
         public object Something;
     }
+
+    public enum GuideLayer
+    {
+        GuideBackLayer,
+        GuideMiddelLayer,
+        GuideFrontLayer,
+    }
 }

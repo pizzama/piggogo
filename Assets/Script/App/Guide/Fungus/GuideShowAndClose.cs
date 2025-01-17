@@ -1,28 +1,29 @@
+using System;
 using Fungus;
 using SFramework;
+using SFramework.Event;
 using UnityEngine;
 
 namespace App.Guide.Fungus
 {
     [CommandInfo("Guide", 
-        "Guide Handle Display", 
-        "新手引导的点击操作")]
+        "Guide Show And Hide", 
+        "显示还是关闭新手引导")]
     [AddComponentMenu("")]
-    public class GuideHandDisplay: Command
+    public class GuideShowAndClose: Command
     {
-        [SerializeField] private bool handIsDisplay;
+        [SerializeField] private bool _isDisplay;
         public override void OnEnter ()
         {
             var ctl = SBundleManager.Instance.GetControl<GuideControl>();
-            if (handIsDisplay)
+            if (_isDisplay)
             {
-                (ctl.View as GuideView).DisplayHand();
+                (ctl.View as GuideView).DisplayGuide();
             }
             else
             {
-                (ctl.View as GuideView).HideHand();
+                (ctl.View as GuideView).HideGuide();
             }
-
             Continue();
         }
     }

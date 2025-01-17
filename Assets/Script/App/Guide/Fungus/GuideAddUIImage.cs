@@ -13,28 +13,41 @@ namespace App.Guide.Fungus
     [AddComponentMenu("")]
     public class GuideAddUIImage: Command
     {
-        [SerializeField] private Sprite guideImage;
-        [SerializeField] private String imageName;
-        [SerializeField] private Vector3 pos;
-        [SerializeField] private Vector3 scale = new Vector3(1, 1, 1);
-        [SerializeField] private Color color = Color.white;
+        [SerializeField] private GuideLayer _layer;
+        [SerializeField] private Sprite _guideImage;
+        [SerializeField] private string _imageName;
+        [SerializeField] private Vector3 _pos;
+        [SerializeField] private Vector3 _scale = new Vector3(1, 1, 1);
+        [SerializeField] private Color _color = Color.white;
         public override void OnEnter ()
         {
-            if (string.IsNullOrEmpty(imageName))
-                imageName = guideImage.name;
+            if (string.IsNullOrEmpty(_imageName))
+                _imageName = _guideImage.name;
             else
-                guideImage.name = imageName;
+                _guideImage.name = _imageName;
             var ctl = SBundleManager.Instance.GetControl<GuideControl>();
             // 创建一个新的GameObject
-            GameObject imageObject = new GameObject(guideImage.name);
+            GameObject imageObject = new GameObject(_guideImage.name);
             // 添加Image组件
             Image image = imageObject.AddComponent<Image>();
             // 设置Image的Sprite
-            image.sprite = guideImage;
+            image.sprite = _guideImage;
             // 设置Image的颜色（可选）
-            image.color = color;
+            image.color = _color;
             image.raycastTarget = false;
-            (ctl.View as GuideView)?.AddUIImage(image, pos, scale);
+            switch(_layer)
+            {
+                case GuideLayer.GuideFrontLayer:
+                    (ctl.View as GuideView)?.AddFrontImage(image, _pos, _scale);
+                    break;
+                case GuideLayer.GuideMiddelLayer:
+                    (ctl.View as GuideView)?.AddMiddelImage(image, _pos, _scale);
+                    break;
+                case GuideLayer.GuideBackLayer:
+                    (ctl.View as GuideView)?.AddBackImage(image, _pos, _scale);
+                    break; 
+            }
+            
             Continue();
         }
         

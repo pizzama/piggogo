@@ -12,15 +12,25 @@ namespace App.Guide.Fungus
     [AddComponentMenu("")]
     public class GuideHand: Command
     {
-        [SerializeField] private Vector3 handPos;
+        [SerializeField] private bool _handIsDisplay;
+        [SerializeField] private Vector3 _handPos;
         private SEventListener<GuideEvent> _listener;
         public override void OnEnter ()
         {
-            var flowchart = GetFlowchart();
             var ctl = SBundleManager.Instance.GetControl<GuideControl>();
-            _listener = new SEventListener<GuideEvent>(handleEvent, this);
-            SFEventManager.AddListener(_listener);
-            (ctl.View as GuideView).PointHand(handPos);
+            if (_handIsDisplay)
+            {
+                (ctl.View as GuideView).DisplayHand();
+                _listener = new SEventListener<GuideEvent>(handleEvent, this);
+                SFEventManager.AddListener(_listener);
+                (ctl.View as GuideView).PointHand(_handPos);
+            }
+            else
+            {
+                (ctl.View as GuideView).HideHand();
+                Continue();
+            }
+
         }
 
         private void handleEvent(ISEventListener<GuideEvent> listener, GuideEvent events)

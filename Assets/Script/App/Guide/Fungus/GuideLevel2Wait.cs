@@ -21,18 +21,18 @@ namespace App.Guide.Fungus
             _listener = new SEventListener<GuideEvent>(handleEvent, this);
             SFEventManager.AddListener(_listener);
             var ctl = SBundleManager.Instance.GetControl<GuideControl>();
-            ctl.HideUIGuideImage();
+            ctl.HideGuideMiddle();
         }
         
         private void handleEvent(ISEventListener<GuideEvent> listener, GuideEvent events)
         {
             var realListener = listener as SEventListener<GuideEvent>;
             var ctl = SBundleManager.Instance.GetControl<GuideControl>();
-            ctl.HideUIGuideImage();
+            ctl.HideGuideMiddle();
             if (events.Index == 7)
             {
                 if (events.State == 0)
-                    ctl.DisplayUIGuideImage();
+                    ctl.DisplayGuideMiddle();
             }
             else
             {

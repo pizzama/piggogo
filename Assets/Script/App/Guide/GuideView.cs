@@ -27,7 +27,9 @@ namespace App.Guide
 		private Button _contentBtn;
 
 		private const string _guidePrefabPath = "app_guide.sfp/GuideLevel";
-		private Transform _uiGuideImage;
+		private Transform _guideBack;
+		private Transform _guideMiddle;
+		private Transform _guideFront;
 		public SkeletonGraphic Hand
 		{
 			get { return _hand; }
@@ -67,9 +69,10 @@ namespace App.Guide
 			_content = getExportObject<Text>("Content");
 			_contentBtn = getExportObject<Button>("ContentBtn");
 			_contentBtn.onClick.AddListener(ContentClick);
-			_uiGuideImage = getExportObject<Transform>("UIGuideImage");
-			
-			HideGuide();
+			_guideFront = getExportObject<Transform>("GuideFront");
+			_guideMiddle = getExportObject<Transform>("GuideMiddle");
+			_guideBack = getExportObject<Transform>("GuideBack");
+			HideGuideAll();
 		}
 		protected override void closing()
 		{
@@ -120,6 +123,12 @@ namespace App.Guide
 			mViewTransform.gameObject.SetActive(false);
 		}
 
+		public void HideGuideAll()
+		{
+			HideGuide();
+			HideHand();
+		}
+
 		public void DisplayHand()
 		{
 			if (_hand != null)
@@ -159,23 +168,34 @@ namespace App.Guide
 			}
 		}
 
-		public void AddUIImage(Image img, Vector3 pos, Vector3 scale)
+		public void AddFrontImage(Image img, Vector3 pos, Vector3 scale)
 		{
-			img.transform.SetParent(_uiGuideImage);
-			img.transform.localPosition = pos;
-			img.transform.localScale = scale;
+			addGuideImage(_guideFront, img, pos, scale);
 		}
 
-		public void RemoveUIImageByName(string name)
+		public void AddMiddelImage(Image img, Vector3 pos, Vector3 scale)
 		{
-			for (int i = _uiGuideImage.childCount - 1; i >= 0 ; i--)
-			{
-				var child = _uiGuideImage.GetChild(i);
-				if (child != null && child.name == name)
-				{
-					ReleaseGameObjectDestroy(child.gameObject, false);
-				}
-			}
+			addGuideImage(_guideMiddle, img, pos, scale);
+		}
+
+		public void AddBackImage(Image img, Vector3 pos, Vector3 scale)
+		{
+			addGuideImage(_guideBack, img, pos, scale);
+		}
+
+		public void RemoveFrontByName(string name)
+		{
+			destoryGuideByName(_guideFront, name);
+		}
+
+		public void RemoveMiddelByName(string name)
+		{
+			destoryGuideByName(_guideMiddle, name);
+		}
+
+		public void RemoveBackByName(string name)
+		{
+			destoryGuideByName(_guideBack, name);
 		}
 
 		public void CloseGuildeElement()
@@ -186,21 +206,68 @@ namespace App.Guide
 				_curChart = null;
 			}
 			_count = -1;
-			for (int i = _uiGuideImage.childCount - 1; i >= 0 ; i--)
+
+			destoryGruide(_guideFront);
+			destoryGruide(_guideMiddle);
+			destoryGruide(_guideBack);
+		}
+
+		private void addGuideImage(Transform parent, Image img, Vector3 pos, Vector3 scale)
+		{
+			img.transform.SetParent(parent);
+			img.transform.localPosition = pos;
+			img.transform.localScale = scale;
+		}
+
+		private void destoryGuideByName(Transform parent, string name)
+		{
+			for (int i = parent.childCount - 1; i >= 0 ; i--)
 			{
-				var child = _uiGuideImage.GetChild(i);
+				var child = parent.GetChild(i);
+				if (child != null && child.name == name)
+				{
+					ReleaseGameObjectDestroy(child.gameObject, false);
+				}
+			}
+		}
+
+		private void destoryGruide(Transform parent)
+		{
+			for (int i = parent.childCount - 1; i >= 0 ; i--)
+			{
+				var child = parent.GetChild(i);
 				ReleaseGameObjectDestroy(child.gameObject, false);
 			}
 		}
 
-		public void DisplayUIGuideImage()
+		public void DisplayGuideFront()
 		{
-			_uiGuideImage.gameObject.SetActive(true);
+			_guideFront.gameObject.SetActive(true);
 		}
 		
-		public void HideUIGuideImage()
+		public void HideGuideFront()
 		{
-			_uiGuideImage.gameObject.SetActive(false);
+			_guideFront.gameObject.SetActive(false);
+		}
+
+		public void DisplayGuideMiddle()
+		{
+			_guideMiddle.gameObject.SetActive(true);
+		}
+		
+		public void HideGuideMiddle()
+		{
+			_guideMiddle.gameObject.SetActive(false);
+		}
+
+		public void DisplayGuideBack()
+		{
+			_guideBack.gameObject.SetActive(true);
+		}
+		
+		public void HideGuideBack()
+		{
+			_guideBack.gameObject.SetActive(false);
 		}
 
 	}
