@@ -120,7 +120,7 @@
         "ID": "4_6",
         "LevelID": 4,
         "Index": 6,
-        "Items": "10001_10001_10001_10002",
+        "Items": "10001_10001_10001_10004",
         "CanAddItem": null,
         "RemainPigNum": null,
         "Prop": "2_4"
@@ -156,7 +156,7 @@
         "ID": "5_5",
         "LevelID": 5,
         "Index": 5,
-        "Items": "10001_10001_10001_10002",
+        "Items": "10001_10001_10001_10004",
         "CanAddItem": null,
         "RemainPigNum": null,
         "Prop": null

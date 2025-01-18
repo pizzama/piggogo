@@ -74,7 +74,7 @@ public class SeatBar : RootEntity
                 //初始化物品的道具
                 for (int j = 0; j < props.Count; j++)
                 {
-                    var pop = props[i];
+                    var pop = props[j];
                     if (pop.Values[1] == (i + 1))
                     {
                         it.Prop = pop.Values.ToArray<int>();
