@@ -14,10 +14,12 @@ using UnityEngine.Rendering;
 
 public class Item : RootEntity
 {
-    [SerializeField] private SkeletonAnimation spine;
-    [SerializeField] private Transform propTransform;
-    [SerializeField] private Transform bombTransform;
-    [SerializeField] private SpriteSorting sorting;
+    [SerializeField] private SkeletonAnimation _spine;
+    [SerializeField] private Transform _propTransform;
+    [SerializeField] private Transform _bombTransform;
+    [SerializeField] private Transform _lockTransform;
+    [SerializeField] private Transform _keyTransform;
+    [SerializeField] private Transform _eggTransform;
     private List<string> _waitNames = new List<string>() { "wait1", "wait2", "wait3" };
     private Items_Base _base;
     private int[] _prop; // 道具数据
@@ -38,7 +40,7 @@ public class Item : RootEntity
 
     public override void Show()
     {
-        propTransform.gameObject.SetActive(false);
+        _propTransform.gameObject.SetActive(false);
         NextRound(true);
     }
 
@@ -60,26 +62,26 @@ public class Item : RootEntity
 
     public void Select()
     {
-        spine.AnimationState.SetAnimation(0, "jing", true);
+        _spine.AnimationState.SetAnimation(0, "jing", true);
     }
 
     public void Move(bool isleft)
     {
         if (isleft)
-            spine.transform.localScale = new Vector3(-1, 1, 1);
+            _spine.transform.localScale = new Vector3(-1, 1, 1);
         else
-            spine.transform.localScale = new Vector3(1, 1, 1);
-        spine.AnimationState.SetAnimation(0, "run", true);
+            _spine.transform.localScale = new Vector3(1, 1, 1);
+        _spine.AnimationState.SetAnimation(0, "run", true);
     }
 
     public void Idle(bool isleft)
     {
         if (isleft)
-            spine.transform.localScale = new Vector3(-1, 1, 1);
+            _spine.transform.localScale = new Vector3(-1, 1, 1);
         else
-            spine.transform.localScale = new Vector3(1, 1, 1);
+            _spine.transform.localScale = new Vector3(1, 1, 1);
         _waitNames.ShuffleList();
-        spine.AnimationState.SetAnimation(0, _waitNames[0], true);
+        _spine.AnimationState.SetAnimation(0, _waitNames[0], true);
     }
 
     public async UniTask LoadSpine(Items_Base config, bool isleft)
@@ -87,8 +89,8 @@ public class Item : RootEntity
         _base = config;
         //加载动画文件
         SkeletonDataAsset sc = await ParentView.LoadFromBundleAsync<SkeletonDataAsset>("app_pigs_" + config.Anim + ".sfp", config.Anim + "_SkeletonData");
-        spine.skeletonDataAsset = sc;
-        spine.Initialize(true);
+        _spine.skeletonDataAsset = sc;
+        _spine.Initialize(true);
         Idle(isleft);
     }
 
@@ -96,36 +98,51 @@ public class Item : RootEntity
     {
         if(_prop != null && _prop.Length > 0)
         {
-            if (_prop[0] == 1)
+            switch (_prop[0])
             {
-                if(!start)
-                    _prop[2] -= 1;
-                if (_prop[2] == 0)
-                {
-                    //游戏结束
-                    (ParentView as MainSceneView).GameOver();
-                }
-                propTransform.gameObject.SetActive(true);
-                var text = bombTransform.Find("Num").GetComponent<TextMeshPro>();
-                text.text = _prop[2].ToString();
+                case 1:
+                    if(!start)
+                        _prop[2] -= 1;
+                    if (_prop[2] == 0)
+                    {
+                        //游戏结束
+                        (ParentView as MainSceneView).GameOver();
+                    }
+                    _propTransform.gameObject.SetActive(true);
+                    _bombTransform.gameObject.SetActive(true);
+                    _eggTransform.gameObject.SetActive(false);
+                    _lockTransform.gameObject.SetActive(false);
+                    _keyTransform.gameObject.SetActive(false);
+                    var text = _bombTransform.Find("Num").GetComponent<TextMeshPro>();
+                    text.text = _prop[2].ToString();
+                break;
+                case 2:
+                    _propTransform.gameObject.SetActive(true);
+                    _bombTransform.gameObject.SetActive(false);
+                    _eggTransform.gameObject.SetActive(false);
+                    _lockTransform.gameObject.SetActive(true);
+                    _keyTransform.gameObject.SetActive(false);
+                break;
+                case 3:
+                    _propTransform.gameObject.SetActive(true);
+                    _bombTransform.gameObject.SetActive(false);
+                    _eggTransform.gameObject.SetActive(false);
+                    _lockTransform.gameObject.SetActive(false);
+                    _keyTransform.gameObject.SetActive(true);
+                break;
+                case 4:
+                    _propTransform.gameObject.SetActive(true);
+                    _bombTransform.gameObject.SetActive(false);
+                    _eggTransform.gameObject.SetActive(true);
+                    _lockTransform.gameObject.SetActive(false);
+                    _keyTransform.gameObject.SetActive(false);
+                break;
             }
         }
     }
 
     public bool HasBomb()
     {
-        return bombTransform.gameObject.activeSelf == true && propTransform.gameObject.activeSelf == true;
-    }
-
-    public void ChangeAboveUI()
-    {
-        var group = this.GetComponent<SortingGroup>();
-        group.sortingLayerName = "AboveUI";
-    }
-
-    public void ChangeNormal()
-    {
-        var group = this.GetComponent<SortingGroup>();
-        group.sortingLayerName = "Default";
+        return _bombTransform.gameObject.activeSelf == true && _propTransform.gameObject.activeSelf == true;
     }
 }

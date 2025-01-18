@@ -24,7 +24,7 @@
         "Items": "所在田里的猪id，不论左右都是由里到外设置",
         "CanAddItem": "是否有后续的物品",
         "RemainPigNum": "后续剩余物品的数量",
-        "Prop": "障碍道具类型1炸弹(位置和总数量)"
+        "Prop": "障碍道具类型1炸弹(位置和总数量),2 锁,3钥匙"
     },
     {
         "ID": "1_3",
@@ -110,6 +110,96 @@
     {
         "ID": "3_9",
         "LevelID": 3,
+        "Index": 9,
+        "Items": null,
+        "CanAddItem": null,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "4_6",
+        "LevelID": 4,
+        "Index": 6,
+        "Items": "10001_10001_10001_10002",
+        "CanAddItem": null,
+        "RemainPigNum": null,
+        "Prop": "2_4"
+    },
+    {
+        "ID": "4_7",
+        "LevelID": 4,
+        "Index": 7,
+        "Items": "10001_10003_10003_10003",
+        "CanAddItem": null,
+        "RemainPigNum": null,
+        "Prop": "3_3"
+    },
+    {
+        "ID": "4_8",
+        "LevelID": 4,
+        "Index": 8,
+        "Items": "10004_10004_10004_10003",
+        "CanAddItem": null,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "4_9",
+        "LevelID": 4,
+        "Index": 9,
+        "Items": null,
+        "CanAddItem": null,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "5_5",
+        "LevelID": 5,
+        "Index": 5,
+        "Items": "10001_10001_10001_10002",
+        "CanAddItem": null,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "5_6",
+        "LevelID": 5,
+        "Index": 6,
+        "Items": null,
+        "CanAddItem": null,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "5_7",
+        "LevelID": 5,
+        "Index": 7,
+        "Items": "10001_10003_10003_10003",
+        "CanAddItem": null,
+        "RemainPigNum": null,
+        "Prop": "4_3;4_2;4_1"
+    },
+    {
+        "ID": "5_8",
+        "LevelID": 5,
+        "Index": 8,
+        "Items": "10004_10004_10004_10003",
+        "CanAddItem": null,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "5_9",
+        "LevelID": 5,
+        "Index": 9,
+        "Items": null,
+        "CanAddItem": null,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "5_9",
+        "LevelID": 5,
         "Index": 9,
         "Items": null,
         "CanAddItem": null,
