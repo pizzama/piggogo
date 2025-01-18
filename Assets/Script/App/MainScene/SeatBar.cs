@@ -72,11 +72,12 @@ public class SeatBar : RootEntity
                 _items.Add(it);
                 
                 //初始化物品的道具
-                if (props.Count > 0)
+                for (int j = 0; j < props.Count; j++)
                 {
-                    if(props[1] == (i + 1))
+                    var pop = props[i];
+                    if (pop.Values[1] == (i + 1))
                     {
-                        it.Prop = props.ToArray<int>();
+                        it.Prop = pop.Values.ToArray<int>();
                     }
                 }
 

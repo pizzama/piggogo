@@ -15,7 +15,7 @@
         "Items": "repeated",
         "CanAddItem": null,
         "RemainPigNum": null,
-        "Prop": "repeated"
+        "Prop": "repeatedlist"
     },
     {
         "ID": "主键id",
@@ -177,7 +177,7 @@
         "Items": "10001_10003_10003_10003",
         "CanAddItem": null,
         "RemainPigNum": null,
-        "Prop": "4_3;4_2;4_1"
+        "Prop": "4_3-4_2-4_1"
     },
     {
         "ID": "5_8",

@@ -2,6 +2,9 @@ syntax = "proto3";
 
 package Config.Levels_Detail;
 
+message int32Array {
+ repeated int32 values = 1;
+}
 message Levels_Detail {
   string ID = 1;
   int32 LevelID = 2;
@@ -9,7 +12,7 @@ message Levels_Detail {
 repeated int32 Items = 4;
   bool CanAddItem = 5;
   int32 RemainPigNum = 6;
-repeated int32 Prop = 7;
+repeated int32Array Prop = 7;
 }
 
 message Levels_Detail_datas {
