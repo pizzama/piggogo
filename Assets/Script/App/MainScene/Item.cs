@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using App.MainScene;
 using Config.ItemsBase;
@@ -28,6 +26,19 @@ public class Item : RootEntity
     private int[] _prop; // 道具数据
     private bool _isMove = false;
     private int _fixtime = 0;
+
+    private bool _isGray = false;
+    public bool IsGray
+    {
+        get {
+            return _isGray;
+        }
+
+        set 
+        {
+            _isGray = value;
+        }
+    }
     public int[] Prop
     {
         set {
@@ -170,6 +181,24 @@ public class Item : RootEntity
         }
     }
 
+    public void Gray()
+    {
+        var render = _spine.GetComponent<SkeletonRenderer>();
+        if (render!= null)
+        {
+            render.Skeleton.SetColor(Color.gray);
+        }
+    }
+
+    public void Normal()
+    {
+        var render = _spine.GetComponent<SkeletonRenderer>();
+        if (render!= null)
+        {
+            render.Skeleton.SetColor(Color.white);
+        }
+    }
+
     public void UnLock()
     {
         _lockTransform.gameObject.SetActive(false);
@@ -207,7 +236,19 @@ public class Item : RootEntity
         return distance / _speed;
     }
 
-    public void FixPos(int index)
+    public void MoveTo(Vector3 pos, bool isleft)
+    {
+        _isMove = true;
+        _pos = pos;
+        float distance = Vector2.Distance(pos, transform.position);
+        float duration = distance / _speed;
+        transform.DOMove(_pos, duration).SetEase(Ease.Linear).SetDelay(0.1f).OnComplete(()=>{
+            Idle(isleft);
+        });
+        Move(isleft);
+    }
+
+    public void FixPos(bool isleft)
     {
         if(_pos != transform.position && _isMove == false)
         {
@@ -226,7 +267,7 @@ public class Item : RootEntity
                 float distance = Vector2.Distance(_pos, transform.position);
                 float deltime = distance / _speed;
                 transform.DOMove(_pos, deltime).SetEase(Ease.Linear).SetDelay(0.1f).OnComplete(()=>{
-                Idle(index % 2 != 0);
+                Idle(isleft);
                 });
                 Move(rt);
             }

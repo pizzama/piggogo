@@ -49,13 +49,14 @@ namespace App.MainScene
 			await GetData();
 		}
 
+
 		public void RefreshLevel()
 		{
 			if((string)OpenParams.MessageData == MainSceneControl.SPECIALLEVEL)
 			{
 				if (_curLevelDetails == null)
 				{
-					_curLevelDetails = GetCurrentLevelDetailsById(999998);
+					_curLevelDetails = GetCurrentLevelDetailsById(999999);
 				}
 				else
 				{
@@ -76,6 +77,19 @@ namespace App.MainScene
 			Levels_Base value = null;
 			_allLevelBase.Datamap.TryGetValue(levelId, out value);
 			return value;
+		}
+
+		public int PopDataPool()
+		{
+			if (_datapool.Count > 0)
+			{
+				int cid = _datapool[0];
+				_datapool.RemoveAt(0);
+				return cid;
+			}
+
+			return 0;
+
 		}
 
 		private void caculateDataPool(int levelId)

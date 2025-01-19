@@ -17,10 +17,12 @@ public class SeatBar : RootEntity
     private Levels_Detail _detail;
 
     private List<Item> _items;
+    private Item _fillItem;
     private MainSceneView _view;
     private List<Sequence> _seqs;
     private const int max = 4;
     private int _index;
+    private int _leavecount;
 
     public int Index
     {
@@ -42,6 +44,16 @@ public class SeatBar : RootEntity
         _detail = detail;
         await createItem();
         // createItem().Forget();
+
+        if (_detail.AddItem > 0)
+        {
+            int iid = ParentView.GetModel<MainSceneModel>().PopDataPool();
+            if (iid > 0)
+            {
+                _fillItem = await _view.CreateItem(iid, _posfill.transform.position, _index % 2 != 0);
+                _fillItem.Gray();
+            }
+        }
     }
 
     public void SetItems(List<Item> items)
@@ -315,11 +327,16 @@ public class SeatBar : RootEntity
 
     private void completeLeave(Item it)
     {
+        _leavecount += 1;
         it.Recycle();
-        _isLock = false;
-        _items.Clear();
-        if(_view.IsAllComplete())
-            _view.GameSuccess();
+        if (_leavecount >= _items.Count)
+        {
+            _isLock = false;
+            _items.Clear();
+            FillItem().Forget();
+            if(_view.IsAllComplete())
+                _view.GameSuccess();
+        }
     }
 
     private void killSequence()
@@ -345,6 +362,44 @@ public class SeatBar : RootEntity
         }
 
         return false;
+    }
+
+    // 数据补位
+    public async UniTask FillItem()
+    {
+        _waittime = 2;
+        for (var i = 3; i >= 0; i--)
+        {
+            var child = _pos.GetChild(i);
+            if (i == 3)
+            {
+                if (_fillItem != null)
+                {
+                    _fillItem.MoveTo(child.transform.position, _index % 2 != 0);
+                    _fillItem.Normal();
+                    _items.Add(_fillItem);
+                }
+
+                continue;
+            }
+            int iid = ParentView.GetModel<MainSceneModel>().PopDataPool();
+            if(iid > 0)
+            {
+                await UniTask.Delay(100);
+                var it = await _view.CreateItem(iid, _posfill.transform.position, _index % 2 != 0);
+                it.MoveTo(child.transform.position, _index % 2 != 0);
+                _items.Add(it);
+            }
+        }
+
+        int iit = ParentView.GetModel<MainSceneModel>().PopDataPool();
+        if(iit > 0)
+        {
+            await UniTask.Delay(1000);
+            _fillItem = await _view.CreateItem(iit, _posfill.transform.position, _index % 2 != 0);
+            _fillItem.Gray();
+        }
+
     }
 
     //终局检查
@@ -381,7 +436,7 @@ public class SeatBar : RootEntity
             for (var i = 0; i < _items.Count; i++)
             {
                 var it = _items[i];
-                it.FixPos(_index);
+                it.FixPos(_index % 2 != 0);
             }
         }
 
