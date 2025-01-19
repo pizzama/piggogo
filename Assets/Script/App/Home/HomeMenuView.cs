@@ -3,6 +3,7 @@ using SFramework;
 using SFramework.Game;
 using UnityEngine.UI;
 using SFramework.Statics;
+using App.MainScene;
 
 namespace App.Home
 {
@@ -33,12 +34,12 @@ namespace App.Home
 
 		private void specialHandle()
 		{
-			Control.OpenControl(SFStaticsControl.App_MainScene_MainSceneControl);
+			Control.OpenControl(SFStaticsControl.App_MainScene_MainSceneControl, MainSceneControl.SPECIALLEVEL);
 		}
 
 		private void levelHandle()
 		{
-			Control.OpenControl(SFStaticsControl.App_MainScene_MainSceneControl);
+			Control.OpenControl(SFStaticsControl.App_MainScene_MainSceneControl, MainSceneControl.NORMALLEVEL);
 		}
 	}
 }

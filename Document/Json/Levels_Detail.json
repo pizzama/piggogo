@@ -27,8 +27,8 @@
         "Prop": "障碍道具类型1炸弹(位置和总数量),类型2锁(位置）,类型3钥匙(位置)，如果有多组则用“-”分割"
     },
     {
-        "ID": "-1_4",
-        "LevelID": -1,
+        "ID": "999998_4",
+        "LevelID": 999998,
         "Index": 4,
         "Items": "0_0",
         "AddItem": 0,
@@ -36,8 +36,8 @@
         "Prop": null
     },
     {
-        "ID": "-1_5",
-        "LevelID": -1,
+        "ID": "999998_5",
+        "LevelID": 999998,
         "Index": 5,
         "Items": "0_0_0",
         "AddItem": 0,
@@ -45,8 +45,8 @@
         "Prop": null
     },
     {
-        "ID": "-1_8",
-        "LevelID": -1,
+        "ID": "999998_8",
+        "LevelID": 999998,
         "Index": 8,
         "Items": null,
         "AddItem": 0,
@@ -54,8 +54,8 @@
         "Prop": null
     },
     {
-        "ID": "-1_9",
-        "LevelID": -1,
+        "ID": "999998_9",
+        "LevelID": 999998,
         "Index": 9,
         "Items": "0_0_0",
         "AddItem": 0,
@@ -63,11 +63,119 @@
         "Prop": null
     },
     {
-        "ID": "-1_12",
-        "LevelID": -1,
+        "ID": "999998_12",
+        "LevelID": 999998,
         "Index": 12,
         "Items": "0_0_0_0",
         "AddItem": 0,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "999999_1",
+        "LevelID": 999999,
+        "Index": 1,
+        "Items": "0_0_0",
+        "AddItem": 40,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "999999_2",
+        "LevelID": 999999,
+        "Index": 2,
+        "Items": "0_0_0",
+        "AddItem": 40,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "999999_3",
+        "LevelID": 999999,
+        "Index": 3,
+        "Items": "0_0_0",
+        "AddItem": 40,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "999999_4",
+        "LevelID": 999999,
+        "Index": 4,
+        "Items": "0_0_0",
+        "AddItem": 40,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "999999_5",
+        "LevelID": 999999,
+        "Index": 5,
+        "Items": "0_0_0",
+        "AddItem": 40,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "999999_6",
+        "LevelID": 999999,
+        "Index": 6,
+        "Items": "0_0_0",
+        "AddItem": 40,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "999999_7",
+        "LevelID": 999999,
+        "Index": 7,
+        "Items": "0_0_0",
+        "AddItem": 40,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "999999_8",
+        "LevelID": 999999,
+        "Index": 8,
+        "Items": "0_0_0",
+        "AddItem": 40,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "999999_9",
+        "LevelID": 999999,
+        "Index": 9,
+        "Items": "0_0_0",
+        "AddItem": 40,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "999999_10",
+        "LevelID": 999999,
+        "Index": 10,
+        "Items": "0_0_0",
+        "AddItem": 40,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "999999_11",
+        "LevelID": 999999,
+        "Index": 11,
+        "Items": "0_0_0",
+        "AddItem": 40,
+        "RemainPigNum": null,
+        "Prop": null
+    },
+    {
+        "ID": "999999_12",
+        "LevelID": 999999,
+        "Index": 12,
+        "Items": "0_0_0",
+        "AddItem": 40,
         "RemainPigNum": null,
         "Prop": null
     },

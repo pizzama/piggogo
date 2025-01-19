@@ -21,20 +21,6 @@
         "Desc": "描述"
     },
     {
-        "ID": -1,
-        "AllTyps": "10001_10002_10003",
-        "AllNums": "4_4_4",
-        "Name": null,
-        "Desc": null
-    },
-    {
-        "ID": -2,
-        "AllTyps": null,
-        "AllNums": null,
-        "Name": null,
-        "Desc": null
-    },
-    {
         "ID": 1,
         "AllTyps": 10001,
         "AllNums": 4,
@@ -68,5 +54,19 @@
         "AllNums": "4_4_4",
         "Name": "Game5",
         "Desc": "Desc5"
+    },
+    {
+        "ID": 999998,
+        "AllTyps": "10001_10002_10003",
+        "AllNums": "4_4_4",
+        "Name": null,
+        "Desc": null
+    },
+    {
+        "ID": 999999,
+        "AllTyps": "10001_10002_10003_10004_10005",
+        "AllNums": "40_40_40_40_40",
+        "Name": null,
+        "Desc": null
     }
 ]

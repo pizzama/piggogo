@@ -17,6 +17,8 @@ namespace App.MainScene
 		public static string NEXTLEVEL = "NEXTLEVEL";
 		public static string CURRENTLEVEL = "CURRENTLEVEL";
 		public static string GUIDESTART = "GUIDESTART";
+		public static string SPECIALLEVEL = "SPECIALLEVEL";
+		public static string NORMALLEVEL = "NORMALLEVEL";
 		
 		public override ViewOpenType GetViewOpenType()
 		{
@@ -90,7 +92,7 @@ namespace App.MainScene
 			else if (value.MessageId == "keyopen")
 			{
 				//触发解锁钥匙
-				
+
 				
 			}
 		}
