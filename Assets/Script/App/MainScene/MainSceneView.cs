@@ -155,14 +155,26 @@ namespace App.MainScene
 			for (int i = 0; i < allCount; i++)
 			{
 				var child = _itemsContainer.GetChild(i);
-				Item bar = child.GetComponent<Item>();
-				if (bar.HasBomb())
+				Item it = child.GetComponent<Item>();
+				if (it.HasBomb())
 				{
-					result.Add(bar);
+					result.Add(it);
 				}
 			}
 
 			return result;
+		}
+
+		public void UnLockItem()
+		{
+			List<Item> result = new List<Item>();
+			int allCount = _itemsContainer.childCount;
+			for (int i = 0; i < allCount; i++)
+			{
+				var child = _itemsContainer.GetChild(i);
+				Item it = child.GetComponent<Item>();
+				it.UnLock();
+			}
 		}
 
 		private async UniTask refreshCard(List<Item> allItems)
@@ -192,14 +204,14 @@ namespace App.MainScene
 			// Code Here
 		}
 
-		private void nextRound()
+		private void nextRound(SeatBar oldbar, SeatBar newbar)
 		{
 			// 触发下一轮逻辑
 			for (int i = 0; i < _branchs.childCount; i++)
 			{
 				var bh = _branchs.GetChild(i);
 				SeatBar bar = bh.GetComponent<SeatBar>();
-				bar.NextRound();
+				bar.NextRound(oldbar, newbar);
 			}
 		}
 
@@ -236,8 +248,11 @@ namespace App.MainScene
 							else
 							{
 								bool rt = entity.Merge(_bar); //不需要判断是否可以合成都可以改变状态
+								if(rt)
+								{
+									nextRound(_bar, entity);
+								}
 								_bar.Idle();
-								nextRound();
 								// 广播新手引导
 								GuideEvent gevt = new GuideEvent();
 								gevt.Index = _bar.Index;

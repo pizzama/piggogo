@@ -87,14 +87,11 @@ namespace App.MainScene
 				(View as MainSceneView)?.DealWithBranch();
 				BroadcastControl(GuideControl.StartGuide, level, SFStaticsControl.App_Guide_GuideControl);
 			}
-			else if (value.MessageId == "GUIDESTART")
+			else if (value.MessageId == "keyopen")
 			{
-				// OpenControl(SFStaticsControl.App_Guide_GuideControl, null, false, "", 0, (object value) =>
-				// {
-				// 	// 触发当前关卡是否有新手引导
-				// 	int level = RefreshLevel();
-				// 	BroadcastControl(GuideControl.StartGuide, level, SFStaticsControl.App_Guide_GuideControl);
-				// });
+				//触发解锁钥匙
+				
+				
 			}
 		}
 	}

@@ -36,18 +36,19 @@ public class Item : RootEntity
     public override void Recycle()
     {
         gameObject.SetActive(false);
+        _prop = null;
     }
 
     public override void Show()
     {
         _propTransform.gameObject.SetActive(false);
-        NextRound(true);
+        StartRound();
     }
 
     // 初始化时候设置
     private void Start()  
     {
-
+        Show();
     }
 
     public bool IsSame(Item it)
@@ -94,15 +95,47 @@ public class Item : RootEntity
         Idle(isleft);
     }
 
-    public void NextRound(bool start = false)
+    public void StartRound()
+    {
+        _propTransform.gameObject.SetActive(false);
+        _bombTransform.gameObject.SetActive(false);
+        _eggTransform.gameObject.SetActive(false);
+        _lockTransform.gameObject.SetActive(false);
+        _keyTransform.gameObject.SetActive(false);
+        if(_prop != null && _prop.Length > 0)
+        {
+            switch (_prop[0])
+            {
+                case 1:
+                    _propTransform.gameObject.SetActive(true);
+                    _bombTransform.gameObject.SetActive(true);
+                    var text = _bombTransform.Find("Num").GetComponent<TextMeshPro>();
+                    text.text = _prop[2].ToString();
+                break;
+                case 2:
+                    _propTransform.gameObject.SetActive(true);
+                    _lockTransform.gameObject.SetActive(true);
+                break;
+                case 3:
+                    _propTransform.gameObject.SetActive(true);
+                    _keyTransform.gameObject.SetActive(true);
+                break;
+                case 4:
+                    _propTransform.gameObject.SetActive(true);
+                    _eggTransform.gameObject.SetActive(true);
+                break;
+            }
+        }
+    }
+
+    public void NextRound(SeatBar oldbar, SeatBar newbar)
     {
         if(_prop != null && _prop.Length > 0)
         {
             switch (_prop[0])
             {
                 case 1:
-                    if(!start)
-                        _prop[2] -= 1;
+                    _prop[2] -= 1;
                     if (_prop[2] == 0)
                     {
                         //游戏结束
@@ -110,39 +143,53 @@ public class Item : RootEntity
                     }
                     _propTransform.gameObject.SetActive(true);
                     _bombTransform.gameObject.SetActive(true);
-                    _eggTransform.gameObject.SetActive(false);
-                    _lockTransform.gameObject.SetActive(false);
-                    _keyTransform.gameObject.SetActive(false);
                     var text = _bombTransform.Find("Num").GetComponent<TextMeshPro>();
                     text.text = _prop[2].ToString();
                 break;
                 case 2:
-                    _propTransform.gameObject.SetActive(true);
-                    _bombTransform.gameObject.SetActive(false);
-                    _eggTransform.gameObject.SetActive(false);
-                    _lockTransform.gameObject.SetActive(true);
-                    _keyTransform.gameObject.SetActive(false);
                 break;
                 case 3:
-                    _propTransform.gameObject.SetActive(true);
-                    _bombTransform.gameObject.SetActive(false);
-                    _eggTransform.gameObject.SetActive(false);
-                    _lockTransform.gameObject.SetActive(false);
-                    _keyTransform.gameObject.SetActive(true);
+                    if (newbar.IsOperateComplete())
+                    {
+                        (ParentView as MainSceneView).UnLockItem();    
+                    }
                 break;
                 case 4:
-                    _propTransform.gameObject.SetActive(true);
-                    _bombTransform.gameObject.SetActive(false);
-                    _eggTransform.gameObject.SetActive(true);
-                    _lockTransform.gameObject.SetActive(false);
-                    _keyTransform.gameObject.SetActive(false);
+                    // 解锁下一个鸡蛋
+                    var it = oldbar.GetFist();
+                    it?.UnEgg();
                 break;
             }
         }
     }
 
+    public void UnLock()
+    {
+        _lockTransform.gameObject.SetActive(false);
+    }
+
     public bool HasBomb()
     {
         return _bombTransform.gameObject.activeSelf == true && _propTransform.gameObject.activeSelf == true;
+    }
+
+    public bool HasLock()
+    {
+        return _lockTransform.gameObject.activeSelf == true && _propTransform.gameObject.activeSelf == true;
+    }
+
+    public bool HasKey()
+    {
+         return _keyTransform.gameObject.activeSelf == true && _propTransform.gameObject.activeSelf == true;
+    }
+
+    public void UnEgg()
+    {
+        _eggTransform.gameObject.SetActive(false);
+    }
+
+    public bool HasEgg()
+    {
+        return _eggTransform.gameObject.activeSelf == true && _propTransform.gameObject.activeSelf == true;
     }
 }

@@ -105,6 +105,13 @@ public class SeatBar : RootEntity
         return _items;
     }
 
+    public Item GetFist()
+    {
+        if(_items.Count > 0)
+            return _items[_items.Count - 1];
+        return null;
+    }
+
     public bool Merge(SeatBar other)
     {
         // 如果是同一个则直接返回
@@ -179,6 +186,10 @@ public class SeatBar : RootEntity
         for (int i = _items.Count - 1; i >= 0; i--)
         {
             var temp = _items[i];
+            if (temp.HasLock()) //如果是锁定的则继续
+                break;
+            if (temp.HasEgg()) //如果是鸡蛋则继续
+                break;
             if (it == null)
             {
                 it = temp;
@@ -339,12 +350,12 @@ public class SeatBar : RootEntity
         return false;
     }
 
-    public void NextRound()
+    public void NextRound(SeatBar oldbar, SeatBar newbar)
     {
         for (var i = 0; i < _items.Count; i++)
         {
             var it = _items[i];
-            it.NextRound();
+            it.NextRound(oldbar, newbar);
         }
     }
 }
