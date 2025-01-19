@@ -33,12 +33,15 @@ public class SeatBar : RootEntity
         get { return _isLock; }
         set { _isLock = value; }
     }
+
+    private float _waittime = 2; 
     
-    public void SetData(Levels_Detail detail)
+    public async UniTask SetData(Levels_Detail detail)
     {
         this.gameObject.SetActive(true);
         _detail = detail;
-        createItem().Forget();
+        await createItem();
+        // createItem().Forget();
     }
 
     public void SetItems(List<Item> items)
@@ -50,6 +53,7 @@ public class SeatBar : RootEntity
             //不是直接刷新而是需要走过去。需要根据
             Vector3 p1 = child.position;
             Sequence seq = DOTween.Sequence();
+            it.CaculateTime(p1);
             seq.AppendCallback(() => startSeq(it, p1));
             seq.Append(it.transform.DOMove(p1, 1f).SetEase(Ease.Linear).SetDelay(0.1f));
             seq.OnComplete(() => completeSeq(it));
@@ -69,6 +73,7 @@ public class SeatBar : RootEntity
             if (child != null)
             {
                 var it = await _view.CreateItem(id, child.transform.position, _index % 2 != 0);
+                it.CaculateTime(child.transform.position);
                 _items.Add(it);
                 
                 //初始化物品的道具
@@ -236,24 +241,25 @@ public class SeatBar : RootEntity
     {
         _isLock = true;
         int index = _items.Count;
-        float duration = 1f;
         // killSequence();
         for (int i = mergeItems.Count - 1; i >= 0; i--)
         {
             var it = mergeItems[i];
             Sequence seq = DOTween.Sequence();
             _seqs.Add(seq);
-            Vector3 p1 = new Vector3(0, other.transform.position.y, 0);
-            seq.AppendCallback(() => startSeq(it, p1));
-            Vector3 p2 = new Vector3(0, transform.position.y, 0);
-            seq.Append(it.transform.DOMove(p1, duration).SetEase(Ease.Linear).SetDelay(0.1f * i));
-            if (p1 != p2)
-            {
-                seq.Append(it.transform.DOMove(p2, duration).SetEase(Ease.Linear).SetDelay(0.1f * i));
-            }
+            // Vector3 p1 = new Vector3(0, other.transform.position.y, 0); // 中间的线
+            // seq.AppendCallback(() => startSeq(it, p1)); //
+            // Vector3 p2 = new Vector3(0, transform.position.y, 0); //
+            // seq.Append(it.transform.DOMove(p1, duration).SetEase(Ease.Linear).SetDelay(0.1f * i));
+            // if (p1 != p2)
+            // {
+                // seq.Append(it.transform.DOMove(p2, duration).SetEase(Ease.Linear).SetDelay(0.1f * i));
+            // }
 
             int targetIndex = index + i;
             var pos = _pos.GetChild(targetIndex);
+            float duration = it.CaculateTime(pos.position);
+
             seq.AppendCallback(() => startSeq(it, pos.position));
             seq.Append(it.transform.DOMove(pos.position, duration).SetEase(Ease.Linear).SetDelay(0.1f * i));
             seq.OnComplete(() => completeSeq(it));
@@ -265,23 +271,22 @@ public class SeatBar : RootEntity
     {
         _isLock = true;
         int index = _items.Count;
-        float duration = 1f;
         killSequence();
         for (int i = _items.Count - 1; i >= 0; i--)
         {
             var it = _items[i];
             Sequence seq = DOTween.Sequence();
             // _seqs.Add(seq);
-            Vector3 p1 = new Vector3(0, transform.position.y, 0);
-            seq.AppendCallback(() => startSeq(it, p1));
-            Vector3 p2 = new Vector3(0, 4.8f * 0.5f, 0);
-            seq.Append(it.transform.DOMove(p1, duration).SetEase(Ease.Linear).SetDelay(0.1f * i));
-            if (p1 != p2)
-            {
-                seq.Append(it.transform.DOMove(p2, duration).SetEase(Ease.Linear).SetDelay(0.1f * i));
-            }
-            
+            // Vector3 p1 = new Vector3(0, transform.position.y, 0);
+            // seq.AppendCallback(() => startSeq(it, p1));
+            // Vector3 p2 = new Vector3(0, 4.8f * 0.5f, 0);
+            // seq.Append(it.transform.DOMove(p1, duration).SetEase(Ease.Linear).SetDelay(0.1f * i));
+            // if (p1 != p2)
+            // {
+                // seq.Append(it.transform.DOMove(p2, duration).SetEase(Ease.Linear).SetDelay(0.1f * i));
+            // }
             Vector3 p3 = new Vector3(-4.3f, 7f, 0); //门的位置
+            float duration = it.CaculateTime(p3);
             seq.AppendCallback(() => startSeq(it, p3));
             seq.Append(it.transform.DOMove(p3, duration).SetEase(Ease.Linear).SetDelay(0.1f * i));
             seq.OnComplete(() => completeLeave(it));
@@ -356,6 +361,25 @@ public class SeatBar : RootEntity
         {
             var it = _items[i];
             it.NextRound(oldbar, newbar);
+        }
+    }
+
+    private void Update()
+    {
+        _waittime -= Time.deltaTime;
+        if(_waittime <= 0)
+        {
+            _waittime = 2;
+            FixPos();
+        }
+    }
+
+    public void FixPos()
+    {
+        for (var i = 0; i < _items.Count; i++)
+        {
+            var it = _items[i];
+            it.FixPos(_index);
         }
     }
 }

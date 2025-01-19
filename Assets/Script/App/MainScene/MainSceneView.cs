@@ -38,10 +38,10 @@ namespace App.MainScene
 
 			_event = getExportObject<SInputEvent>("ItemEvent");
 			_event.MouseEventHandle = mouseHandle;
-			DealWithBranch();
+			DealWithBranch().Forget();
 		}
 		
-		public void DealWithBranch()
+		public async UniTask DealWithBranch()
 		{
 			for (int i = 0; i < _branchs.childCount; i++)
 			{
@@ -57,7 +57,7 @@ namespace App.MainScene
 					var detail = _model.CurLevelDetails[j];
 					if (bh.name == "Branch" + detail.Index)
 					{
-						bar.SetData(detail);
+						await bar.SetData(detail);
 						break;
 					}
 				}
@@ -215,6 +215,17 @@ namespace App.MainScene
 			}
 		}
 
+		private void fixPos()
+		{
+			// 触发下一轮逻辑
+			for (int i = 0; i < _branchs.childCount; i++)
+			{
+				var bh = _branchs.GetChild(i);
+				SeatBar bar = bh.GetComponent<SeatBar>();
+				bar.FixPos();
+			}
+		}
+
 		private void mouseHandle(bool isTouchUI, SInputEventType enumInputEventType, Vector3 mousePosition,
 			int clickCount, int keyCode)
 		{
@@ -259,7 +270,6 @@ namespace App.MainScene
 								gevt.State = 1;
 								gevt.Something = this;
 								SFEventManager.TriggerEvent(gevt);
-								
 								_bar = null;
 							}
 						}

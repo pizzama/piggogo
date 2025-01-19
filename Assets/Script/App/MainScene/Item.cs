@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using App.MainScene;
 using Config.ItemsBase;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using SFramework.Extension;
 using SFramework.Game;
 using SFramework.Sprites;
@@ -22,7 +23,10 @@ public class Item : RootEntity
     [SerializeField] private Transform _eggTransform;
     private List<string> _waitNames = new List<string>() { "wait1", "wait2", "wait3" };
     private Items_Base _base;
+    private Vector3 _pos;
+    private float _speed = 2; //速度
     private int[] _prop; // 道具数据
+    private bool _isMove = false;
     public int[] Prop
     {
         set {
@@ -68,6 +72,7 @@ public class Item : RootEntity
 
     public void Move(bool isleft)
     {
+        _isMove = true;
         if (isleft)
             _spine.transform.localScale = new Vector3(-1, 1, 1);
         else
@@ -77,6 +82,7 @@ public class Item : RootEntity
 
     public void Idle(bool isleft)
     {
+        _isMove = false;
         if (isleft)
             _spine.transform.localScale = new Vector3(-1, 1, 1);
         else
@@ -191,5 +197,29 @@ public class Item : RootEntity
     public bool HasEgg()
     {
         return _eggTransform.gameObject.activeSelf == true && _propTransform.gameObject.activeSelf == true;
+    }
+
+    public float CaculateTime(Vector3 pos)
+    {
+        _pos = pos;
+        float distance = Vector2.Distance(pos, transform.position);
+        return distance / _speed;
+    }
+
+    public void FixPos(int index)
+    {
+        if(_pos != transform.position && _isMove == false)
+        {
+            // transform.position = _pos;
+            bool rt = false;
+            if (_pos.x > transform.position.x)
+                rt = true;
+            float distance = Vector2.Distance(_pos, transform.position);
+            float deltime = distance / _speed;
+            transform.DOMove(_pos, deltime).SetEase(Ease.Linear).SetDelay(0.1f).OnComplete(()=>{
+               Idle(index % 2 != 0);
+            });
+            Move(rt);
+        }
     }
 }
