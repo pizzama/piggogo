@@ -235,55 +235,60 @@ namespace App.MainScene
 				{
 					//发送射线做碰撞检测, 需要确认当前的摄像机是哪一个才能判断射线是否正确
 					_ray = UIRoot.MainCamera.ScreenPointToRay(Input.mousePosition);
-					RaycastHit2D hit;
+					
 					int mask = LayerMask.GetMask("Default");
-					hit = Physics2D.Raycast(new Vector2(_ray.origin.x, _ray.origin.y), Vector2.zero, Mathf.Infinity, mask);
-					if (hit.collider != null)
+					RaycastHit2D[] hits = Physics2D.RaycastAll(new Vector2(_ray.origin.x, _ray.origin.y), Vector2.zero, Mathf.Infinity, mask);
+					foreach (RaycastHit2D hit in hits)
 					{
-						SeatBar entity = hit.collider.GetComponent<SeatBar>();
-						if (entity != null)
+						if (hit.collider.isTrigger == false)
+							continue;
+						if (hit.collider != null)
 						{
-							if (_bar == null)
+							SeatBar entity = hit.collider.GetComponent<SeatBar>();
+							if (entity != null)
 							{
-								if (entity.IsLock)
-									return;
-								_bar = entity;
-								_bar.Select();
-								GuideEvent gevt = new GuideEvent();
-								gevt.Index = _bar.Index;
-								gevt.State = 0;
-								gevt.Something = this;
-								// 广播新手引导
-								SFEventManager.TriggerEvent(gevt);
-							}
-							else
-							{
-								bool rt = entity.Merge(_bar); //不需要判断是否可以合成都可以改变状态
-								if(rt)
+								if (_bar == null)
 								{
-									nextRound(_bar, entity);
+									if (entity.IsLock)
+										return;
+									_bar = entity;
+									_bar.Select();
+									GuideEvent gevt = new GuideEvent();
+									gevt.Index = _bar.Index;
+									gevt.State = 0;
+									gevt.Something = this;
+									// 广播新手引导
+									SFEventManager.TriggerEvent(gevt);
 								}
+								else
+								{
+									bool rt = entity.Merge(_bar); //不需要判断是否可以合成都可以改变状态
+									if(rt)
+									{
+										nextRound(_bar, entity);
+									}
+									_bar.Idle();
+									// 广播新手引导
+									GuideEvent gevt = new GuideEvent();
+									gevt.Index = _bar.Index;
+									gevt.State = 1;
+									gevt.Something = this;
+									SFEventManager.TriggerEvent(gevt);
+									_bar = null;
+								}
+							}
+						}
+						else
+						{
+							if (_bar != null)
+							{
 								_bar.Idle();
-								// 广播新手引导
-								GuideEvent gevt = new GuideEvent();
-								gevt.Index = _bar.Index;
-								gevt.State = 1;
-								gevt.Something = this;
-								SFEventManager.TriggerEvent(gevt);
 								_bar = null;
 							}
-						}
-						Debug.Log("hit collider:" + hit.collider.tag + ";" + hit.collider.name);
-					}
-					else
-					{
-						if (_bar != null)
-						{
-							_bar.Idle();
-							_bar = null;
-						}
 
+						}
 					}
+					
 				}
 				
 			}

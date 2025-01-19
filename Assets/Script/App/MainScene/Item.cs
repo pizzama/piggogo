@@ -24,9 +24,10 @@ public class Item : RootEntity
     private List<string> _waitNames = new List<string>() { "wait1", "wait2", "wait3" };
     private Items_Base _base;
     private Vector3 _pos;
-    private float _speed = 2; //速度
+    private float _speed = 4; //速度
     private int[] _prop; // 道具数据
     private bool _isMove = false;
+    private int _fixtime = 0;
     public int[] Prop
     {
         set {
@@ -210,16 +211,26 @@ public class Item : RootEntity
     {
         if(_pos != transform.position && _isMove == false)
         {
-            // transform.position = _pos;
-            bool rt = false;
-            if (_pos.x > transform.position.x)
-                rt = true;
-            float distance = Vector2.Distance(_pos, transform.position);
-            float deltime = distance / _speed;
-            transform.DOMove(_pos, deltime).SetEase(Ease.Linear).SetDelay(0.1f).OnComplete(()=>{
-               Idle(index % 2 != 0);
-            });
-            Move(rt);
+            _fixtime += 1;
+            if(_fixtime > 4)
+            {
+                transform.position = _pos;
+                _fixtime = 0;
+            }
+            else
+            {
+                // transform.position = _pos;
+                bool rt = false;
+                if (_pos.x > transform.position.x)
+                    rt = true;
+                float distance = Vector2.Distance(_pos, transform.position);
+                float deltime = distance / _speed;
+                transform.DOMove(_pos, deltime).SetEase(Ease.Linear).SetDelay(0.1f).OnComplete(()=>{
+                Idle(index % 2 != 0);
+                });
+                Move(rt);
+            }
+
         }
     }
 }
