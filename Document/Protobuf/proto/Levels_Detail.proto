@@ -10,7 +10,7 @@ message Levels_Detail {
   int32 LevelID = 2;
   int32 Index = 3;
 repeated int32 Items = 4;
-  bool CanAddItem = 5;
+  int32 AddItem = 5;
   int32 RemainPigNum = 6;
 repeated int32Array Prop = 7;
 }

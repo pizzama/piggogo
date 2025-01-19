@@ -13,17 +13,36 @@ namespace SFramework.Statics
     
     public class SFResAssets
     {
+        public const string App_font_sfp_FZXZZBJW_SDF_asset = "app_font.sfp/FZXZZBJW SDF";
         public const string App_font_sfp_FZXZZBJW_TTF = "app_font.sfp/FZXZZBJW";
         public const string App_gamesuccess_sfp_GameSuccessView_prefab = "app_gamesuccess.sfp/GameSuccessView";
         public const string App_guide_sfp_GuideLevel1_prefab = "app_guide.sfp/GuideLevel1";
         public const string App_guide_sfp_GuideLevel2_prefab = "app_guide.sfp/GuideLevel2";
+        public const string App_guide_sfp_GuideLevel3_prefab = "app_guide.sfp/GuideLevel3";
         public const string App_guide_sfp_guideno_png = "app_guide.sfp/guideno";
         public const string App_guide_sfp_guideyes_png = "app_guide.sfp/guideyes";
+        public const string App_home_sfp_Button1_png = "app_home.sfp/Button1";
+        public const string App_home_sfp_Button2_png = "app_home.sfp/Button2";
+        public const string App_home_sfp_Button3_png = "app_home.sfp/Button3";
+        public const string App_home_sfp_Button4_png = "app_home.sfp/Button4";
+        public const string App_home_sfp_Button5_png = "app_home.sfp/Button5";
+        public const string App_home_sfp_Button6_png = "app_home.sfp/Button6";
+        public const string App_home_sfp_Button7_png = "app_home.sfp/Button7";
+        public const string App_home_sfp_Button8_png = "app_home.sfp/Button8";
+        public const string App_home_sfp_Button9_png = "app_home.sfp/Button9";
+        public const string App_home_sfp_Button10_png = "app_home.sfp/Button10";
+        public const string App_home_sfp_Homebg_png = "app_home.sfp/Homebg";
+        public const string App_home_sfp_HomeMenuView_prefab = "app_home.sfp/HomeMenuView";
+        public const string App_home_sfs_HomeView_unity = "app_home.sfs/HomeView";
         public const string App_hudmain_sfp_HudMainView_prefab = "app_hudmain.sfp/HudMainView";
+        public const string App_mainscene_sfp_Bomb_png = "app_mainscene.sfp/Bomb";
         public const string App_mainscene_sfp_Branch_prefab = "app_mainscene.sfp/Branch";
+        public const string App_mainscene_sfp_Egg_png = "app_mainscene.sfp/Egg";
         public const string App_mainscene_sfp_GuideCircle_png = "app_mainscene.sfp/GuideCircle";
         public const string App_mainscene_sfp_Guidemask_png = "app_mainscene.sfp/Guidemask";
         public const string App_mainscene_sfp_img_mud_png = "app_mainscene.sfp/img_mud";
+        public const string App_mainscene_sfp_Key_png = "app_mainscene.sfp/Key";
+        public const string App_mainscene_sfp_Lock_png = "app_mainscene.sfp/Lock";
         public const string App_mainscene_sfp_Pig_prefab = "app_mainscene.sfp/Pig";
         public const string App_mainscene_sfp_SceneBg_png = "app_mainscene.sfp/SceneBg";
         public const string App_mainscene_sfs_MainSceneView_unity = "app_mainscene.sfs/MainSceneView";
@@ -101,6 +120,7 @@ namespace SFramework.Statics
     public class App_font_sfp
     {
         public const string BundleName = "app_font.sfp";
+        public const string RES_FZXZZBJW_SDF_asset = "FZXZZBJW SDF";
         public const string RES_FZXZZBJW_TTF = "FZXZZBJW";
     }
     public class App_gamesuccess_sfp
@@ -108,17 +128,39 @@ namespace SFramework.Statics
         public const string BundleName = "app_gamesuccess.sfp";
         public const string RES_GameSuccessView_prefab = "GameSuccessView";
     }
-    public class App_guide
-    {
-        public const string BundleName = "app_guide";
-    }
     public class App_guide_sfp
     {
         public const string BundleName = "app_guide.sfp";
         public const string RES_GuideLevel1_prefab = "GuideLevel1";
         public const string RES_GuideLevel2_prefab = "GuideLevel2";
+        public const string RES_GuideLevel3_prefab = "GuideLevel3";
         public const string RES_guideno_png = "guideno";
         public const string RES_guideyes_png = "guideyes";
+    }
+    public class App_home
+    {
+        public const string BundleName = "app_home";
+    }
+    public class App_home_sfp
+    {
+        public const string BundleName = "app_home.sfp";
+        public const string RES_Button1_png = "Button1";
+        public const string RES_Button2_png = "Button2";
+        public const string RES_Button3_png = "Button3";
+        public const string RES_Button4_png = "Button4";
+        public const string RES_Button5_png = "Button5";
+        public const string RES_Button6_png = "Button6";
+        public const string RES_Button7_png = "Button7";
+        public const string RES_Button8_png = "Button8";
+        public const string RES_Button9_png = "Button9";
+        public const string RES_Button10_png = "Button10";
+        public const string RES_Homebg_png = "Homebg";
+        public const string RES_HomeMenuView_prefab = "HomeMenuView";
+    }
+    public class App_home_sfs
+    {
+        public const string BundleName = "app_home.sfs";
+        public const string RES_HomeView_unity = "HomeView";
     }
     public class App_hudmain_sfp
     {
@@ -128,10 +170,14 @@ namespace SFramework.Statics
     public class App_mainscene_sfp
     {
         public const string BundleName = "app_mainscene.sfp";
+        public const string RES_Bomb_png = "Bomb";
         public const string RES_Branch_prefab = "Branch";
+        public const string RES_Egg_png = "Egg";
         public const string RES_GuideCircle_png = "GuideCircle";
         public const string RES_Guidemask_png = "Guidemask";
         public const string RES_img_mud_png = "img_mud";
+        public const string RES_Key_png = "Key";
+        public const string RES_Lock_png = "Lock";
         public const string RES_Pig_prefab = "Pig";
         public const string RES_SceneBg_png = "SceneBg";
     }

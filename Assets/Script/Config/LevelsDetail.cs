@@ -25,21 +25,21 @@ namespace Config.LevelsDetail {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChNMZXZlbHNfRGV0YWlsLnByb3RvEhRDb25maWcuTGV2ZWxzX0RldGFpbCIc",
-            "CgppbnQzMkFycmF5Eg4KBnZhbHVlcxgBIAMoBSKkAQoNTGV2ZWxzX0RldGFp",
+            "CgppbnQzMkFycmF5Eg4KBnZhbHVlcxgBIAMoBSKhAQoNTGV2ZWxzX0RldGFp",
             "bBIKCgJJRBgBIAEoCRIPCgdMZXZlbElEGAIgASgFEg0KBUluZGV4GAMgASgF",
-            "Eg0KBUl0ZW1zGAQgAygFEhIKCkNhbkFkZEl0ZW0YBSABKAgSFAoMUmVtYWlu",
-            "UGlnTnVtGAYgASgFEi4KBFByb3AYByADKAsyIC5Db25maWcuTGV2ZWxzX0Rl",
-            "dGFpbC5pbnQzMkFycmF5IucBChNMZXZlbHNfRGV0YWlsX2RhdGFzEkcKB2Rh",
-            "dGFtYXAYASADKAsyNi5Db25maWcuTGV2ZWxzX0RldGFpbC5MZXZlbHNfRGV0",
-            "YWlsX2RhdGFzLkRhdGFtYXBFbnRyeRIyCgVkYXRhcxgCIAMoCzIjLkNvbmZp",
-            "Zy5MZXZlbHNfRGV0YWlsLkxldmVsc19EZXRhaWwaUwoMRGF0YW1hcEVudHJ5",
-            "EgsKA2tleRgBIAEoCRIyCgV2YWx1ZRgCIAEoCzIjLkNvbmZpZy5MZXZlbHNf",
-            "RGV0YWlsLkxldmVsc19EZXRhaWw6AjgBYgZwcm90bzM="));
+            "Eg0KBUl0ZW1zGAQgAygFEg8KB0FkZEl0ZW0YBSABKAUSFAoMUmVtYWluUGln",
+            "TnVtGAYgASgFEi4KBFByb3AYByADKAsyIC5Db25maWcuTGV2ZWxzX0RldGFp",
+            "bC5pbnQzMkFycmF5IucBChNMZXZlbHNfRGV0YWlsX2RhdGFzEkcKB2RhdGFt",
+            "YXAYASADKAsyNi5Db25maWcuTGV2ZWxzX0RldGFpbC5MZXZlbHNfRGV0YWls",
+            "X2RhdGFzLkRhdGFtYXBFbnRyeRIyCgVkYXRhcxgCIAMoCzIjLkNvbmZpZy5M",
+            "ZXZlbHNfRGV0YWlsLkxldmVsc19EZXRhaWwaUwoMRGF0YW1hcEVudHJ5EgsK",
+            "A2tleRgBIAEoCRIyCgV2YWx1ZRgCIAEoCzIjLkNvbmZpZy5MZXZlbHNfRGV0",
+            "YWlsLkxldmVsc19EZXRhaWw6AjgBYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Config.LevelsDetail.int32Array), global::Config.LevelsDetail.int32Array.Parser, new[]{ "Values" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Config.LevelsDetail.Levels_Detail), global::Config.LevelsDetail.Levels_Detail.Parser, new[]{ "ID", "LevelID", "Index", "Items", "CanAddItem", "RemainPigNum", "Prop" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Config.LevelsDetail.Levels_Detail), global::Config.LevelsDetail.Levels_Detail.Parser, new[]{ "ID", "LevelID", "Index", "Items", "AddItem", "RemainPigNum", "Prop" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Config.LevelsDetail.Levels_Detail_datas), global::Config.LevelsDetail.Levels_Detail_datas.Parser, new[]{ "Datamap", "Datas" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
           }));
     }
@@ -265,7 +265,7 @@ namespace Config.LevelsDetail {
       levelID_ = other.levelID_;
       index_ = other.index_;
       items_ = other.items_.Clone();
-      canAddItem_ = other.canAddItem_;
+      addItem_ = other.addItem_;
       remainPigNum_ = other.remainPigNum_;
       prop_ = other.prop_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -324,15 +324,15 @@ namespace Config.LevelsDetail {
       get { return items_; }
     }
 
-    /// <summary>Field number for the "CanAddItem" field.</summary>
-    public const int CanAddItemFieldNumber = 5;
-    private bool canAddItem_;
+    /// <summary>Field number for the "AddItem" field.</summary>
+    public const int AddItemFieldNumber = 5;
+    private int addItem_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool CanAddItem {
-      get { return canAddItem_; }
+    public int AddItem {
+      get { return addItem_; }
       set {
-        canAddItem_ = value;
+        addItem_ = value;
       }
     }
 
@@ -378,7 +378,7 @@ namespace Config.LevelsDetail {
       if (LevelID != other.LevelID) return false;
       if (Index != other.Index) return false;
       if(!items_.Equals(other.items_)) return false;
-      if (CanAddItem != other.CanAddItem) return false;
+      if (AddItem != other.AddItem) return false;
       if (RemainPigNum != other.RemainPigNum) return false;
       if(!prop_.Equals(other.prop_)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -392,7 +392,7 @@ namespace Config.LevelsDetail {
       if (LevelID != 0) hash ^= LevelID.GetHashCode();
       if (Index != 0) hash ^= Index.GetHashCode();
       hash ^= items_.GetHashCode();
-      if (CanAddItem != false) hash ^= CanAddItem.GetHashCode();
+      if (AddItem != 0) hash ^= AddItem.GetHashCode();
       if (RemainPigNum != 0) hash ^= RemainPigNum.GetHashCode();
       hash ^= prop_.GetHashCode();
       if (_unknownFields != null) {
@@ -426,9 +426,9 @@ namespace Config.LevelsDetail {
         output.WriteInt32(Index);
       }
       items_.WriteTo(output, _repeated_items_codec);
-      if (CanAddItem != false) {
+      if (AddItem != 0) {
         output.WriteRawTag(40);
-        output.WriteBool(CanAddItem);
+        output.WriteInt32(AddItem);
       }
       if (RemainPigNum != 0) {
         output.WriteRawTag(48);
@@ -458,9 +458,9 @@ namespace Config.LevelsDetail {
         output.WriteInt32(Index);
       }
       items_.WriteTo(ref output, _repeated_items_codec);
-      if (CanAddItem != false) {
+      if (AddItem != 0) {
         output.WriteRawTag(40);
-        output.WriteBool(CanAddItem);
+        output.WriteInt32(AddItem);
       }
       if (RemainPigNum != 0) {
         output.WriteRawTag(48);
@@ -487,8 +487,8 @@ namespace Config.LevelsDetail {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Index);
       }
       size += items_.CalculateSize(_repeated_items_codec);
-      if (CanAddItem != false) {
-        size += 1 + 1;
+      if (AddItem != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(AddItem);
       }
       if (RemainPigNum != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(RemainPigNum);
@@ -516,8 +516,8 @@ namespace Config.LevelsDetail {
         Index = other.Index;
       }
       items_.Add(other.items_);
-      if (other.CanAddItem != false) {
-        CanAddItem = other.CanAddItem;
+      if (other.AddItem != 0) {
+        AddItem = other.AddItem;
       }
       if (other.RemainPigNum != 0) {
         RemainPigNum = other.RemainPigNum;
@@ -556,7 +556,7 @@ namespace Config.LevelsDetail {
             break;
           }
           case 40: {
-            CanAddItem = input.ReadBool();
+            AddItem = input.ReadInt32();
             break;
           }
           case 48: {
@@ -600,7 +600,7 @@ namespace Config.LevelsDetail {
             break;
           }
           case 40: {
-            CanAddItem = input.ReadBool();
+            AddItem = input.ReadInt32();
             break;
           }
           case 48: {

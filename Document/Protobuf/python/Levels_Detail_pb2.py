@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13Levels_Detail.proto\x12\x14\x43onfig.Levels_Detail\"\x1c\n\nint32Array\x12\x0e\n\x06values\x18\x01 \x03(\x05\"\xa4\x01\n\rLevels_Detail\x12\n\n\x02ID\x18\x01 \x01(\t\x12\x0f\n\x07LevelID\x18\x02 \x01(\x05\x12\r\n\x05Index\x18\x03 \x01(\x05\x12\r\n\x05Items\x18\x04 \x03(\x05\x12\x12\n\nCanAddItem\x18\x05 \x01(\x08\x12\x14\n\x0cRemainPigNum\x18\x06 \x01(\x05\x12.\n\x04Prop\x18\x07 \x03(\x0b\x32 .Config.Levels_Detail.int32Array\"\xe7\x01\n\x13Levels_Detail_datas\x12G\n\x07\x64\x61tamap\x18\x01 \x03(\x0b\x32\x36.Config.Levels_Detail.Levels_Detail_datas.DatamapEntry\x12\x32\n\x05\x64\x61tas\x18\x02 \x03(\x0b\x32#.Config.Levels_Detail.Levels_Detail\x1aS\n\x0c\x44\x61tamapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x32\n\x05value\x18\x02 \x01(\x0b\x32#.Config.Levels_Detail.Levels_Detail:\x02\x38\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13Levels_Detail.proto\x12\x14\x43onfig.Levels_Detail\"\x1c\n\nint32Array\x12\x0e\n\x06values\x18\x01 \x03(\x05\"\xa1\x01\n\rLevels_Detail\x12\n\n\x02ID\x18\x01 \x01(\t\x12\x0f\n\x07LevelID\x18\x02 \x01(\x05\x12\r\n\x05Index\x18\x03 \x01(\x05\x12\r\n\x05Items\x18\x04 \x03(\x05\x12\x0f\n\x07\x41\x64\x64Item\x18\x05 \x01(\x05\x12\x14\n\x0cRemainPigNum\x18\x06 \x01(\x05\x12.\n\x04Prop\x18\x07 \x03(\x0b\x32 .Config.Levels_Detail.int32Array\"\xe7\x01\n\x13Levels_Detail_datas\x12G\n\x07\x64\x61tamap\x18\x01 \x03(\x0b\x32\x36.Config.Levels_Detail.Levels_Detail_datas.DatamapEntry\x12\x32\n\x05\x64\x61tas\x18\x02 \x03(\x0b\x32#.Config.Levels_Detail.Levels_Detail\x1aS\n\x0c\x44\x61tamapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x32\n\x05value\x18\x02 \x01(\x0b\x32#.Config.Levels_Detail.Levels_Detail:\x02\x38\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -26,9 +26,9 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_INT32ARRAY']._serialized_start=45
   _globals['_INT32ARRAY']._serialized_end=73
   _globals['_LEVELS_DETAIL']._serialized_start=76
-  _globals['_LEVELS_DETAIL']._serialized_end=240
-  _globals['_LEVELS_DETAIL_DATAS']._serialized_start=243
-  _globals['_LEVELS_DETAIL_DATAS']._serialized_end=474
-  _globals['_LEVELS_DETAIL_DATAS_DATAMAPENTRY']._serialized_start=391
-  _globals['_LEVELS_DETAIL_DATAS_DATAMAPENTRY']._serialized_end=474
+  _globals['_LEVELS_DETAIL']._serialized_end=237
+  _globals['_LEVELS_DETAIL_DATAS']._serialized_start=240
+  _globals['_LEVELS_DETAIL_DATAS']._serialized_end=471
+  _globals['_LEVELS_DETAIL_DATAS_DATAMAPENTRY']._serialized_start=388
+  _globals['_LEVELS_DETAIL_DATAS_DATAMAPENTRY']._serialized_end=471
 # @@protoc_insertion_point(module_scope)

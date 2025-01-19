@@ -376,10 +376,14 @@ public class SeatBar : RootEntity
 
     public void FixPos()
     {
-        for (var i = 0; i < _items.Count; i++)
+        if(_items != null)
         {
-            var it = _items[i];
-            it.FixPos(_index);
+            for (var i = 0; i < _items.Count; i++)
+            {
+                var it = _items[i];
+                it.FixPos(_index);
+            }
         }
+
     }
 }

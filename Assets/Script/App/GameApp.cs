@@ -28,7 +28,7 @@ public class GameApp : GameLauncher
                 SBundleManager.Instance.OpenControl(SFStaticsControl.App_Language_LanguageControl, null, false, "", 0, (control) =>
                 {
                     SBundleManager.Instance.OpenControl(SFStaticsControl.App_Inventory_InventoryControl, null, false, "", 0, (control)=>{
-                        SBundleManager.Instance.OpenControl(SFStaticsControl.App_MainScene_MainSceneControl);
+                        SBundleManager.Instance.OpenControl(SFStaticsControl.App_Home_HomeControl);
                     });
                 });
 
