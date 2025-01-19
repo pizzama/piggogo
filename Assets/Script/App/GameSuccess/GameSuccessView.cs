@@ -40,7 +40,15 @@ namespace App.GameSuccess
 
 		private void nextHandle()
 		{
-			(Control as GameSuccessControl).NextLevel();
+			if(isSuccess)
+			{
+				(Control as GameSuccessControl).NextLevel();
+			}
+			else
+			{
+				(Control as GameSuccessControl).ResetLevel();
+			}
+
 		}
 	}
 }
