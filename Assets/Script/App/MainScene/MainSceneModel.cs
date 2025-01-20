@@ -61,6 +61,7 @@ namespace App.MainScene
 
 		public void RefreshLevel()
 		{
+			_completeNum = 0;
 			if((string)OpenParams.MessageData == MainSceneControl.SPECIALLEVEL)
 			{
 				if (_curLevelDetails == null)

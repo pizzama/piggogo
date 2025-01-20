@@ -58,6 +58,7 @@ public class SeatBar : RootEntity
 
     public void SetItems(List<Item> items)
     {
+        _leavecount = 0;
         for (int i = 0; i < items.Count; i++)
         {
             var it = items[i];
@@ -253,6 +254,7 @@ public class SeatBar : RootEntity
     {
         _isLock = true;
         int index = _items.Count;
+        _leavecount = 0;
         // killSequence();
         for (int i = mergeItems.Count - 1; i >= 0; i--)
         {
@@ -284,6 +286,7 @@ public class SeatBar : RootEntity
         _isLock = true;
         int index = _items.Count;
         killSequence();
+        
         for (int i = _items.Count - 1; i >= 0; i--)
         {
             var it = _items[i];
@@ -331,6 +334,7 @@ public class SeatBar : RootEntity
         it.Recycle();
         if (_leavecount >= _items.Count)
         {
+            _leavecount = 0;
             _isLock = false;
             _items.Clear();
             ParentView.GetModel<MainSceneModel>().NextComplete(); // 检查是否要增加池子里的数据
