@@ -67,9 +67,10 @@ public class SeatBar : RootEntity
             Vector3 p1 = child.position;
             Sequence seq = DOTween.Sequence();
             it.CaculateTime(p1);
-            seq.AppendCallback(() => startSeq(it, p1));
+            startSeq(it, p1);
+            // seq.AppendCallback(() => startSeq(it, p1));
             seq.Append(it.transform.DOMove(p1, 1f).SetEase(Ease.Linear).SetDelay(0.1f));
-            seq.OnComplete(() => completeSeq(it));
+            seq.OnComplete(() => completeSeq(it, items.Count));
             seq.Play();
         }
         _items = items;
@@ -276,7 +277,7 @@ public class SeatBar : RootEntity
 
             seq.AppendCallback(() => startSeq(it, pos.position));
             seq.Append(it.transform.DOMove(pos.position, duration).SetEase(Ease.Linear).SetDelay(0.1f * i));
-            seq.OnComplete(() => completeSeq(it));
+            seq.OnComplete(() => completeSeq(it, mergeItems.Count));
             seq.Play();
         }
     }
@@ -302,7 +303,8 @@ public class SeatBar : RootEntity
             // }
             Vector3 p3 = new Vector3(-4.3f, 7f, 0); //门的位置
             float duration = it.CaculateTime(p3);
-            seq.AppendCallback(() => startSeq(it, p3));
+            startSeq(it, p3);
+            // seq.AppendCallback(() => startSeq(it, p3));
             seq.Append(it.transform.DOMove(p3, duration).SetEase(Ease.Linear).SetDelay(0.1f * i));
             seq.OnComplete(() => completeLeave(it));
             seq.Play();
@@ -317,31 +319,33 @@ public class SeatBar : RootEntity
         it.Move(rt);
     }
 
-    private void completeSeq(Item it)
+    private void completeSeq(Item it, int count)
     {
+        _leavecount += 1;
         it.Idle(_index % 2 != 0);
         _isLock = false;
-        bool rt = IsOperateComplete();
-        if (rt)
+        if (_leavecount >= count)
         {
-            leaveScene();
+            _leavecount = 0;
+            bool rt = IsOperateComplete();
+            if (rt)
+            {
+                leaveScene();
+                _isLock = false;
+                _items.Clear();
+                ParentView.GetModel<MainSceneModel>().NextComplete(); // 检查是否要增加池子里的数据
+                FillItem().Forget();
+                if(_view.IsAllComplete())
+                    _view.GameSuccess();
+            }
         }
+
+       
     }
 
     private void completeLeave(Item it)
     {
-        _leavecount += 1;
         it.Recycle();
-        if (_leavecount >= _items.Count)
-        {
-            _leavecount = 0;
-            _isLock = false;
-            _items.Clear();
-            ParentView.GetModel<MainSceneModel>().NextComplete(); // 检查是否要增加池子里的数据
-            FillItem().Forget();
-            if(_view.IsAllComplete())
-                _view.GameSuccess();
-        }
     }
 
     private void killSequence()

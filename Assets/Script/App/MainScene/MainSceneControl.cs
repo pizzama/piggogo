@@ -51,9 +51,12 @@ namespace App.MainScene
 			OpenControl(SFStaticsControl.App_HudMain_HudMainControl);
 			OpenControl(SFStaticsControl.App_Guide_GuideControl, null, false, "", 0, (object value) =>
 			{
-				// 触发当前关卡是否有新手引导
-				int level = RefreshLevel();
-				BroadcastControl(GuideControl.StartGuide, level, SFStaticsControl.App_Guide_GuideControl);
+				if ((string)Model.OpenParams.MessageData != MainSceneControl.SPECIALLEVEL)
+				{
+					// 触发当前关卡是否有新手引导
+					int level = RefreshLevel();
+					BroadcastControl(GuideControl.StartGuide, level, SFStaticsControl.App_Guide_GuideControl);
+				}
 			});
 		}
 		protected override void closing()
