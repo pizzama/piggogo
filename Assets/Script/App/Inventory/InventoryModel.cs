@@ -38,10 +38,17 @@ namespace App.Inventory
 		{
 			//读取配置文件
 			_allLevelBase = await configManager.GetConfigAsync<Levels_Base_datas>();
+			_maxLevel = 0;
 			if (_allLevelBase.Datas.Count > 0)
 			{
-				var data = _allLevelBase.Datas[_allLevelBase.Datas.Count - 1];
-				_maxLevel = data.ID;
+				for (var i = 0; i < _allLevelBase.Datas.Count; i++)
+				{
+					var conf = _allLevelBase.Datas[i];
+					if (_maxLevel <= conf.ID && conf.ID < 99999)
+					{
+						_maxLevel = conf.ID;
+					}
+				}
 			}
 			_isNewUser = false;
 			if (_userData == null)
@@ -86,7 +93,10 @@ namespace App.Inventory
 
 		public int GetCurLevel()
 		{
-			return (int)_userData.Level;
+			if (_userData.Level > _maxLevel)
+				return _maxLevel;
+			else
+				return (int)_userData.Level;
 		}
 
 		public int AddLevel(int value)

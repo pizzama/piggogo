@@ -110,17 +110,21 @@ namespace App.MainScene
 		{
 			_datapool.Clear();
 			Levels_Base config = GetCurrentLevelById(levelId);
-			_waitIdsPool = config.AfterTyps.ToList();
-			_waitNumPool = config.AfterNum.ToList();
-			_waitTrigger = config.TriggerType.ToList();
-			for (var i = 0; i < config.AllTyps.Count; i++)
+			if(config != null)
 			{
-				int cid = config.AllTyps[i];
-				var cfnum = config.AllNums[i];
-				_datapool.AddRange(Enumerable.Repeat(cid, cfnum)); 
+				_waitIdsPool = config.AfterTyps?.ToList();
+				_waitNumPool = config.AfterNum?.ToList();
+				_waitTrigger = config.TriggerType?.ToList();
+				for (var i = 0; i < config.AllTyps.Count; i++)
+				{
+					int cid = config.AllTyps[i];
+					var cfnum = config.AllNums[i];
+					_datapool.AddRange(Enumerable.Repeat(cid, cfnum)); 
+				}
+
+				_datapool.ShuffleList(); //洗牌
 			}
 
-			_datapool.ShuffleList(); //洗牌
 		}
 
 		public List<Levels_Detail> GetCurrentLevelDetailsById(int levelId)
