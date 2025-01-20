@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11Levels_Base.proto\x12\x12\x43onfig.Levels_Base\"W\n\x0bLevels_Base\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x0f\n\x07\x41llTyps\x18\x02 \x03(\x05\x12\x0f\n\x07\x41llNums\x18\x03 \x03(\x05\x12\x0c\n\x04Name\x18\x04 \x01(\t\x12\x0c\n\x04\x44\x65sc\x18\x05 \x01(\t\"\xd9\x01\n\x11Levels_Base_datas\x12\x43\n\x07\x64\x61tamap\x18\x01 \x03(\x0b\x32\x32.Config.Levels_Base.Levels_Base_datas.DatamapEntry\x12.\n\x05\x64\x61tas\x18\x02 \x03(\x0b\x32\x1f.Config.Levels_Base.Levels_Base\x1aO\n\x0c\x44\x61tamapEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12.\n\x05value\x18\x02 \x01(\x0b\x32\x1f.Config.Levels_Base.Levels_Base:\x02\x38\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11Levels_Base.proto\x12\x12\x43onfig.Levels_Base\"\x91\x01\n\x0bLevels_Base\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x0f\n\x07\x41llTyps\x18\x02 \x03(\x05\x12\x0f\n\x07\x41llNums\x18\x03 \x03(\x05\x12\x11\n\tAfterTyps\x18\x04 \x03(\x05\x12\x10\n\x08\x41\x66terNum\x18\x05 \x03(\x05\x12\x13\n\x0bTriggerType\x18\x06 \x03(\x05\x12\x0c\n\x04Name\x18\x07 \x01(\t\x12\x0c\n\x04\x44\x65sc\x18\x08 \x01(\t\"\xd9\x01\n\x11Levels_Base_datas\x12\x43\n\x07\x64\x61tamap\x18\x01 \x03(\x0b\x32\x32.Config.Levels_Base.Levels_Base_datas.DatamapEntry\x12.\n\x05\x64\x61tas\x18\x02 \x03(\x0b\x32\x1f.Config.Levels_Base.Levels_Base\x1aO\n\x0c\x44\x61tamapEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12.\n\x05value\x18\x02 \x01(\x0b\x32\x1f.Config.Levels_Base.Levels_Base:\x02\x38\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -23,10 +23,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   _LEVELS_BASE_DATAS_DATAMAPENTRY._options = None
   _LEVELS_BASE_DATAS_DATAMAPENTRY._serialized_options = b'8\001'
-  _globals['_LEVELS_BASE']._serialized_start=41
-  _globals['_LEVELS_BASE']._serialized_end=128
-  _globals['_LEVELS_BASE_DATAS']._serialized_start=131
-  _globals['_LEVELS_BASE_DATAS']._serialized_end=348
-  _globals['_LEVELS_BASE_DATAS_DATAMAPENTRY']._serialized_start=269
-  _globals['_LEVELS_BASE_DATAS_DATAMAPENTRY']._serialized_end=348
+  _globals['_LEVELS_BASE']._serialized_start=42
+  _globals['_LEVELS_BASE']._serialized_end=187
+  _globals['_LEVELS_BASE_DATAS']._serialized_start=190
+  _globals['_LEVELS_BASE_DATAS']._serialized_end=407
+  _globals['_LEVELS_BASE_DATAS_DATAMAPENTRY']._serialized_start=328
+  _globals['_LEVELS_BASE_DATAS_DATAMAPENTRY']._serialized_end=407
 # @@protoc_insertion_point(module_scope)

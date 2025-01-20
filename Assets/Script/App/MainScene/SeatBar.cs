@@ -367,6 +367,7 @@ public class SeatBar : RootEntity
     // 数据补位
     public async UniTask FillItem()
     {
+        ParentView.GetModel<MainSceneModel>().RefreshDataPool(); //从新洗牌
         _waittime = 2;
         for (var i = 3; i >= 0; i--)
         {
@@ -391,6 +392,8 @@ public class SeatBar : RootEntity
                 _items.Add(it);
             }
         }
+
+        _items.Reverse();
 
         int iit = ParentView.GetModel<MainSceneModel>().PopDataPool();
         if(iit > 0)

@@ -79,6 +79,11 @@ namespace App.MainScene
 			return value;
 		}
 
+		public void RefreshDataPool()
+		{
+			_datapool.ShuffleList();
+		}
+
 		public int PopDataPool()
 		{
 			if (_datapool.Count > 0)

@@ -6,8 +6,11 @@ message Levels_Base {
   int32 ID = 1;
 repeated int32 AllTyps = 2;
 repeated int32 AllNums = 3;
-  string Name = 4;
-  string Desc = 5;
+repeated int32 AfterTyps = 4;
+repeated int32 AfterNum = 5;
+repeated int32 TriggerType = 6;
+  string Name = 7;
+  string Desc = 8;
 }
 
 message Levels_Base_datas {

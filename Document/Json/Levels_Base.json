@@ -3,6 +3,9 @@
         "ID": "int32",
         "AllTyps": "int32",
         "AllNums": "int32",
+        "AfterTyps": "int32",
+        "AfterNum": "int32",
+        "TriggerType": "int32",
         "Name": "string",
         "Desc": "string"
     },
@@ -10,6 +13,9 @@
         "ID": "ID",
         "AllTyps": "repeated",
         "AllNums": "repeated",
+        "AfterTyps": "repeated",
+        "AfterNum": "repeated",
+        "TriggerType": "repeated",
         "Name": null,
         "Desc": null
     },
@@ -17,6 +23,9 @@
         "ID": "关卡id",
         "AllTyps": "所有猪的种类",
         "AllNums": "种类对应的数量",
+        "AfterTyps": "后续猪的添加种类",
+        "AfterNum": "对应的数量",
+        "TriggerType": "后续猪触发方式类型1（消除多少次猪之后触发）",
         "Name": "关卡名字",
         "Desc": "描述"
     },
@@ -24,6 +33,9 @@
         "ID": 1,
         "AllTyps": 10001,
         "AllNums": 4,
+        "AfterTyps": null,
+        "AfterNum": null,
+        "TriggerType": null,
         "Name": "Game1",
         "Desc": "Desc1"
     },
@@ -31,6 +43,9 @@
         "ID": 2,
         "AllTyps": "10002_10003",
         "AllNums": "4_4",
+        "AfterTyps": null,
+        "AfterNum": null,
+        "TriggerType": null,
         "Name": "Game2",
         "Desc": "Desc2"
     },
@@ -38,6 +53,9 @@
         "ID": 3,
         "AllTyps": "10001_10002_10003",
         "AllNums": "4_4_4",
+        "AfterTyps": null,
+        "AfterNum": null,
+        "TriggerType": null,
         "Name": "Game3",
         "Desc": "Desc3"
     },
@@ -45,6 +63,9 @@
         "ID": 4,
         "AllTyps": "10001_10003_10004",
         "AllNums": "4_4_4",
+        "AfterTyps": null,
+        "AfterNum": null,
+        "TriggerType": null,
         "Name": "Game4",
         "Desc": "Desc4"
     },
@@ -52,6 +73,9 @@
         "ID": 5,
         "AllTyps": "10001_10003_10004",
         "AllNums": "4_4_4",
+        "AfterTyps": null,
+        "AfterNum": null,
+        "TriggerType": null,
         "Name": "Game5",
         "Desc": "Desc5"
     },
@@ -59,14 +83,20 @@
         "ID": 999998,
         "AllTyps": "10001_10002_10003",
         "AllNums": "4_4_4",
-        "Name": null,
-        "Desc": null
+        "AfterTyps": null,
+        "AfterNum": null,
+        "TriggerType": null,
+        "Name": "Game999998",
+        "Desc": "Desc999998"
     },
     {
         "ID": 999999,
         "AllTyps": "10001_10002_10003_10004_10005",
         "AllNums": "40_40_40_40_40",
-        "Name": null,
-        "Desc": null
+        "AfterTyps": "10006_10007_10008_10009_10010_10011",
+        "AfterNum": "40_40_40_40_40_40",
+        "TriggerType": "1_4",
+        "Name": "Game999999",
+        "Desc": "Desc999999"
     }
 ]
