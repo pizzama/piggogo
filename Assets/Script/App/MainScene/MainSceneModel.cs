@@ -17,7 +17,16 @@ namespace App.MainScene
 		private List<Levels_Detail> _curLevelDetails;
 
 		private List<int> _datapool;
+		private List<int> _waitIdsPool;
+		private List<int> _waitNumPool;
+		private List<int> _waitTrigger;
 
+		private int _completeNum;
+		public int CompleteNum
+		{
+			get {return _completeNum;}
+			set {_completeNum = value;}
+		}
 		private int _round;
 		public int Round {
 			get {return _round;}
@@ -56,7 +65,7 @@ namespace App.MainScene
 			{
 				if (_curLevelDetails == null)
 				{
-					_curLevelDetails = GetCurrentLevelDetailsById(999999);
+					_curLevelDetails = GetCurrentLevelDetailsById(999998);
 				}
 				else
 				{
@@ -101,6 +110,9 @@ namespace App.MainScene
 		{
 			_datapool.Clear();
 			Levels_Base config = GetCurrentLevelById(levelId);
+			_waitIdsPool = config.AfterTyps.ToList();
+			_waitNumPool = config.AfterNum.ToList();
+			_waitTrigger = config.TriggerType.ToList();
 			for (var i = 0; i < config.AllTyps.Count; i++)
 			{
 				int cid = config.AllTyps[i];
@@ -165,9 +177,29 @@ namespace App.MainScene
 			return config;
 		}
 
-		public void NextRound()
+		public void NextComplete()
 		{
-			_round +=1;
+			_completeNum += 1;
+			if(_waitTrigger.Count > 0)
+			{
+				switch(_waitTrigger[0])
+				{
+					case 1:
+						if (_completeNum >= _waitTrigger[1])
+						{
+							_completeNum = 0;
+							if (_waitIdsPool.Count > 0)
+							{
+								int iid = _waitIdsPool[0];
+								_waitIdsPool.RemoveAt(0);
+								int num = _waitNumPool[0];
+								_waitNumPool.RemoveAt(0);
+								_datapool.AddRange(Enumerable.Repeat(iid, num));
+							}
+						}
+					break;
+				}
+			}
 		}
 		
 	}

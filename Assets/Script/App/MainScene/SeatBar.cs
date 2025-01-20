@@ -333,6 +333,7 @@ public class SeatBar : RootEntity
         {
             _isLock = false;
             _items.Clear();
+            ParentView.GetModel<MainSceneModel>().NextComplete(); // 检查是否要增加池子里的数据
             FillItem().Forget();
             if(_view.IsAllComplete())
                 _view.GameSuccess();
