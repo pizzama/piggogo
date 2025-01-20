@@ -120,7 +120,7 @@
         "ID": "999999_6",
         "LevelID": 999999,
         "Index": 6,
-        "Items": "0_0_0",
+        "Items": null,
         "AddItem": 40,
         "RemainPigNum": null,
         "Prop": null
