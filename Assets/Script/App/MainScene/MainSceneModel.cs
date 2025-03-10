@@ -116,14 +116,26 @@ namespace App.MainScene
 				_waitIdsPool = config.AfterTyps?.ToList();
 				_waitNumPool = config.AfterNum?.ToList();
 				_waitTrigger = config.TriggerType?.ToList();
-				for (var i = 0; i < config.AllTyps.Count; i++)
+				int num = config.AllTyps.Count;
+				if (num > 5)
+				{
+					num = 5;
+				}
+				for (var i = 0; i < num; i++)
 				{
 					int cid = config.AllTyps[i];
 					var cfnum = config.AllNums[i];
 					_datapool.AddRange(Enumerable.Repeat(cid, cfnum)); 
 				}
-
+				// 逻辑是先洗牌在添加剩余的数量
 				_datapool.ShuffleList(); //洗牌
+				// 添加剩余的牌
+				for(var i = num; i < config.AllTyps.Count; i++)
+				{
+					int cid = config.AllTyps[i];
+					var cfnum = config.AllNums[i];
+					_datapool.AddRange(Enumerable.Repeat(cid, cfnum)); 
+				}
 			}
 
 		}

@@ -39,7 +39,6 @@ namespace App.MainScene
 			_event = getExportObject<SInputEvent>("ItemEvent");
 			_event.MouseEventHandle = mouseHandle;
 			DealWithBranch().Forget();
-			originCameraSize();
 		}
 		
 		public async UniTask DealWithBranch()
@@ -70,6 +69,7 @@ namespace App.MainScene
 		public async UniTask<Item> CreateItem(int itemId, Vector3 pos, bool isleft)
 		{
 			Items_Base config = _model.GetItemBaseById(itemId);
+			Debug.Log("create item:" + itemId);
 			Item it = await CreateEntityAsync<Item>(SFResAssets.App_mainscene_sfp_Pig_prefab, _itemsContainer);
 			it.transform.position = pos;
 			await it.LoadSpine(config, isleft);
@@ -293,13 +293,6 @@ namespace App.MainScene
 				}
 				
 			}
-		}
-
-		private void originCameraSize()
-		{
-			var _aspect = CameraTools.AdaptCameraSize(10f, 1336f, 768f);
-			Debug.Log("camer result size1::" + _aspect);
-			UIRoot.MainCamera.orthographicSize = _aspect;
 		}
 	}
 }

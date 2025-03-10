@@ -19,6 +19,7 @@ namespace App.Language
 		protected override void alreadyOpened()
 		{
 			// Code Here
+			base.alreadyOpened();
 		}
 		protected override void closing()
 		{
