@@ -40,7 +40,9 @@ namespace App.Inventory
 			});
 			
 			// 调用带有进度参数的GetData方法
-			Account data = await PostData<Account>(null, progress, "/login/login_name");
+			Dictionary<string, string> getParams = new Dictionary<string, string>();
+			getParams.Add("user_name", SystemInfo.deviceUniqueIdentifier);
+			Account data = await PostData<Account>(null, getParams, progress, "/login/login_name");
 			if (data != null)
 			{
 				Debug.Log(data);
@@ -48,6 +50,7 @@ namespace App.Inventory
 			else
 			{
 				Debug.LogError("Net Error");
+				return;
 			}
 			await ReadUserData();
 		}
