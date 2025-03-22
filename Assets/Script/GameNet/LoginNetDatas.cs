@@ -1,0 +1,55 @@
+using System;
+
+namespace GameNet
+{
+    [Serializable]
+    public class SeverData
+    {
+        public int id=0;
+        public string name= "";
+        public string config= "";
+        public string status= "";
+        public string time_added= "";
+        public string time_updated= "";
+
+        public override string ToString()
+        {
+            return "id:"+id.ToString() + "名称"+name +"peizhi"+ config +"状态"+ status +"时间戳"+ time_added + time_updated;
+        }
+    }
+
+    [Serializable]
+    public class Account
+    {
+        public int status=0;
+        public string msg = "";
+        public PlayerNetData data;
+    }
+
+    [Serializable]
+    public class PlayerNetData
+    {
+        public string game_token;
+        public AccountNetData account;
+        public RoleNetData role;
+    }
+
+    [Serializable]
+    public class AccountNetData
+    {
+        public string account_id;
+        public string name;
+        public string time_added;
+        public string time_updated;
+    }
+
+    [Serializable]
+    public class RoleNetData
+    {
+        public string role_id;
+        public string name;
+        public int count;
+        public string time_added;
+        public string time_updated;
+    }
+}

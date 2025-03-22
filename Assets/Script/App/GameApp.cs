@@ -24,6 +24,10 @@ public class GameApp : GameLauncher
             try
             {
                 initAllControl();
+                //
+                ConfigManager.Instance.ServerUrl = "http://123.57.17.65:8080";
+                ConfigManager.Instance.SetGlobalHeader("Content-Type", "application/json;charset=utf-8");
+                ConfigManager.Instance.SetGlobalHeader("Authorization", "Bearer ");
                 //读取语言，读取用户数据
                 SBundleManager.Instance.OpenControl(SFStaticsControl.App_Language_LanguageControl, null, false, "", 0, (control) =>
                 {

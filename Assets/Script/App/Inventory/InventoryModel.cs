@@ -4,6 +4,8 @@ using ProtoGameData;
 using UnityEngine;
 using System.Collections.Generic;
 using Config.LevelsBase;
+using System;
+using GameNet;
 
 namespace App.Inventory
 {
@@ -26,7 +28,28 @@ namespace App.Inventory
 		}
 		protected override void opening()
 		{
-			ReadUserData().Forget();
+			requestRemote().Forget(); //请求用户数据
+		}
+
+		private async UniTask requestRemote()
+		{
+			// 创建进度报告器，添加回调函数打印进度值
+			IProgress<float> progress = new Progress<float>(progressValue => {
+				// 将进度值转换为百分比并打印
+				Debug.Log($"request pos: {progressValue * 100:F2}%");
+			});
+			
+			// 调用带有进度参数的GetData方法
+			Account data = await PostData<Account>(null, progress, "/login/login_name");
+			if (data != null)
+			{
+				Debug.Log(data);
+			}
+			else
+			{
+				Debug.LogError("Net Error");
+			}
+			await ReadUserData();
 		}
 
 		public bool IsNewUser()
