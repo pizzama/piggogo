@@ -1,3 +1,4 @@
+using App.Inventory;
 using SFramework;
 using SFramework.Game;
 
@@ -5,6 +6,7 @@ namespace App.SelectArea
 {
 	public class SelectAreaControl : RootControl
 	{
+		public static string SAVEAREA = "SAVEAREA";
 		public override ViewOpenType GetViewOpenType()
 		{
 			return ViewOpenType.Single;
@@ -22,5 +24,15 @@ namespace App.SelectArea
 		{
 			// Code Here
 		}
+
+		public override void HandleMessage(SBundleParams value)
+		{
+			if (value.MessageId == SAVEAREA)
+			{
+				InventoryControl inv = GetControl<InventoryControl>();
+				inv.SetArea((int)value.MessageData);
+			}
+		}
+		
 	}
 }

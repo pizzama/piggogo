@@ -118,6 +118,16 @@ namespace App.Inventory
 			// Code Here
 		}
 
+		public void SetArea(int area)
+		{
+			_userData.Area = area;
+		}
+
+		public int GetArea()
+		{
+			return _userData.Area;
+		}
+
 		public int GetCurLevel()
 		{
 			if (_userData.Level > _maxLevel)

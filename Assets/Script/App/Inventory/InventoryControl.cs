@@ -69,6 +69,18 @@ namespace App.Inventory
 			InventoryModel model = GetModel<InventoryModel>();
 			model.DeleteUserData();
 		}
+
+		public void SetArea(int area)
+		{
+			InventoryModel model = GetModel<InventoryModel>();
+			model.SetArea(area);
+		}
+
+		public int GetArea()
+		{
+			InventoryModel model = GetModel<InventoryModel>();
+			return model.GetArea();
+		}
 		
 		public override void HandleMessage(SBundleParams value)
 		{

@@ -9,9 +9,5 @@ message ProtoUserData{
 	int64 Coin = 3;
 	int32 Diamond = 4;
 	uint32 Level = 5;
-}
-
-
-message GuideData {
-	map<string, int> guideDic = 1;
+	int32 Area = 6; 
 }

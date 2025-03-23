@@ -24,13 +24,14 @@ namespace ProtoGameData {
     static ProtoGameDataReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChNQcm90b0dhbWVEYXRhLnByb3RvEg1Qcm90b0dhbWVEYXRhIlcKDVByb3Rv",
+            "ChNQcm90b0dhbWVEYXRhLnByb3RvEg1Qcm90b0dhbWVEYXRhImUKDVByb3Rv",
             "VXNlckRhdGESCwoDVWlkGAEgASgNEgsKA0V4cBgCIAEoBRIMCgRDb2luGAMg",
-            "ASgDEg8KB0RpYW1vbmQYBCABKAUSDQoFTGV2ZWwYBSABKA1iBnByb3RvMw=="));
+            "ASgDEg8KB0RpYW1vbmQYBCABKAUSDQoFTGV2ZWwYBSABKA0SDAoEQXJlYRgG",
+            "IAEoBWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::ProtoGameData.ProtoUserData), global::ProtoGameData.ProtoUserData.Parser, new[]{ "Uid", "Exp", "Coin", "Diamond", "Level" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ProtoGameData.ProtoUserData), global::ProtoGameData.ProtoUserData.Parser, new[]{ "Uid", "Exp", "Coin", "Diamond", "Level", "Area" }, null, null, null, null)
           }));
     }
     #endregion
@@ -76,6 +77,7 @@ namespace ProtoGameData {
       coin_ = other.coin_;
       diamond_ = other.diamond_;
       level_ = other.level_;
+      area_ = other.area_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -145,6 +147,18 @@ namespace ProtoGameData {
       }
     }
 
+    /// <summary>Field number for the "Area" field.</summary>
+    public const int AreaFieldNumber = 6;
+    private int area_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Area {
+      get { return area_; }
+      set {
+        area_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -165,6 +179,7 @@ namespace ProtoGameData {
       if (Coin != other.Coin) return false;
       if (Diamond != other.Diamond) return false;
       if (Level != other.Level) return false;
+      if (Area != other.Area) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -177,6 +192,7 @@ namespace ProtoGameData {
       if (Coin != 0L) hash ^= Coin.GetHashCode();
       if (Diamond != 0) hash ^= Diamond.GetHashCode();
       if (Level != 0) hash ^= Level.GetHashCode();
+      if (Area != 0) hash ^= Area.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -215,6 +231,10 @@ namespace ProtoGameData {
         output.WriteRawTag(40);
         output.WriteUInt32(Level);
       }
+      if (Area != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(Area);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -245,6 +265,10 @@ namespace ProtoGameData {
         output.WriteRawTag(40);
         output.WriteUInt32(Level);
       }
+      if (Area != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(Area);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -269,6 +293,9 @@ namespace ProtoGameData {
       }
       if (Level != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Level);
+      }
+      if (Area != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Area);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -296,6 +323,9 @@ namespace ProtoGameData {
       }
       if (other.Level != 0) {
         Level = other.Level;
+      }
+      if (other.Area != 0) {
+        Area = other.Area;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -332,6 +362,10 @@ namespace ProtoGameData {
             Level = input.ReadUInt32();
             break;
           }
+          case 48: {
+            Area = input.ReadInt32();
+            break;
+          }
         }
       }
     #endif
@@ -365,6 +399,10 @@ namespace ProtoGameData {
           }
           case 40: {
             Level = input.ReadUInt32();
+            break;
+          }
+          case 48: {
+            Area = input.ReadInt32();
             break;
           }
         }
