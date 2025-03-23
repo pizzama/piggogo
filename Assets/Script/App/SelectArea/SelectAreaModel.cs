@@ -9,7 +9,7 @@ namespace App.SelectArea
 {
 	public class SelectAreaModel : RootModel
 	{
-		private bool _isMustBeSelect;
+		private bool _isMustBeSelect = false;
 		public bool IsMustBeSelect
 		{
 			get => _isMustBeSelect;
@@ -23,7 +23,10 @@ namespace App.SelectArea
 		protected override void opening()
 		{
 			readCnofig().Forget();
-			_isMustBeSelect = (bool)OpenParams.MessageData;
+			if (OpenParams.MessageData != null)
+			{
+				_isMustBeSelect = (bool)OpenParams.MessageData;
+			}
 		}
 		protected override void closing()
 		{
