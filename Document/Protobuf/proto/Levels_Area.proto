@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package Config.Levels_Area;
+
+message Levels_Area {
+  int32 ID = 1;
+  string Name = 2;
+  string Group = 3;
+}
+
+message Levels_Area_datas {
+  map<int32, Levels_Area> datamap = 1; 
+  repeated Levels_Area datas = 2; 
+}
+

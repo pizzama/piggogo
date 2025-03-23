@@ -1,0 +1,182 @@
+[
+    {
+        "ID": "int32",
+        "Name": "string",
+        "Group": "string"
+    },
+    {
+        "ID": "ID",
+        "Name": null,
+        "Group": null
+    },
+    {
+        "ID": 1,
+        "Name": "北京市",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 2,
+        "Name": "天津市",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 3,
+        "Name": "上海市",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 4,
+        "Name": "重庆市",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 5,
+        "Name": "河北省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 6,
+        "Name": "山西省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 7,
+        "Name": "吉林省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 8,
+        "Name": "辽宁省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 9,
+        "Name": "黑龙江省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 10,
+        "Name": "陕西省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 11,
+        "Name": "甘肃省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 12,
+        "Name": "青海省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 13,
+        "Name": "山东省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 14,
+        "Name": "福建省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 15,
+        "Name": "浙江省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 16,
+        "Name": "台湾省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 17,
+        "Name": "河南省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 18,
+        "Name": "湖北省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 19,
+        "Name": "湖南省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 20,
+        "Name": "江西省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 21,
+        "Name": "江苏省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 22,
+        "Name": "安徽省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 23,
+        "Name": "广东省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 24,
+        "Name": "海南省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 25,
+        "Name": "四川省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 26,
+        "Name": "贵州省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 27,
+        "Name": "云南省",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 28,
+        "Name": "内蒙古自治区",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 29,
+        "Name": "广西壮族自治区",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 30,
+        "Name": "西藏自治区",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 31,
+        "Name": "宁夏回族自治区",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 32,
+        "Name": "新疆维吾尔自治区",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 33,
+        "Name": "香港",
+        "Group": "zh_Hans"
+    },
+    {
+        "ID": 34,
+        "Name": "澳门",
+        "Group": "zh_Hans"
+    }
+]

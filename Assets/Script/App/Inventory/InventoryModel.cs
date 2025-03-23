@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Config.LevelsBase;
 using System;
 using GameNet;
+using SFramework;
 
 namespace App.Inventory
 {
@@ -50,7 +51,7 @@ namespace App.Inventory
 			}
 			else
 			{
-				
+				ConfigManager.Instance.SetGlobalHeader("Authorization", "Bearer " + data.data.game_token);
 			}
 			await ReadUserData();
 		}

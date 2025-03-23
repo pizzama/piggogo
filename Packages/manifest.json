@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.justinpbarnett.unity-mcp": "file:/Volumes/work/github/unity-mcp",
     "com.unity.feature.2d": "2.0.1",
     "com.unity.ide.cursor": "https://github.com/boxqkrtm/com.unity.ide.cursor.git",
     "com.unity.ide.trae": "file:/Volumes/work/github/com.unity.ide.trae",
