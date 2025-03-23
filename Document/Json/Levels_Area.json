@@ -10,6 +10,11 @@
         "Group": null
     },
     {
+        "ID": "主键id",
+        "Name": null,
+        "Group": "分组，根据语言区域显示不同的地名"
+    },
+    {
         "ID": 1,
         "Name": "北京市",
         "Group": "zh_Hans"
