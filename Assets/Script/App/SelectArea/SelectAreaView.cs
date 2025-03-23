@@ -16,8 +16,10 @@ namespace App.SelectArea
 		protected override void opening()
 		{
 			// Code Here
+			bool rt = GetModel<SelectAreaModel>().IsMustBeSelect;
 			_closeBtn = getExportObject<Button>("CloseBtn");
-			_closeBtn.onClick.AddListener(closeHandle);
+			if (rt == false)
+				_closeBtn.onClick.AddListener(CloseHandle);
 
 			_enScroll = getExportObject<SelectAreaEnScroll>("EnScroll");
 			
@@ -25,10 +27,10 @@ namespace App.SelectArea
 		protected override void closing()
 		{
 			// Code Here
-			_closeBtn.onClick.RemoveListener(closeHandle);
+			_closeBtn.onClick.RemoveListener(CloseHandle);
 		}
 		
-		private void closeHandle()
+		public void CloseHandle()
 		{
 			Control.Close();
 		}

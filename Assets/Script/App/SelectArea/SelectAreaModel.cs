@@ -9,6 +9,12 @@ namespace App.SelectArea
 {
 	public class SelectAreaModel : RootModel
 	{
+		private bool _isMustBeSelect;
+		public bool IsMustBeSelect
+		{
+			get => _isMustBeSelect;
+			set => _isMustBeSelect = value;
+		}
 		private Levels_Area_datas _allLevelArea;
 		public List<Levels_Area> AllLevelArea()
 		{
@@ -17,6 +23,7 @@ namespace App.SelectArea
 		protected override void opening()
 		{
 			readCnofig().Forget();
+			_isMustBeSelect = (bool)OpenParams.MessageData;
 		}
 		protected override void closing()
 		{

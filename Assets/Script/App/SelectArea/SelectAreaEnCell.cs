@@ -31,5 +31,6 @@ public class SelectAreaEnCell : EnhancedScrollerCellView
     private void okHandler()
     {
         _view.SendMessage(SelectAreaControl.SAVEAREA, _config.ID);
+        _view.CloseHandle();
     }
 }
