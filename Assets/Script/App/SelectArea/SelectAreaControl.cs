@@ -1,6 +1,8 @@
+using App.Home;
 using App.Inventory;
 using SFramework;
 using SFramework.Game;
+using SFramework.Statics;
 
 namespace App.SelectArea
 {
@@ -18,7 +20,6 @@ namespace App.SelectArea
 		protected override void alreadyOpened()
 		{
 			base.alreadyOpened();
-			RefreshAreaName();
 			// Code Here
 		}
 		protected override void closing()
@@ -26,19 +27,14 @@ namespace App.SelectArea
 			// Code Here
 		}
 
-		public void RefreshAreaName()
-		{
-			InventoryControl inv = GetControl<InventoryControl>();
-			string area = inv.GetAreaName();
-			SelectAreaView view = GetView<SelectAreaView>();
-			view.RefreshArea(area);
-		}
-
 		public override void HandleMessage(SBundleParams value)
 		{
 			if (value.MessageId == SAVEAREA)
 			{
-				RefreshAreaName();
+				//保存区域
+				InventoryControl inv = GetControl<InventoryControl>();
+				inv.SetArea((int)value.MessageData);
+				BroadcastControl(HomeMenuControl.REFRESHAREA, null, SFStaticsControl.App_Home_HomeMenuControl);
 			}
 		}
 		

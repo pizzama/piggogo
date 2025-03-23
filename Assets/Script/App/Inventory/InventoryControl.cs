@@ -74,6 +74,7 @@ namespace App.Inventory
 		{
 			InventoryModel model = GetModel<InventoryModel>();
 			model.SetArea(area);
+			model.SaveUserData();
 		}
 
 		public int GetArea()

@@ -9,7 +9,6 @@ namespace App.SelectArea
 	{
 		private Button _closeBtn;
 		private SelectAreaEnScroll _enScroll;
-		private Text _areaName;
 		protected override UILayer GetViewLayer()
 		{
 			return UILayer.Popup;
@@ -23,7 +22,6 @@ namespace App.SelectArea
 				_closeBtn.onClick.AddListener(CloseHandle);
 
 			_enScroll = getExportObject<SelectAreaEnScroll>("EnScroll");
-			_areaName = getExportObject<Text>("AreaName");
 		}
 		protected override void closing()
 		{
@@ -34,11 +32,6 @@ namespace App.SelectArea
 		public void CloseHandle()
 		{
 			Control.Close();
-		}
-
-		public void RefreshArea(string value)
-		{
-			_areaName.text = value;
 		}
 	}
 }

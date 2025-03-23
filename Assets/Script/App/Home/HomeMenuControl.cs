@@ -7,7 +7,7 @@ namespace App.Home
 {
 	public class HomeMenuControl : RootControl
 	{
-		public static string SAVEAREA = "SAVEAREA";
+		public static string REFRESHAREA = "REFRESHAREA";
 		public override ViewOpenType GetViewOpenType()
 		{
 			return ViewOpenType.Single;
@@ -38,6 +38,8 @@ namespace App.Home
 				// 弹出选择
 				OpenControl(SFStaticsControl.App_SelectArea_SelectAreaControl, true);	
 			}
+
+			RefreshAreaName();
 		}
 		protected override void closing()
 		{
@@ -46,10 +48,18 @@ namespace App.Home
 
 		public override void HandleMessage(SBundleParams value)
 		{
-			if (value.MessageId == SAVEAREA)
+			if (value.MessageId == REFRESHAREA)
 			{
-				
+				RefreshAreaName();
 			}
+		}
+
+		public void RefreshAreaName()
+		{
+			InventoryControl inv = GetControl<InventoryControl>();
+			string area = inv.GetAreaName();
+			HomeMenuView view = GetView<HomeMenuView>();
+			view.RefreshArea(area);
 		}
 	}
 }

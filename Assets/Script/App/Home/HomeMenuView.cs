@@ -12,6 +12,7 @@ namespace App.Home
 		private Button _specialBtn;
 		private Button _levelBtn;
 		private Button _areaBtn;
+		private Text _areaName;
 
 		protected override UILayer GetViewLayer()
 		{
@@ -27,6 +28,8 @@ namespace App.Home
 			_specialBtn.onClick.AddListener(specialHandle);
 			_levelBtn.onClick.AddListener(levelHandle);
 			_areaBtn.onClick.AddListener(areaHandle);
+
+			_areaName = getExportObject<Text>("AreaName");
 		}
 		protected override void closing()
 		{
@@ -48,6 +51,11 @@ namespace App.Home
 		private void areaHandle()
 		{
 			Control.OpenControl(SFStaticsControl.App_SelectArea_SelectAreaControl);
+		}
+
+		public void RefreshArea(string value)
+		{
+			_areaName.text = value;
 		}
 	}
 }
