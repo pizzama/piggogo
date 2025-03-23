@@ -6,28 +6,37 @@ using UnityEngine;
 
 public class RankEnScroll : RootEntity, IEnhancedScrollerDelegate
 {
+    [SerializeField] private EnhancedScroller scroller;
+    [SerializeField] private EnhancedScrollerCellView cellViewPrefab;
+    void Start()
+    {
+        scroller.Delegate = this;
+    }
     public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
     {
-        throw new System.NotImplementedException();
+        RankEnCell cellView = scroller.GetCellView(cellViewPrefab) as RankEnCell;
+        cellView.Attache(this);
+        // cellView.SetData(conf);
+        return cellView;
     }
 
     public float GetCellViewSize(EnhancedScroller scroller, int dataIndex)
     {
-        throw new System.NotImplementedException();
+        return 120;
     }
 
     public int GetNumberOfCells(EnhancedScroller scroller)
     {
-        throw new System.NotImplementedException();
+        return 10;
     }
 
     public override void Recycle()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void Show()
     {
-        throw new System.NotImplementedException();
+        
     }
 }

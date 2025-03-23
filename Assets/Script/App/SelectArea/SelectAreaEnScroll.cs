@@ -16,8 +16,8 @@ public class SelectAreaEnScroll : RootEntity, IEnhancedScrollerDelegate
     {
         SelectAreaEnCell cellView = scroller.GetCellView(cellViewPrefab) as SelectAreaEnCell;
         Levels_Area conf = _configs[dataIndex];
-        Debug.Log("conff:" + conf.Name + ";" + conf.ID + ";" + dataIndex + ";" + _configs.Count);
-        cellView.SetData(ParentView as SelectAreaView, conf);
+        cellView.Attache(this);
+        cellView.SetData(conf);
         return cellView;
     }
 

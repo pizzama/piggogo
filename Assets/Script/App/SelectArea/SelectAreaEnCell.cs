@@ -1,10 +1,12 @@
 using App.SelectArea;
 using Config.LevelsArea;
 using EnhancedUI.EnhancedScroller;
+using SFramework;
+using SFramework.Game;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectAreaEnCell : EnhancedScrollerCellView
+public class SelectAreaEnCell : EnhancedScrollerCellView, ILinker
 {
     [SerializeField] private Text _areaName;
     [SerializeField] private Button _okBtn;
@@ -21,9 +23,8 @@ public class SelectAreaEnCell : EnhancedScrollerCellView
         _okBtn.onClick.RemoveListener(okHandler);
     }
 
-    public void SetData(SelectAreaView view, Levels_Area config)
+    public void SetData(Levels_Area config)
     {
-        _view = view;
         _config = config;
         _areaName.text = config.Name;
     }
@@ -32,5 +33,18 @@ public class SelectAreaEnCell : EnhancedScrollerCellView
     {
         _view.SendMessage(SelectAreaControl.SAVEAREA, _config.ID);
         _view.CloseHandle();
+    }
+
+    public void Attache(ISEntity entity)
+    {
+        if(entity is RootEntity root)
+        {
+            _view = root.ParentView as SelectAreaView;
+        }
+    }
+
+    public void DeAttache()
+    {
+        _view = null;
     }
 }
