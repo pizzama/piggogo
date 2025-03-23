@@ -3,12 +3,11 @@ using System;
 namespace GameNet
 {
     [Serializable]
-    public class SeverData
+    public class SeverData: GameNetBase
     {
         public int id=0;
         public string name= "";
         public string config= "";
-        public string status= "";
         public string time_added= "";
         public string time_updated= "";
 
@@ -19,10 +18,8 @@ namespace GameNet
     }
 
     [Serializable]
-    public class Account
+    public class Account: GameNetBase
     {
-        public int status=0;
-        public string msg = "";
         public PlayerNetData data;
     }
 
