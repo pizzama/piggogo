@@ -7,6 +7,7 @@ using Config.LevelsBase;
 using System;
 using GameNet;
 using SFramework;
+using Config.LevelsArea;
 
 namespace App.Inventory
 {
@@ -15,6 +16,7 @@ namespace App.Inventory
 		public const int MaxFishTime = 120;
 		private bool _isNewUser;
 		private Levels_Base_datas _allLevelBase;
+		private Levels_Area_datas _allLevelArea;
 		
 		private ProtoUserData _userData;
 		private int _maxLevel = 1;
@@ -65,6 +67,8 @@ namespace App.Inventory
 		{
 			//读取配置文件
 			_allLevelBase = await configManager.GetConfigAsync<Levels_Base_datas>();
+			_allLevelArea = await configManager.GetConfigAsync<Levels_Area_datas>();
+			
 			_maxLevel = 0;
 			if (_allLevelBase.Datas.Count > 0)
 			{
@@ -126,6 +130,17 @@ namespace App.Inventory
 		public int GetArea()
 		{
 			return _userData.Area;
+		}
+
+		public string GetAreaName()
+		{
+			
+			_allLevelArea.Datamap.TryGetValue(_userData.Area, out var config);
+			if (config != null)
+			{
+				return config.Name;
+			}
+			return "";
 		}
 
 		public int GetCurLevel()

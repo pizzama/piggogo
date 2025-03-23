@@ -81,6 +81,12 @@ namespace App.Inventory
 			InventoryModel model = GetModel<InventoryModel>();
 			return model.GetArea();
 		}
+
+		public string GetAreaName()
+		{
+			InventoryModel model = GetModel<InventoryModel>();
+			return model.GetAreaName();
+		}
 		
 		public override void HandleMessage(SBundleParams value)
 		{
