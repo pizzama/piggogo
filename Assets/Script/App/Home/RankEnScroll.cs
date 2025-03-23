@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using EnhancedUI.EnhancedScroller;
 using SFramework.Game;
 using UnityEngine;
