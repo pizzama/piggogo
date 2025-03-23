@@ -31,7 +31,30 @@ namespace SFramework.Statics
         public const string App_home_sfp_Button8_png = "app_home.sfp/Button8";
         public const string App_home_sfp_Button9_png = "app_home.sfp/Button9";
         public const string App_home_sfp_Button10_png = "app_home.sfp/Button10";
+        public const string App_home_sfp_Button11_png = "app_home.sfp/Button11";
+        public const string App_home_sfp_Button12_png = "app_home.sfp/Button12";
+        public const string App_home_sfp_Button13_png = "app_home.sfp/Button13";
+        public const string App_home_sfp_Home_icon1_png = "app_home.sfp/Home_icon1";
+        public const string App_home_sfp_Home_icon2_png = "app_home.sfp/Home_icon2";
+        public const string App_home_sfp_Home_icon3_png = "app_home.sfp/Home_icon3";
+        public const string App_home_sfp_Home_RankArrow_png = "app_home.sfp/Home_RankArrow";
+        public const string App_home_sfp_Home_rankbg1_png = "app_home.sfp/Home_rankbg1";
+        public const string App_home_sfp_Home_rankbg2_png = "app_home.sfp/Home_rankbg2";
+        public const string App_home_sfp_Home_rankbg3_png = "app_home.sfp/Home_rankbg3";
+        public const string App_home_sfp_Home_rankbg4_png = "app_home.sfp/Home_rankbg4";
+        public const string App_home_sfp_Home_rankbg5_png = "app_home.sfp/Home_rankbg5";
+        public const string App_home_sfp_Home_rankbg6_png = "app_home.sfp/Home_rankbg6";
+        public const string App_home_sfp_Home_rankbg7_png = "app_home.sfp/Home_rankbg7";
+        public const string App_home_sfp_Home_rankbg8_png = "app_home.sfp/Home_rankbg8";
+        public const string App_home_sfp_Home_rankbg9_png = "app_home.sfp/Home_rankbg9";
+        public const string App_home_sfp_Home_RankName_png = "app_home.sfp/Home_RankName";
+        public const string App_home_sfp_Home_RankName1_png = "app_home.sfp/Home_RankName1";
+        public const string App_home_sfp_Home_TaskIcon_png = "app_home.sfp/Home_TaskIcon";
         public const string App_home_sfp_Homebg_png = "app_home.sfp/Homebg";
+        public const string App_home_sfp_Homebg1_png = "app_home.sfp/Homebg1";
+        public const string App_home_sfp_Homebg2_png = "app_home.sfp/Homebg2";
+        public const string App_home_sfp_HomeCoinBg_png = "app_home.sfp/HomeCoinBg";
+        public const string App_home_sfp_HomeCoinBg1_png = "app_home.sfp/HomeCoinBg1";
         public const string App_home_sfp_HomeMenuView_prefab = "app_home.sfp/HomeMenuView";
         public const string App_home_sfs_HomeView_unity = "app_home.sfs/HomeView";
         public const string App_hudmain_sfp_HudMainView_prefab = "app_hudmain.sfp/HudMainView";
@@ -43,6 +66,10 @@ namespace SFramework.Statics
         public const string App_mainscene_sfp_img_mud_png = "app_mainscene.sfp/img_mud";
         public const string App_mainscene_sfp_Key_png = "app_mainscene.sfp/Key";
         public const string App_mainscene_sfp_Lock_png = "app_mainscene.sfp/Lock";
+        public const string App_mainscene_sfp_main_car1_png = "app_mainscene.sfp/main_car1";
+        public const string App_mainscene_sfp_main_car2_png = "app_mainscene.sfp/main_car2";
+        public const string App_mainscene_sfp_main_car3_png = "app_mainscene.sfp/main_car3";
+        public const string App_mainscene_sfp_main_car4_png = "app_mainscene.sfp/main_car4";
         public const string App_mainscene_sfp_Pig_prefab = "app_mainscene.sfp/Pig";
         public const string App_mainscene_sfp_SceneBg_png = "app_mainscene.sfp/SceneBg";
         public const string App_mainscene_sfs_MainSceneView_unity = "app_mainscene.sfs/MainSceneView";
@@ -112,6 +139,7 @@ namespace SFramework.Statics
         public const string App_pigs_pig11_sfp_pig11_Atlas_asset = "app_pigs_pig11.sfp/pig11_Atlas";
         public const string App_pigs_pig11_sfp_pig11_Material_mat = "app_pigs_pig11.sfp/pig11_Material";
         public const string App_pigs_pig11_sfp_pig11_SkeletonData_asset = "app_pigs_pig11.sfp/pig11_SkeletonData";
+        public const string App_selectarea_sfp_SelectAreaView_prefab = "app_selectarea.sfp/SelectAreaView";
         public const string App_snipe_sfp_SnipeView_prefab = "app_snipe.sfp/SnipeView";
         public const string Sfscene_sfs_SFSCENE_scenetemplate = "sfscene.sfs/SFSCENE";
         public const string Suiroot_sfp_SUIROOT_prefab = "suiroot.sfp/SUIROOT";
@@ -154,7 +182,30 @@ namespace SFramework.Statics
         public const string RES_Button8_png = "Button8";
         public const string RES_Button9_png = "Button9";
         public const string RES_Button10_png = "Button10";
+        public const string RES_Button11_png = "Button11";
+        public const string RES_Button12_png = "Button12";
+        public const string RES_Button13_png = "Button13";
+        public const string RES_Home_icon1_png = "Home_icon1";
+        public const string RES_Home_icon2_png = "Home_icon2";
+        public const string RES_Home_icon3_png = "Home_icon3";
+        public const string RES_Home_RankArrow_png = "Home_RankArrow";
+        public const string RES_Home_rankbg1_png = "Home_rankbg1";
+        public const string RES_Home_rankbg2_png = "Home_rankbg2";
+        public const string RES_Home_rankbg3_png = "Home_rankbg3";
+        public const string RES_Home_rankbg4_png = "Home_rankbg4";
+        public const string RES_Home_rankbg5_png = "Home_rankbg5";
+        public const string RES_Home_rankbg6_png = "Home_rankbg6";
+        public const string RES_Home_rankbg7_png = "Home_rankbg7";
+        public const string RES_Home_rankbg8_png = "Home_rankbg8";
+        public const string RES_Home_rankbg9_png = "Home_rankbg9";
+        public const string RES_Home_RankName_png = "Home_RankName";
+        public const string RES_Home_RankName1_png = "Home_RankName1";
+        public const string RES_Home_TaskIcon_png = "Home_TaskIcon";
         public const string RES_Homebg_png = "Homebg";
+        public const string RES_Homebg1_png = "Homebg1";
+        public const string RES_Homebg2_png = "Homebg2";
+        public const string RES_HomeCoinBg_png = "HomeCoinBg";
+        public const string RES_HomeCoinBg1_png = "HomeCoinBg1";
         public const string RES_HomeMenuView_prefab = "HomeMenuView";
     }
     public class App_home_sfs
@@ -167,6 +218,10 @@ namespace SFramework.Statics
         public const string BundleName = "app_hudmain.sfp";
         public const string RES_HudMainView_prefab = "HudMainView";
     }
+    public class App_mainscene
+    {
+        public const string BundleName = "app_mainscene";
+    }
     public class App_mainscene_sfp
     {
         public const string BundleName = "app_mainscene.sfp";
@@ -178,6 +233,10 @@ namespace SFramework.Statics
         public const string RES_img_mud_png = "img_mud";
         public const string RES_Key_png = "Key";
         public const string RES_Lock_png = "Lock";
+        public const string RES_main_car1_png = "main_car1";
+        public const string RES_main_car2_png = "main_car2";
+        public const string RES_main_car3_png = "main_car3";
+        public const string RES_main_car4_png = "main_car4";
         public const string RES_Pig_prefab = "Pig";
         public const string RES_SceneBg_png = "SceneBg";
     }
@@ -296,6 +355,15 @@ namespace SFramework.Statics
         public const string RES_pig11_Material_mat = "pig11_Material";
         public const string RES_pig11_SkeletonData_asset = "pig11_SkeletonData";
     }
+    public class App_selectarea
+    {
+        public const string BundleName = "app_selectarea";
+    }
+    public class App_selectarea_sfp
+    {
+        public const string BundleName = "app_selectarea.sfp";
+        public const string RES_SelectAreaView_prefab = "SelectAreaView";
+    }
     public class App_snipe_sfp
     {
         public const string BundleName = "app_snipe.sfp";
@@ -311,5 +379,9 @@ namespace SFramework.Statics
         public const string BundleName = "suiroot.sfp";
         public const string RES_SUIROOT_prefab = "SUIROOT";
         public const string RES_SUIROOTURP_prefab = "SUIROOTURP";
+    }
+    public class Test_sfp
+    {
+        public const string BundleName = "test.sfp";
     }
 }
