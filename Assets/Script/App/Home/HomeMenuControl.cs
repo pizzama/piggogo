@@ -17,23 +17,16 @@ namespace App.Home
 			// Code Here
 		}
 
-		public bool HasArea()
+		public int GetArea()
 		{
 			InventoryControl inv = GetControl<InventoryControl>();
-			if (inv.GetArea() > 0)
-			{
-				return true;	
-			}
-			else
-			{
-				return false;
-			}
+			return inv.GetArea();
 		}
 
 		protected override void alreadyOpened()
 		{
 			// Code Here
-			if(HasArea() == false)
+			if(GetArea() == 0)
 			{
 				// 弹出选择
 				OpenControl(SFStaticsControl.App_SelectArea_SelectAreaControl, true);	
