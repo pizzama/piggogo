@@ -201,20 +201,20 @@ namespace App.Inventory
 
 		public void ChangeName(string name)
 		{
-			// 调用带有进度参数的GetData方法
-			Dictionary<string, string> getParams = new Dictionary<string, string>();
-			getParams.Add("user_name", SystemInfo.deviceUniqueIdentifier);
-			Account data = await PostData<Account>(null, getParams, progress, "/login/account");
-			if (data == null || data.status != 0)
-			{
-				Debug.LogError("Net Error");
-				return;
-			}
-			else
-			{
-				ConfigManager.Instance.SetGlobalHeader("Authorization", "Bearer " + data.data.game_token);
-				_userName = data.data.role.name;
-			}
+			// // 调用带有进度参数的GetData方法
+			// Dictionary<string, string> getParams = new Dictionary<string, string>();
+			// getParams.Add("user_name", SystemInfo.deviceUniqueIdentifier);
+			// Account data = await PostData<Account>(null, getParams, progress, "/login/account");
+			// if (data == null || data.status != 0)
+			// {
+			// 	Debug.LogError("Net Error");
+			// 	return;
+			// }
+			// else
+			// {
+			// 	ConfigManager.Instance.SetGlobalHeader("Authorization", "Bearer " + data.data.game_token);
+			// 	_userName = data.data.role.name;
+			// }
 		}
 	}
 }

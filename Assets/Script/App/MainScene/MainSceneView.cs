@@ -9,11 +9,14 @@ using SFramework.Game;
 using SFramework.GameCamera;
 using SFramework.Statics;
 using App.GameSuccess;
+using Config.LevelsBase;
 
 namespace App.MainScene
 {
 	public class MainSceneView : SSCENEView
 	{
+		private float[] posY1 = { 4.8f, 3f, 1.2f, -0.6f, -2.4f, -4.2f, -6f }; //根据配置计算是否偏移
+		private float[] posY2 = { 4.36f, 2.56f, 0.76f, -1.04f, -2.84f, -5.94f, -6.44f};
 		private Transform _branchs;
 		private Transform _itemsContainer;
 		private MainSceneModel _model;
@@ -43,11 +46,24 @@ namespace App.MainScene
 		
 		public async UniTask DealWithBranch()
 		{
+			Levels_Base lb = GetModel<MainSceneModel>().CurLevelBase;
+			float[] pos = posY1;
+			if (lb.Floor == 1)
+				pos = posY2;
+			int index = 0;
 			for (int i = 0; i < _branchs.childCount; i++)
 			{
 				var bh = _branchs.GetChild(i);
 				bh.gameObject.SetActive(false);
 				SeatBar bar = bh.GetComponent<SeatBar>();
+				Vector3 vec = bar.transform.localPosition;
+				if (i % 2 != 0 )
+				{
+					vec.y = pos[index];	
+					index += 1;
+					bar.transform.localPosition = vec;
+				}
+				
 				bar.Recycle(); //回收之前的数据
 				bar.SetEntityData((i + 1).ToString(), this);
 				bar.SetIndex(i + 1);

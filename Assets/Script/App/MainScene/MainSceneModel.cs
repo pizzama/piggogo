@@ -15,6 +15,11 @@ namespace App.MainScene
 		private Levels_Base_datas _allLevelBase;
 		private Levels_Detail_datas _allLevelDetail;
 		private List<Levels_Detail> _curLevelDetails;
+		private Levels_Base _curLevelBase;
+		public Levels_Base CurLevelBase
+		{
+			get { return _curLevelBase; }
+		}
 
 		private List<int> _datapool;
 		private List<int> _waitIdsPool;
@@ -111,6 +116,7 @@ namespace App.MainScene
 		{
 			_datapool.Clear();
 			Levels_Base config = GetCurrentLevelById(levelId);
+			_curLevelBase = config;
 			if(config != null)
 			{
 				_waitIdsPool = config.AfterTyps?.ToList();
