@@ -247,8 +247,8 @@ GameObject:
   - component: {fileID: 529444920883882513}
   - component: {fileID: 8118680973146887098}
   m_Layer: 0
-  m_Name: Content
-  m_TagString: Untagged
+  m_Name: RankEnScroll
+  m_TagString: $EXPORT$
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

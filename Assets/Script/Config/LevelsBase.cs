@@ -24,20 +24,20 @@ namespace Config.LevelsBase {
     static LevelsBaseReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFMZXZlbHNfQmFzZS5wcm90bxISQ29uZmlnLkxldmVsc19CYXNlIpEBCgtM",
+            "ChFMZXZlbHNfQmFzZS5wcm90bxISQ29uZmlnLkxldmVsc19CYXNlIqABCgtM",
             "ZXZlbHNfQmFzZRIKCgJJRBgBIAEoBRIPCgdBbGxUeXBzGAIgAygFEg8KB0Fs",
             "bE51bXMYAyADKAUSEQoJQWZ0ZXJUeXBzGAQgAygFEhAKCEFmdGVyTnVtGAUg",
-            "AygFEhMKC1RyaWdnZXJUeXBlGAYgAygFEgwKBE5hbWUYByABKAkSDAoERGVz",
-            "YxgIIAEoCSLZAQoRTGV2ZWxzX0Jhc2VfZGF0YXMSQwoHZGF0YW1hcBgBIAMo",
-            "CzIyLkNvbmZpZy5MZXZlbHNfQmFzZS5MZXZlbHNfQmFzZV9kYXRhcy5EYXRh",
-            "bWFwRW50cnkSLgoFZGF0YXMYAiADKAsyHy5Db25maWcuTGV2ZWxzX0Jhc2Uu",
-            "TGV2ZWxzX0Jhc2UaTwoMRGF0YW1hcEVudHJ5EgsKA2tleRgBIAEoBRIuCgV2",
-            "YWx1ZRgCIAEoCzIfLkNvbmZpZy5MZXZlbHNfQmFzZS5MZXZlbHNfQmFzZToC",
-            "OAFiBnByb3RvMw=="));
+            "AygFEhMKC1RyaWdnZXJUeXBlGAYgAygFEg0KBUZsb29yGAcgASgFEgwKBE5h",
+            "bWUYCCABKAkSDAoERGVzYxgJIAEoCSLZAQoRTGV2ZWxzX0Jhc2VfZGF0YXMS",
+            "QwoHZGF0YW1hcBgBIAMoCzIyLkNvbmZpZy5MZXZlbHNfQmFzZS5MZXZlbHNf",
+            "QmFzZV9kYXRhcy5EYXRhbWFwRW50cnkSLgoFZGF0YXMYAiADKAsyHy5Db25m",
+            "aWcuTGV2ZWxzX0Jhc2UuTGV2ZWxzX0Jhc2UaTwoMRGF0YW1hcEVudHJ5EgsK",
+            "A2tleRgBIAEoBRIuCgV2YWx1ZRgCIAEoCzIfLkNvbmZpZy5MZXZlbHNfQmFz",
+            "ZS5MZXZlbHNfQmFzZToCOAFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Config.LevelsBase.Levels_Base), global::Config.LevelsBase.Levels_Base.Parser, new[]{ "ID", "AllTyps", "AllNums", "AfterTyps", "AfterNum", "TriggerType", "Name", "Desc" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Config.LevelsBase.Levels_Base), global::Config.LevelsBase.Levels_Base.Parser, new[]{ "ID", "AllTyps", "AllNums", "AfterTyps", "AfterNum", "TriggerType", "Floor", "Name", "Desc" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Config.LevelsBase.Levels_Base_datas), global::Config.LevelsBase.Levels_Base_datas.Parser, new[]{ "Datamap", "Datas" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
           }));
     }
@@ -85,6 +85,7 @@ namespace Config.LevelsBase {
       afterTyps_ = other.afterTyps_.Clone();
       afterNum_ = other.afterNum_.Clone();
       triggerType_ = other.triggerType_.Clone();
+      floor_ = other.floor_;
       name_ = other.name_;
       desc_ = other.desc_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -163,8 +164,20 @@ namespace Config.LevelsBase {
       get { return triggerType_; }
     }
 
+    /// <summary>Field number for the "Floor" field.</summary>
+    public const int FloorFieldNumber = 7;
+    private int floor_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Floor {
+      get { return floor_; }
+      set {
+        floor_ = value;
+      }
+    }
+
     /// <summary>Field number for the "Name" field.</summary>
-    public const int NameFieldNumber = 7;
+    public const int NameFieldNumber = 8;
     private string name_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -176,7 +189,7 @@ namespace Config.LevelsBase {
     }
 
     /// <summary>Field number for the "Desc" field.</summary>
-    public const int DescFieldNumber = 8;
+    public const int DescFieldNumber = 9;
     private string desc_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -208,6 +221,7 @@ namespace Config.LevelsBase {
       if(!afterTyps_.Equals(other.afterTyps_)) return false;
       if(!afterNum_.Equals(other.afterNum_)) return false;
       if(!triggerType_.Equals(other.triggerType_)) return false;
+      if (Floor != other.Floor) return false;
       if (Name != other.Name) return false;
       if (Desc != other.Desc) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -223,6 +237,7 @@ namespace Config.LevelsBase {
       hash ^= afterTyps_.GetHashCode();
       hash ^= afterNum_.GetHashCode();
       hash ^= triggerType_.GetHashCode();
+      if (Floor != 0) hash ^= Floor.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Desc.Length != 0) hash ^= Desc.GetHashCode();
       if (_unknownFields != null) {
@@ -252,12 +267,16 @@ namespace Config.LevelsBase {
       afterTyps_.WriteTo(output, _repeated_afterTyps_codec);
       afterNum_.WriteTo(output, _repeated_afterNum_codec);
       triggerType_.WriteTo(output, _repeated_triggerType_codec);
+      if (Floor != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(Floor);
+      }
       if (Name.Length != 0) {
-        output.WriteRawTag(58);
+        output.WriteRawTag(66);
         output.WriteString(Name);
       }
       if (Desc.Length != 0) {
-        output.WriteRawTag(66);
+        output.WriteRawTag(74);
         output.WriteString(Desc);
       }
       if (_unknownFields != null) {
@@ -279,12 +298,16 @@ namespace Config.LevelsBase {
       afterTyps_.WriteTo(ref output, _repeated_afterTyps_codec);
       afterNum_.WriteTo(ref output, _repeated_afterNum_codec);
       triggerType_.WriteTo(ref output, _repeated_triggerType_codec);
+      if (Floor != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(Floor);
+      }
       if (Name.Length != 0) {
-        output.WriteRawTag(58);
+        output.WriteRawTag(66);
         output.WriteString(Name);
       }
       if (Desc.Length != 0) {
-        output.WriteRawTag(66);
+        output.WriteRawTag(74);
         output.WriteString(Desc);
       }
       if (_unknownFields != null) {
@@ -305,6 +328,9 @@ namespace Config.LevelsBase {
       size += afterTyps_.CalculateSize(_repeated_afterTyps_codec);
       size += afterNum_.CalculateSize(_repeated_afterNum_codec);
       size += triggerType_.CalculateSize(_repeated_triggerType_codec);
+      if (Floor != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Floor);
+      }
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
@@ -331,6 +357,9 @@ namespace Config.LevelsBase {
       afterTyps_.Add(other.afterTyps_);
       afterNum_.Add(other.afterNum_);
       triggerType_.Add(other.triggerType_);
+      if (other.Floor != 0) {
+        Floor = other.Floor;
+      }
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
@@ -381,11 +410,15 @@ namespace Config.LevelsBase {
             triggerType_.AddEntriesFrom(input, _repeated_triggerType_codec);
             break;
           }
-          case 58: {
-            Name = input.ReadString();
+          case 56: {
+            Floor = input.ReadInt32();
             break;
           }
           case 66: {
+            Name = input.ReadString();
+            break;
+          }
+          case 74: {
             Desc = input.ReadString();
             break;
           }
@@ -433,11 +466,15 @@ namespace Config.LevelsBase {
             triggerType_.AddEntriesFrom(ref input, _repeated_triggerType_codec);
             break;
           }
-          case 58: {
-            Name = input.ReadString();
+          case 56: {
+            Floor = input.ReadInt32();
             break;
           }
           case 66: {
+            Name = input.ReadString();
+            break;
+          }
+          case 74: {
             Desc = input.ReadString();
             break;
           }

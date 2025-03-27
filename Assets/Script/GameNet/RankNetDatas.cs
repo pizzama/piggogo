@@ -30,7 +30,7 @@ namespace GameNet
         public string role_id;
         public int score;
     }
-    
+
     [Serializable]
     public class RankMyselfData
     {
@@ -38,5 +38,12 @@ namespace GameNet
         public string role_id;
         public int score;
         public int rank;
+    }
+
+    [Serializable]
+    public class RequestChangeRank
+    {
+        public string old_category;
+        public string new_category;
     }
 }

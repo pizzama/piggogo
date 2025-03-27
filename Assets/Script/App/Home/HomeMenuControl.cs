@@ -1,4 +1,5 @@
 using App.Inventory;
+using GameNet;
 using SFramework;
 using SFramework.Game;
 using SFramework.Statics;
@@ -43,6 +44,8 @@ namespace App.Home
 		{
 			if (value.MessageId == REFRESHAREA)
 			{
+				HomeMenuModel model = GetModel<HomeMenuModel>();
+				model.TopPlayersData = value.MessageData as RankTopPlayersData;
 				RefreshAreaName();
 			}
 		}
@@ -54,5 +57,6 @@ namespace App.Home
 			HomeMenuView view = GetView<HomeMenuView>();
 			view.RefreshArea(area);
 		}
+		
 	}
 }

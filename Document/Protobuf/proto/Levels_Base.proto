@@ -9,8 +9,9 @@ repeated int32 AllNums = 3;
 repeated int32 AfterTyps = 4;
 repeated int32 AfterNum = 5;
 repeated int32 TriggerType = 6;
-  string Name = 7;
-  string Desc = 8;
+  int32 Floor = 7;
+  string Name = 8;
+  string Desc = 9;
 }
 
 message Levels_Base_datas {

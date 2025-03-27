@@ -8,12 +8,22 @@ namespace App.Home
 {
 	public class HomeMenuModel : RootModel
 	{
-
+		private RankTopPlayersData _topPlayersData;
+		public RankTopPlayersData TopPlayersData
+		{
+			get => _topPlayersData;
+			set => _topPlayersData = value;
+		}
 		protected override void opening()
 		{
-			GetData().Forget();
+			initData().Forget();
+		}
+
+		private async UniTask initData()
+		{
+			await GetData();
 			int area = (Control as HomeMenuControl).GetArea();
-			requestRankData(area).Forget();
+			await requestRankData(area);
 		}
 
 		private async UniTask requestRankData(int area)
@@ -21,8 +31,10 @@ namespace App.Home
 			// 调用带有进度参数的GetData方法
 			Dictionary<string, string> getParams = new Dictionary<string, string>();
 			getParams.Add("category", area.ToString());
+			getParams.Add("count", "5");
+			getParams.Add("include_self", "true");
 			RankTopPlayersNetData rd = await GetNetData<RankTopPlayersNetData>(getParams, null, "/leaderboard/get_top_players");
-			Debug.Log("RankData: " + rd.data.category + ";" + rd.data.top_players + ";" + rd.data.current_player);
+			_topPlayersData = rd.data;
 		}
 
 		protected override void closing()

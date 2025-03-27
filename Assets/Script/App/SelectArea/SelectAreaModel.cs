@@ -4,6 +4,7 @@ using Config.LevelsArea;
 using SFramework;
 using System.Collections.Generic;
 using System.Linq;
+using GameNet;
 
 namespace App.SelectArea
 {
@@ -37,6 +38,21 @@ namespace App.SelectArea
 		{
 			_allLevelArea = await ConfigManager.Instance.GetConfigAsync<Levels_Area_datas>();
 			await GetData();
+		}
+
+		public async UniTask<RankTopPlayersNetData> ChangeRankData(int old_category, int new_category)
+		{
+			// 调用带有进度参数的GetData方法
+			RequestChangeRank postParams = new RequestChangeRank()
+			{
+				old_category = old_category.ToString(),
+				new_category = new_category.ToString()
+			};
+			Dictionary<string, string> getParams = new Dictionary<string, string>();
+			getParams.Add("count", "5");
+			getParams.Add("include_self", "true");
+			RankTopPlayersNetData rd = await PostNetData<RankTopPlayersNetData>(postParams, getParams, null, "/leaderboard/change_category");
+			return rd;
 		}
 	}
 }

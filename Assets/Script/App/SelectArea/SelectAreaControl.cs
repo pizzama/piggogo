@@ -1,5 +1,8 @@
+using System.Collections.Generic;
 using App.Home;
 using App.Inventory;
+using Cysharp.Threading.Tasks;
+using GameNet;
 using SFramework;
 using SFramework.Game;
 using SFramework.Statics;
@@ -32,11 +35,24 @@ namespace App.SelectArea
 			if (value.MessageId == SAVEAREA)
 			{
 				//保存区域
-				InventoryControl inv = GetControl<InventoryControl>();
-				inv.SetArea((int)value.MessageData);
-				BroadcastControl(HomeMenuControl.REFRESHAREA, null, SFStaticsControl.App_Home_HomeMenuControl);
+				int new_category = (int)value.MessageData;
+				changeCategory(new_category).Forget();
 			}
 		}
-		
+
+		private async UniTask changeCategory(int new_category)
+		{
+			InventoryControl inv = GetControl<InventoryControl>();
+			int old_category = inv.GetArea();
+			SelectAreaModel model = GetModel<SelectAreaModel>();
+			RankTopPlayersNetData rdata = await model.ChangeRankData(old_category, new_category);
+
+			if (rdata != null && rdata.status == 0)
+			{
+				inv.SetArea(new_category);
+				BroadcastControl(HomeMenuControl.REFRESHAREA, rdata.data, SFStaticsControl.App_Home_HomeMenuControl);
+			}
+
+		}	
 	}
 }

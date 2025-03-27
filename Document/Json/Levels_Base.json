@@ -6,6 +6,7 @@
         "AfterTyps": "int32",
         "AfterNum": "int32",
         "TriggerType": "int32",
+        "Floor": "int32",
         "Name": "string",
         "Desc": "string"
     },
@@ -16,6 +17,7 @@
         "AfterTyps": "repeated",
         "AfterNum": "repeated",
         "TriggerType": "repeated",
+        "Floor": null,
         "Name": null,
         "Desc": null
     },
@@ -26,6 +28,7 @@
         "AfterTyps": "后续猪的添加种类",
         "AfterNum": "对应的数量",
         "TriggerType": "后续猪触发方式类型1（消除多少次猪之后触发）",
+        "Floor": "地板错位状态显示，0对齐，1错位",
         "Name": "关卡名字",
         "Desc": "描述"
     },
@@ -36,6 +39,7 @@
         "AfterTyps": null,
         "AfterNum": null,
         "TriggerType": null,
+        "Floor": 1,
         "Name": "Game1",
         "Desc": "Desc1"
     },
@@ -46,6 +50,7 @@
         "AfterTyps": null,
         "AfterNum": null,
         "TriggerType": null,
+        "Floor": 1,
         "Name": "Game2",
         "Desc": "Desc2"
     },
@@ -56,6 +61,7 @@
         "AfterTyps": null,
         "AfterNum": null,
         "TriggerType": null,
+        "Floor": 1,
         "Name": "Game3",
         "Desc": "Desc3"
     },
@@ -66,6 +72,7 @@
         "AfterTyps": null,
         "AfterNum": null,
         "TriggerType": null,
+        "Floor": 1,
         "Name": "Game4",
         "Desc": "Desc4"
     },
@@ -76,6 +83,7 @@
         "AfterTyps": null,
         "AfterNum": null,
         "TriggerType": null,
+        "Floor": 1,
         "Name": "Game5",
         "Desc": "Desc5"
     },
@@ -86,6 +94,7 @@
         "AfterTyps": null,
         "AfterNum": null,
         "TriggerType": null,
+        "Floor": 1,
         "Name": "Game999998",
         "Desc": "Desc999998"
     },
@@ -96,6 +105,7 @@
         "AfterTyps": "10008_10009_10010_10011",
         "AfterNum": "28_24_24_16",
         "TriggerType": "1_1",
+        "Floor": 0,
         "Name": "Game999999",
         "Desc": "Desc999999"
     }

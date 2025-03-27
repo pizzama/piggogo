@@ -13,6 +13,7 @@ namespace App.Home
 		private Button _levelBtn;
 		private Button _areaBtn;
 		private Text _areaName;
+		private RankEnScroll _rankEnScroll;
 
 		protected override UILayer GetViewLayer()
 		{
@@ -30,6 +31,7 @@ namespace App.Home
 			_areaBtn.onClick.AddListener(areaHandle);
 
 			_areaName = getExportObject<Text>("AreaName");
+			_rankEnScroll = getExportObject<RankEnScroll>("RankEnScroll");
 		}
 		protected override void closing()
 		{
@@ -56,6 +58,7 @@ namespace App.Home
 		public void RefreshArea(string value)
 		{
 			_areaName.text = value;
+			_rankEnScroll.Show();
 		}
 	}
 }

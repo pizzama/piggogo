@@ -481,7 +481,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellIdentifier: 
   _myImage: {fileID: 3696883671174142848}
-  _rankTrans: {fileID: 8780502300404374250}
+  _rankTrans1: {fileID: 9010311295385810097}
+  _rankTrans2: {fileID: 1692558973044539668}
+  _rankTrans3: {fileID: 3864883177263074237}
+  _rankTrans4: {fileID: 726868658178435966}
   _rankText: {fileID: 2838338847119470556}
   _nameText: {fileID: 3106926310226960217}
 --- !u!1 &7905637605483260539

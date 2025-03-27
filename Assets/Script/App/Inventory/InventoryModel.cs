@@ -29,6 +29,13 @@ namespace App.Inventory
 		{
 			return _userData;
 		}
+
+		private string _userName;
+		public string UserName
+		{
+			get { return _userName; }
+			set { _userName = value; }
+		}
 		protected override void opening()
 		{
 			requestRemote().Forget(); //请求用户数据
@@ -54,6 +61,7 @@ namespace App.Inventory
 			else
 			{
 				ConfigManager.Instance.SetGlobalHeader("Authorization", "Bearer " + data.data.game_token);
+				_userName = data.data.role.name;
 			}
 			await ReadUserData();
 		}
@@ -175,7 +183,6 @@ namespace App.Inventory
 			return true;
 		}
 
-
 		public bool AddCoin(long coin)
 		{
 			long rt = _userData.Coin + coin;
@@ -190,6 +197,24 @@ namespace App.Inventory
 			}
 			_userData.Coin = rt;
 			return true;
+		}
+
+		public void ChangeName(string name)
+		{
+			// 调用带有进度参数的GetData方法
+			Dictionary<string, string> getParams = new Dictionary<string, string>();
+			getParams.Add("user_name", SystemInfo.deviceUniqueIdentifier);
+			Account data = await PostData<Account>(null, getParams, progress, "/login/account");
+			if (data == null || data.status != 0)
+			{
+				Debug.LogError("Net Error");
+				return;
+			}
+			else
+			{
+				ConfigManager.Instance.SetGlobalHeader("Authorization", "Bearer " + data.data.game_token);
+				_userName = data.data.role.name;
+			}
 		}
 	}
 }
