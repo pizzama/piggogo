@@ -1,4 +1,5 @@
 using App.Inventory;
+using Cysharp.Threading.Tasks;
 using GameNet;
 using SFramework;
 using SFramework.Game;
@@ -9,6 +10,7 @@ namespace App.Home
 	public class HomeMenuControl : RootControl
 	{
 		public static string REFRESHAREA = "REFRESHAREA";
+		public static string REFRESHNAME = "REFRESHNAME";
 		public override ViewOpenType GetViewOpenType()
 		{
 			return ViewOpenType.Single;
@@ -28,6 +30,12 @@ namespace App.Home
 		{
 			InventoryControl inv = GetControl<InventoryControl>();
 			return inv.GetUserName();
+		}
+
+		public string GetRoleId()
+		{
+			InventoryControl inv = GetControl<InventoryControl>();
+			return inv.GetRoleId();
 		}
 
 		protected override void alreadyOpened()
@@ -52,6 +60,10 @@ namespace App.Home
 			{
 				HomeMenuModel model = GetModel<HomeMenuModel>();
 				model.TopPlayersData = value.MessageData as RankTopPlayersData;
+				RefreshAreaName();
+			}
+			else if (value.MessageId == REFRESHNAME)
+			{
 				RefreshAreaName();
 			}
 		}

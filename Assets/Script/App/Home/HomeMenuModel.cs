@@ -23,10 +23,10 @@ namespace App.Home
 		{
 			await GetData();
 			int area = (Control as HomeMenuControl).GetArea();
-			await requestRankData(area);
+			await RequestRankData(area);
 		}
 
-		private async UniTask requestRankData(int area)
+		public async UniTask RequestRankData(int area)
 		{
 			// 调用带有进度参数的GetData方法
 			Dictionary<string, string> getParams = new Dictionary<string, string>();

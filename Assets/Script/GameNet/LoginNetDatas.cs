@@ -3,7 +3,7 @@ using System;
 namespace GameNet
 {
     [Serializable]
-    public class SeverData: GameNetBase
+    public class SeverNetData: GameNetBase
     {
         public int id=0;
         public string name= "";
@@ -18,21 +18,21 @@ namespace GameNet
     }
 
     [Serializable]
-    public class Account: GameNetBase
+    public class AccountNetData: GameNetBase
     {
-        public PlayerNetData data;
+        public PlayerLoginData data;
     }
 
     [Serializable]
-    public class PlayerNetData
+    public class PlayerLoginData
     {
         public string game_token;
-        public AccountNetData account;
-        public RoleNetData role;
+        public AccountLoginData account;
+        public RoleLoginData role;
     }
 
     [Serializable]
-    public class AccountNetData
+    public class AccountLoginData
     {
         public string account_id;
         public string name;
@@ -41,7 +41,7 @@ namespace GameNet
     }
 
     [Serializable]
-    public class RoleNetData
+    public class RoleLoginData
     {
         public string role_id;
         public string name;
@@ -49,4 +49,24 @@ namespace GameNet
         public string time_added;
         public string time_updated;
     }
+
+    [Serializable]
+    public class RenameNetData : GameNetBase
+    {
+        public ReNameData data;
+    }
+
+    [Serializable]
+    public class ReNameData
+    {
+        public string role_id;
+        public string old_name;
+        public string new_name;
+    }
+
+    public class RequestRenameData
+    {
+        public string name;
+    }
+
 }

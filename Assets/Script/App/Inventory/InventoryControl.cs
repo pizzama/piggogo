@@ -94,6 +94,18 @@ namespace App.Inventory
 			InventoryModel model = GetModel<InventoryModel>();
 			return model.UserName;
 		}
+
+		public void SetUserName(string userName)
+		{
+			InventoryModel model = GetModel<InventoryModel>();
+			model.UserName = userName;
+		}
+
+		public string GetRoleId()
+		{
+			InventoryModel model = GetModel<InventoryModel>();
+			return model.Role_id;
+		}
 		
 		public override void HandleMessage(SBundleParams value)
 		{

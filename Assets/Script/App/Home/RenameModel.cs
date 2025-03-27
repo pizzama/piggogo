@@ -1,5 +1,6 @@
 using SFramework.Game;
 using Cysharp.Threading.Tasks;
+using GameNet;
 
 namespace App.Home
 {
@@ -12,6 +13,14 @@ namespace App.Home
 		protected override void closing()
 		{
 			// Code Here
+		}
+
+		public async UniTask RequsetRename(string name)
+		{
+			RequestRenameData postParams = new RequestRenameData();
+			postParams.name = name;
+			RenameNetData rd = await PostNetData<RenameNetData>(postParams, null, "/role/update_name");
+			GetControl<RenameControl>().SetUserName(rd.data.new_name);
 		}
 	}
 }

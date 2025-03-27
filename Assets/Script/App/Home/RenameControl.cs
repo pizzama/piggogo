@@ -29,5 +29,11 @@ namespace App.Home
 			InventoryControl inv = GetControl<InventoryControl>();
 			return inv.GetUserName();
 		}
+
+		public void SetUserName(string name)
+		{
+			InventoryControl inv = GetControl<InventoryControl>();
+			inv.SetUserName(name);
+		}
 	}
 }

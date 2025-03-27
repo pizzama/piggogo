@@ -2,6 +2,8 @@ using UnityEngine;
 using SFramework;
 using SFramework.Game;
 using UnityEngine.UI;
+using Cysharp.Threading.Tasks;
+using SFramework.Statics;
 
 namespace App.Home
 {
@@ -60,7 +62,14 @@ namespace App.Home
 			string inputValue = _inputText.text;
 			Debug.Log("确认名称: " + inputValue);
 			// 发送请求
-			
+			changeName(inputValue).Forget();
+		}
+
+		public async UniTask changeName(string name)
+		{
+			// 发送请求
+			await GetModel<RenameModel>().RequsetRename(name);
+			Control.BroadcastControl(HomeMenuControl.REFRESHNAME, null, SFStaticsControl.App_Home_HomeMenuControl);
 			// 关闭重命名面板
 			Control.Close();
 		}

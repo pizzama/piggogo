@@ -18,6 +18,7 @@ public class RankEnCell : EnhancedScrollerCellView, ILinker
     [SerializeField] private Text _rankText;
     [SerializeField] private Text _nameText;
     private HomeMenuView _view;
+    private HomeMenuControl _control;
     private RankTopPlayersData _topPlayersData;
     private RankSingleData _signelData;
     private int _index;
@@ -26,12 +27,14 @@ public class RankEnCell : EnhancedScrollerCellView, ILinker
         if(entity is RootEntity root)
         {
             _view = root.ParentView as HomeMenuView;
+            _control = root.ParentControl as HomeMenuControl;
         }
     }
 
     public void DeAttache()
     {
         _view = null;
+        _control = null;
     }
 
     public void SetData(RankTopPlayersData data, int index)
@@ -60,6 +63,10 @@ public class RankEnCell : EnhancedScrollerCellView, ILinker
             name = _signelData.role_id;
         }
         _nameText.text = name; 
+        if (_control.GetRoleId() == _signelData.role_id)
+        {
+            _nameText.text = _control.GetUserName();
+        }
         refreshRankIcon();
     }
 

@@ -36,6 +36,13 @@ namespace App.Inventory
 			get { return _userName; }
 			set { _userName = value; }
 		}
+
+		private string _role_id;
+		public string Role_id
+		{
+			get { return _role_id; }
+			set { _role_id = value; }
+		}
 		protected override void opening()
 		{
 			requestRemote().Forget(); //请求用户数据
@@ -52,7 +59,7 @@ namespace App.Inventory
 			// 调用带有进度参数的GetData方法
 			Dictionary<string, string> getParams = new Dictionary<string, string>();
 			getParams.Add("user_name", SystemInfo.deviceUniqueIdentifier);
-			Account data = await PostData<Account>(null, getParams, progress, "/login/account");
+			AccountNetData data = await PostData<AccountNetData>(null, getParams, progress, "/login/account");
 			if (data == null || data.status != 0)
 			{
 				Debug.LogError("Net Error");
@@ -62,6 +69,7 @@ namespace App.Inventory
 			{
 				ConfigManager.Instance.SetGlobalHeader("Authorization", "Bearer " + data.data.game_token);
 				_userName = data.data.role.name;
+				_role_id = data.data.role.role_id;
 			}
 			await ReadUserData();
 		}
