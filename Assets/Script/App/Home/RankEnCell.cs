@@ -41,7 +41,7 @@ public class RankEnCell : EnhancedScrollerCellView, ILinker
         _signelData = _topPlayersData.top_players[index];
         if (_signelData.role_id == _topPlayersData.current_player.role_id)
         {
-            if(_topPlayersData.current_player.rank == 0)
+            if(_topPlayersData.current_player.rank == -1)
             {
                 _rankText.text = "未上榜";
             }
@@ -54,7 +54,12 @@ public class RankEnCell : EnhancedScrollerCellView, ILinker
             _myImage.gameObject.SetActive(false);
             _rankText.text = (index + 1).ToString();
         }
-        _nameText.text = _signelData.role_id;
+        string name = _signelData.name;
+        if(string.IsNullOrWhiteSpace(name))
+        {
+            name = _signelData.role_id;
+        }
+        _nameText.text = name; 
         refreshRankIcon();
     }
 

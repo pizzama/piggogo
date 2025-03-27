@@ -23,6 +23,7 @@ namespace SFramework.Statics
         public const string App_HudMain_HudMainControl = "App.HudMain.HudMainControl";
         public const string App_Home_HomeControl = "App.Home.HomeControl";
         public const string App_Home_HomeMenuControl = "App.Home.HomeMenuControl";
+        public const string App_Home_RenameControl = "App.Home.RenameControl";
         public const string App_Guide_GuideControl = "App.Guide.GuideControl";
         public const string App_GameSuccess_GameSuccessControl = "App.GameSuccess.GameSuccessControl";
     }

@@ -56,6 +56,8 @@ namespace SFramework.Statics
         public const string App_home_sfp_HomeCoinBg_png = "app_home.sfp/HomeCoinBg";
         public const string App_home_sfp_HomeCoinBg1_png = "app_home.sfp/HomeCoinBg1";
         public const string App_home_sfp_HomeMenuView_prefab = "app_home.sfp/HomeMenuView";
+        public const string App_home_sfp_RankEnCell_prefab = "app_home.sfp/RankEnCell";
+        public const string App_home_sfp_RenameView_prefab = "app_home.sfp/RenameView";
         public const string App_home_sfs_HomeView_unity = "app_home.sfs/HomeView";
         public const string App_hudmain_sfp_HudMainView_prefab = "app_hudmain.sfp/HudMainView";
         public const string App_mainscene_sfp_Bomb_png = "app_mainscene.sfp/Bomb";
@@ -139,6 +141,7 @@ namespace SFramework.Statics
         public const string App_pigs_pig11_sfp_pig11_Atlas_asset = "app_pigs_pig11.sfp/pig11_Atlas";
         public const string App_pigs_pig11_sfp_pig11_Material_mat = "app_pigs_pig11.sfp/pig11_Material";
         public const string App_pigs_pig11_sfp_pig11_SkeletonData_asset = "app_pigs_pig11.sfp/pig11_SkeletonData";
+        public const string App_selectarea_sfp_SelectAreaEnCell_prefab = "app_selectarea.sfp/SelectAreaEnCell";
         public const string App_selectarea_sfp_SelectAreaView_prefab = "app_selectarea.sfp/SelectAreaView";
         public const string App_snipe_sfp_SnipeView_prefab = "app_snipe.sfp/SnipeView";
         public const string Sfscene_sfs_SFSCENE_scenetemplate = "sfscene.sfs/SFSCENE";
@@ -207,6 +210,8 @@ namespace SFramework.Statics
         public const string RES_HomeCoinBg_png = "HomeCoinBg";
         public const string RES_HomeCoinBg1_png = "HomeCoinBg1";
         public const string RES_HomeMenuView_prefab = "HomeMenuView";
+        public const string RES_RankEnCell_prefab = "RankEnCell";
+        public const string RES_RenameView_prefab = "RenameView";
     }
     public class App_home_sfs
     {
@@ -217,10 +222,6 @@ namespace SFramework.Statics
     {
         public const string BundleName = "app_hudmain.sfp";
         public const string RES_HudMainView_prefab = "HudMainView";
-    }
-    public class App_mainscene
-    {
-        public const string BundleName = "app_mainscene";
     }
     public class App_mainscene_sfp
     {
@@ -362,6 +363,7 @@ namespace SFramework.Statics
     public class App_selectarea_sfp
     {
         public const string BundleName = "app_selectarea.sfp";
+        public const string RES_SelectAreaEnCell_prefab = "SelectAreaEnCell";
         public const string RES_SelectAreaView_prefab = "SelectAreaView";
     }
     public class App_snipe_sfp
@@ -379,9 +381,5 @@ namespace SFramework.Statics
         public const string BundleName = "suiroot.sfp";
         public const string RES_SUIROOT_prefab = "SUIROOT";
         public const string RES_SUIROOTURP_prefab = "SUIROOTURP";
-    }
-    public class Test_sfp
-    {
-        public const string BundleName = "test.sfp";
     }
 }

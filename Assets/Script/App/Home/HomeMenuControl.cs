@@ -24,6 +24,12 @@ namespace App.Home
 			return inv.GetArea();
 		}
 
+		public string GetUserName()
+		{
+			InventoryControl inv = GetControl<InventoryControl>();
+			return inv.GetUserName();
+		}
+
 		protected override void alreadyOpened()
 		{
 			// Code Here

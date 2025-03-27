@@ -29,6 +29,8 @@ namespace GameNet
     {
         public string role_id;
         public int score;
+        public bool completed;
+        public string name;
     }
 
     [Serializable]
@@ -38,6 +40,8 @@ namespace GameNet
         public string role_id;
         public int score;
         public int rank;
+        public string name;
+        public bool completed;
     }
 
     [Serializable]
